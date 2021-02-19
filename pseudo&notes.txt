@@ -1,2 +1,12 @@
 good-practice: 
  - try to use shoulda-matchers
+
+ User 
+
+ Item
+
+ Order
+
+Tests: 
+  * Features:
+    - User flow creation
