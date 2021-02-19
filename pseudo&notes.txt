@@ -1,0 +1,2 @@
+good-practice: 
+ - try to use shoulda-matchers
