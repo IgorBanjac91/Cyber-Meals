@@ -1,12 +1,32 @@
 good-practice: 
  - try to use shoulda-matchers
 
- User 
+Data models and associations
+
+ User
+  - name
+  - last_name
+  - email
+  - username
 
  Item
+  - title
+  - description
+  - price
+  - order_id
 
  Order
+  - user_id
+
+ Category
+  - name
+  - item_id
 
 Tests: 
   * Features:
     - User flow creation
+
+  * Model 
+    - User record validation 
+      - presence: name, last_name
+      - username min 2, max 32
