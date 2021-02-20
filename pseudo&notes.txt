@@ -14,13 +14,13 @@ Data models and associations
   - description
   - price
   - order_id
+  - category_id
 
  Order
   - user_id
 
  Category
   - name
-  - item_id
 
 Tests: 
   * Features:
