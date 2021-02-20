@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :item do
-    title { "MyString" }
-    description { "MyString" }
-    price { "9.99" }
-    order_id { 1 }
+    title       { Faker::Food.dish }
+    description { Faker::Food.description }
+    price       { Faker::Number.dicimal(l_digits: 2) }
+    order
   end
 end
