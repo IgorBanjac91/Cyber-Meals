@@ -1,0 +1,8 @@
+<h1>Items list</h1>
+<p>The best dishes in town, an maybe in the all universe =)</p>
+
+<ul>
+  <% @items.each do |item| %>
+    <li><%= item.title %></li>
+  <% end %>
+</ul>

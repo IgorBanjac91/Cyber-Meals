@@ -19,13 +19,6 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
-# Devise test helpers
-RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :view
-  config.include Devise::Test::ControllerHelpers, type: :request
-  config.include Devise::Test::IntegrationHelpers, type: :feature
-end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -69,6 +62,10 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :feature 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
