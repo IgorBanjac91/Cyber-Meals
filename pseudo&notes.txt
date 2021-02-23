@@ -18,6 +18,12 @@ Data models and associations
  Order
   - user_id
 
+ OrderItems
+  -quntity
+  -order_id
+  -quntity_id
+
+
  Category
   - name
     The categories could be: Vegeraian, Meat, Desserts, sweet, salty, lactose_free, Main, Apetizers...
@@ -36,3 +42,11 @@ Tests:
 Done with the models, now it's time to develop the other features of the app
   - User flow, unauthenticated user
   - index page flow
+
+Order controller 
+ - add action create 
+ - if and order alredy exists then add the item to the existing order
+   else initialize and create a new order
+  
+  Becuse i have to indicate the quantity of the items, to make my life easier i need to add teh OrderItem
+  model.

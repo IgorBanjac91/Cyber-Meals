@@ -1,0 +1,10 @@
+<h2>Order</h2>
+<p><%= pluralize(@order.order_items.count, "Items") %></p>
+
+<ul>
+  <% @order.order_items.each do |order_item| %>
+    <li><%= order_item.item.title %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back", root_path  %>

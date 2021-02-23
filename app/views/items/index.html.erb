@@ -1,16 +1,16 @@
 <h1>Items list</h1>
 <p>The best dishes in town, an maybe in the all universe =)</p>
 
-<form action="index">
-
-  <%= select(:item, :category_id, @category_options) %>
-
+<form action="/">
+  <%= select(:category, :id, @category_options) %>
   <%= submit_tag "Filter" %>
-
 </form>
 
 <ul>
   <% @items.each do |item| %>
-    <li><%= item.title %></li>
+    <li>
+      <%= item.title %>
+      <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
+    </li>
   <% end %>
 </ul>
