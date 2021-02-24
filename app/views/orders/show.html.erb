@@ -1,10 +1,29 @@
-<h2>Order</h2>
+<h2>Cart</h2>
+
 <p><%= pluralize(@order.order_items.count, "Items") %></p>
 
-<ul>
-  <% @order.order_items.each do |order_item| %>
-    <li><%= order_item.item.title %></li>
-  <% end %>
-</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.item.title %></td>
+        <td><%= link_to order_item.quantity, edit_order_item_path(order_item) %></td>
+        <td><%= order_item.item.price %></td>
+      </tr>    
+    <% end %>    
+  </tbody>
+</table>
+
+
+
+
 
 <%= link_to "Back", root_path  %>

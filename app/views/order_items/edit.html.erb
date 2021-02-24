@@ -1,0 +1,14 @@
+<h2>Edit <%= @order_item.item.title %> Item</h2>
+
+<%= form_with model: @order_item do |f|%>
+
+  <div class="field">
+    <%= select(:order_item, :quantity, (1..10).to_a) %>
+  </div>
+
+  <div class="field">
+    <%= f.submit "Edit" %>
+  </div>
+
+<% end %>
+

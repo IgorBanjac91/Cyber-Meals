@@ -1,4 +1,9 @@
 <header>
-  <%= link_to "Sign up", sign_up_path  %>
-  <%= link_to "Sign in", sign_in_path  %>
+  <nav class="main-nav">
+  <% if signed_in? %>
+    <%= link_to "Cart", order_path(current_user.orders.last)  %>
+  <% end %>
+    <%= link_to "Sign up", sign_up_path  %>
+    <%= link_to "Sign in", sign_in_path  %>
+  </nav>
 </header>

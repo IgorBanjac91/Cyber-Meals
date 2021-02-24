@@ -42,11 +42,5 @@ Tests:
 Done with the models, now it's time to develop the other features of the app
   - User flow, unauthenticated user
   - index page flow
-
-Order controller 
- - add action create 
- - if and order alredy exists then add the item to the existing order
-   else initialize and create a new order
-  
-  Becuse i have to indicate the quantity of the items, to make my life easier i need to add teh OrderItem
-  model.
+  - change the order item quntity in the order
+  - logging in or singing up after creating the order keeps, the order
