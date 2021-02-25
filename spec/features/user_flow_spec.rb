@@ -49,7 +49,6 @@ RSpec.describe "User flow", type: :feature do
       end
     end 
     
-    
     it "keeps the order after sing in" do 
       click_button("Add to Cart", match: :first)
       sign_in @user
@@ -99,4 +98,4 @@ RSpec.describe "User flow", type: :feature do
     end
     
   end
-end
+end 
