@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Orders", type: :request do
 
-  context "when a user is unautheticated" do 
+  context "when a user is unauthenticated" do 
 
     before(:each) do 
       @order = create(:order)
@@ -21,6 +21,16 @@ RSpec.describe "Orders", type: :request do
       it "can't render edit page" do 
         get edit_order_path(@other_user_order)
         expect(response).to redirect_to root_path
+      end
+    end
+  end
+
+  context "when a user is authenticated" do
+    
+    describe "GET /index" do 
+      it "successfully renders the index page" do 
+        get orders_path
+        expect(response).to be_successful
       end
     end
   end

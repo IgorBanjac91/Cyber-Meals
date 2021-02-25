@@ -1,8 +1,7 @@
 module ApplicationHelper
 
   def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    end
+    Order.find_or_create_by(id: session[:order_id])
   end
+
 end

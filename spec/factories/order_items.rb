@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :order_item do
-    order { nil }
-    item { nil }
-    quantity { 1 }
+    order 
+    item 
+    quantity  { rand(1..6) }
   end
 end

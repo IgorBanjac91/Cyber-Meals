@@ -46,3 +46,18 @@ Done with the models, now it's time to develop the other features of the app
   - index page flow
   - change the order item quntity in the order
   - logging in or singing up after creating the order keeps, the order
+
+Authenticated user
+
+  - do everthying unauthenticated user does
+  - can log out
+  - can see previous orders 
+The order show page: 
+  - status order 
+  - item subtotal
+  - link to item description page
+  - total order price
+  - submission date
+  - date of cancelation
+  
+

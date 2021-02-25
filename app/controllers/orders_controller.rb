@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :order_belonging, only: [:show, :edit]
+
+  def index
+    @orders = Order.all
+  end
 
   def edit
   end

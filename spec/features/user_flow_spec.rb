@@ -97,5 +97,14 @@ RSpec.describe "User flow", type: :feature do
       expect(page).to have_content("4")
     end
     
+    before do 
+      
+    end
+
+    it 'can see past orders' do 
+      click_link("Orders", href: orders_path)
+      expect(page).to 
+
+    end
   end
 end 

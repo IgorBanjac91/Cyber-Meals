@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations', 
                                     sessions:      'sessions'}
 
-  resources :orders, only: [:create, :show, :edit]                                    
+  resources :orders, only: [:create, :show, :edit, :index]                                    
   resources :order_items
 end

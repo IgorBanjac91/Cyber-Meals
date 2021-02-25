@@ -1,3 +1,6 @@
+admin = User.create(email: "admin@gmail.com", encrypted_password: "foobar", admin: true)
+
+
 drink = Category.create(name: "Drink")
 beer_category = Category.create(name: "Beer")
 dessert = Category.create(name: "Dessert")
@@ -60,3 +63,10 @@ end
                                  price: Faker::Number.decimal(l_digits: 2))
 end
 
+
+user_1 = User.create(email: "example@gmail.com", encrypted_password: "foobar")
+
+Order.create(user: user_1, status: "new")
+Order.create(user: user_1, status: "cancelled")
+Order.create(user: user_1, status: "ordered")
+Order.create(user: user_1, status: "completed")
