@@ -2,8 +2,8 @@
 
 class SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  after_action :after_sing_in, only: [:create]
-
+  after_action :load_new_order, only: [:create]
+  
   # GET /resource/sign_in
   # def new
   #   super
@@ -15,17 +15,17 @@ class SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    session[:order_id] = nil
+  end
 
   protected
 
-  def after_sing_in
-    load_order
-    @order.update_attribute(:user_id, current_user.id)
+  def load_new_order
+    order = Order.find_by(status: "new")
+    session[:order_id] = order.id
   end
-
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])

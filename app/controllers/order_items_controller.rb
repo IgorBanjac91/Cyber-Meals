@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-  before_action :load_order, only: [:create, :show]
+  before_action :load_order, only: [:create]
   before_action :set_order_item, except: [:create]
 
   def edit

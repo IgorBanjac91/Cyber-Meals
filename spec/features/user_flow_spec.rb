@@ -10,6 +10,23 @@ RSpec.describe "User flow", type: :feature do
     visit root_path
   end
 
+  describe "shwoign the cart" do 
+
+    context "whe no items in the cart" do 
+      it "does nothing" do 
+        click_link("Cart")
+        expect(current_path).to eq root_path
+      end
+    end
+    
+    context "when itmes in the cart" do 
+      it "shows the cart page" do 
+        click_link("Cart") 
+        expect(current_path).to eq root_path  
+      end
+    end
+  end
+
   context "Unauthanticated User" do 
 
     context "Allowed behaviours" do 
