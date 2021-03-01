@@ -1,6 +1,6 @@
 module OrdersHelper
 
-  def pretty_format(date)
+  def pretty_date(date)
     date.strftime("%Y-%m-%d")
   end
 end

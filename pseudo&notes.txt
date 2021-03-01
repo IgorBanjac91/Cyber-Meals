@@ -59,5 +59,6 @@ The order show page:
   - total order price
   - submission date
   - date of cancelation
+  - nav link for cancelled, ordered, completed orders, new
   
 

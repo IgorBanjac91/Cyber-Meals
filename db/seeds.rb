@@ -1,4 +1,5 @@
-admin = User.create(email: "admin@gmail.com", encrypted_password: "foobar", admin: true)
+admin = User.create!(email: "admin@gmail.com", password: "foobar", password_confirmation: "foobar", admin: true, 
+                    first_name: "admin", last_name: "admin", username: "admin")
 
 
 drink = Category.create(name: "Drink")
@@ -64,9 +65,22 @@ end
 end
 
 
-user_1 = User.create(email: "example@gmail.com", encrypted_password: "foobar")
+user_1 = User.create!(email: "example@gmail.com", first_name: "Bob", password: "foobar", password_confirmation: "foobar",
+                    last_name: "Fish", username: "Bobby")
 
-Order.create(user: user_1, status: "new")
-Order.create(user: user_1, status: "cancelled")
-Order.create(user: user_1, status: "ordered")
-Order.create(user: user_1, status: "completed")
+Order.create!(user: user_1, status: "new")
+Order.create!(user: user_1, status: "cancelled")
+Order.create!(user: user_1, status: "cancelled")
+Order.create!(user: user_1, status: "ordered")
+Order.create!(user: user_1, status: "ordered")
+Order.create!(user: user_1, status: "completed")
+Order.create!(user: user_1, status: "completed")
+
+Order.create!(user: admin, status: "new")
+Order.create!(user: admin, status: "cancelled")
+Order.create!(user: admin, status: "cancelled")
+Order.create!(user: admin, status: "cancelled")
+Order.create!(user: admin, status: "ordered")
+Order.create!(user: admin, status: "ordered")
+Order.create!(user: admin, status: "completed")
+Order.create!(user: admin, status: "completed")

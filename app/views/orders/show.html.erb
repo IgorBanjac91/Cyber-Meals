@@ -2,7 +2,6 @@
 
 <p><%= pluralize(@order.order_items.count, "Items") %></p>
 
-
 <table>
   <thead>
     <tr>
@@ -18,6 +17,8 @@
         <td><%= order_item.item.title %></td>
         <td><%= link_to order_item.quantity, edit_order_item_path(order_item) %></td>
         <td><%= order_item.item.price %></td>
+        <td><%= order_item.sub_total %></td>
+        <td><%= link_to "description", item_path(order_item.item)  %></td>
       </tr>    
     <% end %>    
   </tbody>

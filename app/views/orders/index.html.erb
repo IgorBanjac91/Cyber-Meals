@@ -1,5 +1,16 @@
 <h2>Orders</h2>
 
+
+<nav>
+  <ul>
+    <li><%= link_to "All", orders_path(status: "all")  %></li>
+    <li><%= link_to "New", orders_path(status: "new")  %></li>
+    <li><%= link_to "Cancelled", orders_path(status: "cancelled") %></li>
+    <li><%= link_to "Ordered", orders_path(status: "ordered") %></li>
+    <li><%= link_to "Completed", orders_path(status: "completed") %></li>
+  </ul>
+</nav>
+
 <table>
   <thead>
     <tr>
@@ -13,7 +24,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.id %></td>
-        <td><%= pretty_format(order.created_at) %></td>
+        <td><%= pretty_date(order.created_at) %></td>
         <td><%= order.status %></td>
         <td><%= link_to "Show", order_path(order)  %></td>
       </tr>

@@ -6,4 +6,8 @@ class ItemsController < ApplicationController
     @category_options = Category.all.map { |c| [ c.name, c.id ]} 
   end
 
+  def show
+    
+  end
+
 end
