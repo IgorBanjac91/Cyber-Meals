@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :index]
+  before_action :check_ownership, only: [:edit, :show]
 
   def index
     if params[:status].present?
@@ -19,4 +21,15 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
   
+  protected
+  
+  def check_ownership
+    @order = Order.find(params[:id])
+    if @order.user 
+      if @order.user != current_user
+        redirect_to root_path
+      end
+    end
+  end
+
 end

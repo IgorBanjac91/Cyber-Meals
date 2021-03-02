@@ -13,7 +13,7 @@ RSpec.describe "user registration", type: :request do
       end
     end
 
-    before do 
+    before(:each) do 
       @user = create(:user)
     end
 

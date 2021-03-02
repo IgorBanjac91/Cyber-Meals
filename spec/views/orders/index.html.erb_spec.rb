@@ -2,12 +2,8 @@ require "rails_helper"
 
 RSpec.describe "orders/index.html.erb" do 
 
-  # Data, create different order (ordered, completed, cancelled
 before(:each) do 
-  new_orders = create(:order)
-  ordered_orders = create(:order, status: "ordered")
-  completed_orders = create(:order, status: "completed")
-  cancelled_orders = create(:order, status: "cancelled")
+  new_orders = create(:order, status: "new")
   @orders = Order.all
   assign(:orders, @orders)
   render

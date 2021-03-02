@@ -2,12 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "Orders", type: :request do
 
+  let(:user) { create(:user) } 
+  let(:order) { create(:order) }
+
   context "when a user is unauthenticated" do 
 
+
     before(:each) do 
-      @order = create(:order)
-      @other_user = create(:user)
-      @other_user_order = create(:order, user: @other_user)
+      @other_user_order = create(:order, user: create(:random_user))
     end
 
     describe "GET /show" do 
@@ -26,6 +28,10 @@ RSpec.describe "Orders", type: :request do
   end
 
   context "when a user is authenticated" do
+
+    before(:each) do 
+      sign_in user
+    end
     
     describe "GET /index" do 
       it "successfully renders the index page" do 

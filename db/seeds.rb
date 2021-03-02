@@ -65,7 +65,7 @@ end
 end
 
 
-user_1 = User.create!(email: "example@gmail.com", first_name: "Bob", password: "foobar", password_confirmation: "foobar",
+user_1 = User.create!(email: "example2@gmail.com", first_name: "Bob", password: "foobar", password_confirmation: "foobar",
                     last_name: "Fish", username: "Bobby")
 
 Order.create!(user: user_1, status: "new")

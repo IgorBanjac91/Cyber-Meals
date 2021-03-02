@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "User creation flow" do 
 
-  before do 
+  before(:each) do 
     visit root_path
   end
   

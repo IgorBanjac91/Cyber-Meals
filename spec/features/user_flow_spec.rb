@@ -2,8 +2,9 @@ require "rails_helper"
 
 RSpec.describe "User flow", type: :feature do 
 
-  before do 
-    @user = create(:user, email: "example@gmail.com")
+  let(:user) { create(:user) }
+
+  before(:each) do 
     @items = category_with_items.items
     @desserts = desserts_category_with_items.items
     @lactose_free = lactose_free_category_with_items.items
@@ -68,7 +69,7 @@ RSpec.describe "User flow", type: :feature do
     
     it "keeps the order after sing in" do 
       click_button("Add to Cart", match: :first)
-      sign_in @user
+      sign_in user
       expect(current_path).to eq order_path(Order.last)
     end
 
@@ -77,7 +78,7 @@ RSpec.describe "User flow", type: :feature do
   context "Authenticated User non-admin" do 
 
     before(:each) do 
-     sign_in @user
+     sign_in user
     end
 
     it 'sees all items on the home page' do 
@@ -114,14 +115,5 @@ RSpec.describe "User flow", type: :feature do
       expect(page).to have_content("4")
     end
     
-    before do 
-      
-    end
-
-    it 'can see past orders' do 
-      click_link("Orders", href: orders_path)
-      expect(page).to 
-
-    end
   end
 end 

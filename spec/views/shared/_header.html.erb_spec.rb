@@ -1,13 +1,17 @@
 require 'rails_helper' 
 
 RSpec.describe 'shared/_header.html.erb', type: :view do 
-  
+
   context "for every type of user" do 
 
-    it "shows the cart link" do 
-      order = create(:order)
+    before(:each) do 
+      @order = create(:order)
+      session[:order_id] = @order.id
       render
-      expect(rendered).to have_link("Cart", href: order_path(Order.last))
+    end
+
+    it "shows the cart link" do 
+      expect(rendered).to have_link("Cart", href: order_path(@order))
     end
   end
 
