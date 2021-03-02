@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Orders", type: :request do
 
   let(:user) { create(:user) } 
+  let(:other_user) { create(:user, email: "other_user@gmail.com") }
   let(:order) { create(:order) }
 
   context "when a user is unauthenticated" do 
@@ -34,9 +35,20 @@ RSpec.describe "Orders", type: :request do
     end
     
     describe "GET /index" do 
-      it "successfully renders the index page" do 
-        get orders_path
-        expect(response).to be_successful
+      context "when it tries to see his own orders" do 
+        
+        it "successfully renders the index page" do 
+          get orders_path(user_id: user.id)
+          expect(response).to be_successful
+        end
+      end
+
+      context "when it tries to see other users orders" do 
+
+        it "redirects to the home page" do
+          get orders_path(other_user) 
+          expect(response).to redirect_to root_path
+        end
       end
     end
     

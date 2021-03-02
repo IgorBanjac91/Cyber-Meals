@@ -10,5 +10,9 @@ FactoryBot.define do
     description { Faker::Food.description }
     price       { Faker::Number.decimal(l_digits: 2) }
   end
+
+  trait :retired do 
+    retired { true }
+  end
 end
 

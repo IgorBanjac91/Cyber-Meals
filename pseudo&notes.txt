@@ -60,5 +60,11 @@ The order show page:
   - submission date
   - date of cancelation
   - nav link for cancelled, ordered, completed orders, new
+
+not allowed to: 
+  - view another user private data: 
+    - cannot see other users orders
+  - view admi screens or use admin functionality
+  - make themselves admin
   
 

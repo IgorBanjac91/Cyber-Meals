@@ -10,7 +10,12 @@ class OrdersController < ApplicationController
         @orders = Order.where(user_id: current_user.id, status: params[:status]) 
       end
     else
-      @orders = current_user.orders
+      if params[:user_id].to_i == current_user.id        
+        pp params[:user_id]
+        @orders = Order.where(user_id: params[:user_id])
+      else
+        redirect_to root_path
+      end
     end
   end
 

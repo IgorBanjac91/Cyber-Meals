@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :load_order, only: [:create]
+  before_action :check_item, only: [:create]
   before_action :set_order_item, except: [:create]
 
   def edit
@@ -28,6 +29,14 @@ class OrderItemsController < ApplicationController
   end
 
   private
+
+    def check_item
+      @item = Item.find(params[:item_id])
+      if @item.retired 
+        flash[:notice] = "You cannot add #{@item.title}, item retired from the menu" 
+        redirect_to root_path
+      end
+    end
 
     def set_order_item
       @order_item = OrderItem.find(params[:id])
