@@ -8,9 +8,18 @@
 
 <ul>
   <% @items.each do |item| %>
-    <li>
-      <%= item.title %>
-      <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
-    </li>
+    <% if item.retired %>
+      <% if current_user && current_user.admin %>
+        <li>
+          <%= item.title %>
+          <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
+        </li>
+      <% end %>
+    <% else %>
+        <li>
+          <%= item.title %>
+          <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
+        </li>
+    <% end %>
   <% end %>
 </ul>
