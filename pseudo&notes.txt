@@ -74,6 +74,7 @@ Admin user
   - Create a new Category
   - Assing items to category or remove them from category
   -1 Retire and item from beeing sold and hides from browsing
+  * create a partial form for the models
 
   
 

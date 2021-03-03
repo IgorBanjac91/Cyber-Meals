@@ -1,0 +1,20 @@
+<h1>Categories</h1>
+
+<%= form_with model: @category do |f| %>
+
+  <div class="filed">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="filed">
+    <%= f.submit "Add Category" %>
+  </div>
+
+<% end %>
+
+<ul>
+  <%= @categories.each do |category| %>
+    <li><%= category %></li>
+  <% end %>
+</ul>
