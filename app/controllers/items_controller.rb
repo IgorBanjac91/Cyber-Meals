@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   def only_admin
     authenticate_user!   
     if user_signed_in?
-      redirect_to root_path unless current_user.admin
+      redirect_to root_path, status: :forbidden unless current_user.admin
     end
   end
 end

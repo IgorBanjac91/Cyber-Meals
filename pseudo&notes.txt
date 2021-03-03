@@ -70,7 +70,7 @@ not allowed to:
 Admin user 
   allowed to: 
   -1 Create new items
-  -0 Modify items
+  -1 Modify items
   - Create a new Category
   - Assing items to category or remove them from category
   -1 Retire and item from beeing sold and hides from browsing
