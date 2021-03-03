@@ -13,6 +13,11 @@
     <% else %>
       <li><a href="#">Cart</a></li>
     <% end %>
+      <% if current_user.admin %>
+        <ul>
+          <li><%= link_to "New Item", new_item_path  %></li>
+        </ul>
+      <% end %>
     </ul>
   </nav>
 </header>

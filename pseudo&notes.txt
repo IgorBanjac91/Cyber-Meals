@@ -73,4 +73,7 @@ Admin user
   - Modify items
   - Create a new Category
   - Assing items to category or remove them from category
+  - Retire and item form beeing sold and hides from browsing
+
+  
 
