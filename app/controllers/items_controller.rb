@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :only_admin, except: [:index, :show]
+  before_action :only_admin, only: %i{edit update create new}
 
   def index
     @items = Item.all
