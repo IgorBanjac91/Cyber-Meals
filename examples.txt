@@ -7,7 +7,8 @@ example_id                                                 | status | run_time  
 ./spec/factories_spec.rb[5:1]                              | passed | 0.00095 seconds |
 ./spec/factories_spec.rb[6:1]                              | passed | 0.01429 seconds |
 ./spec/factories_spec.rb[7:1]                              | passed | 0.00485 seconds |
-./spec/features/items_flow_spec.rb[1:1:1:1]                | passed | 0.39936 seconds |
+./spec/features/items_flow_spec.rb[1:1:1:1]                | passed | 0.4202 seconds  |
+./spec/features/items_flow_spec.rb[1:1:2:1]                | passed | 0.07831 seconds |
 ./spec/features/order_items_flow_spec.rb[1:1:1]            | passed | 0.13604 seconds |
 ./spec/features/orders_flow_spec.rb[1:1:1:1]               | passed | 0.13172 seconds |
 ./spec/features/orders_flow_spec.rb[1:1:2:1]               | passed | 0.0926 seconds  |
@@ -47,9 +48,10 @@ example_id                                                 | status | run_time  
 ./spec/models/user_spec.rb[1:1:4]                          | passed | 0.01013 seconds |
 ./spec/models/user_spec.rb[1:1:5]                          | passed | 0.01219 seconds |
 ./spec/models/user_spec.rb[1:2:1]                          | passed | 0.00093 seconds |
-./spec/requests/items_request_spec.rb[1:1:1]               | passed | 0.01687 seconds |
-./spec/requests/items_request_spec.rb[1:2:1:1]             | passed | 0.01812 seconds |
-./spec/requests/items_request_spec.rb[1:2:2:1]             | passed | 0.01746 seconds |
+./spec/requests/items_request_spec.rb[1:1:1]               | passed | 0.16031 seconds |
+./spec/requests/items_request_spec.rb[1:2:1:1]             | passed | 0.00735 seconds |
+./spec/requests/items_request_spec.rb[1:2:2:1]             | passed | 0.03037 seconds |
+./spec/requests/items_request_spec.rb[1:2:3:1]             | passed | 0.22118 seconds |
 ./spec/requests/orders_request_spec.rb[1:1:1:1]            | passed | 0.02229 seconds |
 ./spec/requests/orders_request_spec.rb[1:1:2:1]            | passed | 0.01959 seconds |
 ./spec/requests/orders_request_spec.rb[1:2:1:1:1]          | passed | 0.02095 seconds |

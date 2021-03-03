@@ -5,13 +5,15 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
   context "for administrators" do 
 
     let(:admin) { create(:user, :admin) }
-    
+    let(:item) { create(:item, title: "Carbonara", description: "always good", price: "10.00") }
+
     before(:each) do 
+      item
       sign_in admin
       visit root_path
     end
 
-    describe "item creation" do 
+    describe "item creation feature" do 
 
       it "creates  a new item" do 
         click_link("New Item", href: new_item_path) 
@@ -20,6 +22,23 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         fill_in("Price", with: "10.50")
         click_button("Create")
         expect(current_path).to eq item_path(Item.last)
+      end
+    end
+    
+    describe "edit item feature" do 
+      
+      it "edits an existing item" do 
+        click_link("show", href: item_path(item))
+        click_link("Edit", href: edit_item_path(item))
+        fill_in("Title", with: "Steak")
+        fill_in("Description", with: "Juicy")
+        fill_in("Price", with: "13")
+        click_button("Edit")
+        edited_item = Item.last
+        expect(current_path).to eq item_path(edited_item)
+        expect(page).to have_content("Steak")
+        expect(page).to have_content("Juicy")
+        expect(page).to have_content("13")
       end
     end
   end

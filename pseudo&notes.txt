@@ -69,11 +69,11 @@ not allowed to:
   
 Admin user 
   allowed to: 
-  - Create new items
-  - Modify items
+  -1 Create new items
+  -0 Modify items
   - Create a new Category
   - Assing items to category or remove them from category
-  - Retire and item form beeing sold and hides from browsing
+  -1 Retire and item from beeing sold and hides from browsing
 
   
 

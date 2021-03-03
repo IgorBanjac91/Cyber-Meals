@@ -9,15 +9,17 @@
 <ul>
   <% @items.each do |item| %>
     <% if item.retired %>
-      <% if current_user && current_user.admin %>
+      <% if user_signed_in? && current_user.admin %>
         <li>
           <%= item.title %>
+          <%= link_to "show", item_path(item) %>
           <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
         </li>
       <% end %>
     <% else %>
         <li>
           <%= item.title %>
+          <%= link_to "show", item_path(item) %>
           <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
         </li>
     <% end %>

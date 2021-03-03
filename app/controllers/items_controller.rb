@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :only_admin, except: [:index, :show]
 
   def index
     @items = Item.all
@@ -25,9 +26,30 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+  
+  def update
+    @item = Item.find(params[:id]) 
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
+
   protected
 
   def item_params
     params.require(:item).permit(:title, :description, :price)
+  end
+
+  def only_admin
+    authenticate_user!   
+    if user_signed_in?
+      redirect_to root_path unless current_user.admin
+    end
   end
 end
