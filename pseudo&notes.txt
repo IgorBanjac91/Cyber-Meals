@@ -67,4 +67,10 @@ not allowed to:
   - view admi screens or use admin functionality
   - make themselves admin
   
+Admin user 
+  allowed to: 
+  - Create new items
+  - Modify items
+  - Create a new Category
+  - Assing items to category or remove them from category
 

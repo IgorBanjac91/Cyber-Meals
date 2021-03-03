@@ -40,8 +40,9 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
   
   context "with authenticated user" do 
     
+    let(:user) { create(:user) }
+      
     before(:each) do 
-      user = create(:user)
       sign_in user
       render
     end
@@ -59,7 +60,7 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
     end
 
     it "shows the orders link" do 
-      expect(rendered).to have_link("Orders", href: orders_path)
+      expect(rendered).to have_link("Orders", href: orders_path(user_id: user.id))
     end
 
   end
