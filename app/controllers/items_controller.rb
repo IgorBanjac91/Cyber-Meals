@@ -45,11 +45,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :description, :price)
   end
-
-  def only_admin
-    authenticate_user!   
-    if user_signed_in?
-      redirect_to root_path, status: :forbidden unless current_user.admin
-    end
-  end
 end

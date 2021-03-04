@@ -3,6 +3,10 @@ FactoryBot.define do
     name { "Dinner" }
   end
 
+  trait :invalid do
+    name { " " }
+  end
+
   trait :desserts do 
     name { "Desserts"}
   end

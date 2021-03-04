@@ -21,7 +21,20 @@ RSpec.describe "categories_flow", type: :feature do
         expect(page).to have_content("new category") 
       end
     end
+  end
 
+  describe "editing an existing category" do 
+
+    let(:category) { create(:category) }
+
+    context "when the user is an admin" do 
+      
+      it 'edits the category' do 
+        visit categories_path
+        click_edit()
+
+      end
+    end
   end
 
 end
