@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Categories", type: :request do
 
+  before(:all) do 
+    @category = create(:category)
+  end
+
   let(:regular_user) { create(:user) }
   let(:admin_user) { create(:user, :admin) }
 
@@ -78,6 +82,61 @@ RSpec.describe "Categories", type: :request do
         end
       end
     
+    end
+  end
+
+  describe "DELETE categories#delete" do 
+
+    let(:category) { create(:category) }
+
+    context "when a user isn' authenticated" do 
+      
+      it "dosn't delete the category" do 
+        expect {
+          delete category_path(@category)
+        }.to change(Category, :count).by 0
+      end
+      
+      it "redirect to the sing in page" do
+        delete category_path(@category)
+        expect(response).to redirect_to sign_in_path
+      end
+    end
+    
+    context "when a user is authenticated but not admin" do 
+      
+      before(:each) do
+       sign_in regular_user  
+      end
+      
+      it "dosen't delete the category" do 
+        expect {
+          delete category_path(@category)
+        }.to change(Category, :count).by 0
+      end
+      
+      it "returns a forbidden http status code" do 
+        delete category_path(@category)
+        expect(response).to have_http_status(:forbidden)
+      end
+    end
+    
+    context "when a user is and admin" do 
+      
+      before(:each) do 
+        sign_in admin_user  
+      end
+      
+      it "returns ok response and deletes the category" do 
+        expect {
+          delete category_path(@category)
+        }.to change(Category, :count).by -1
+      end
+      
+      it "return a successful response" do 
+        delete category_path(@category)
+        expect(response).to be_successful
+      end
     end
   end
 

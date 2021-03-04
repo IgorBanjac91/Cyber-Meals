@@ -27,12 +27,20 @@ RSpec.describe "categories_flow", type: :feature do
 
     let(:category) { create(:category) }
 
+    before(:each) do 
+      create(:category)
+      create(:category, :desserts)
+    end
+
     context "when the user is an admin" do 
-      
+
       it 'edits the category' do 
         visit categories_path
-        click_edit()
-
+        click_link("edit", match: :first) 
+        fill_in("Name", with: "new name")
+        click_button("Edit")
+        expect(current_path).to eq categories_path
+        expect(page).to have_content("new name")
       end
     end
   end

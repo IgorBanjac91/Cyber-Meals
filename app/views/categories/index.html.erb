@@ -18,8 +18,8 @@
     <% @categories.each do |category| %>
       <li>
         <%= category.name %>
-        <%= link_to "edit", category_path(category)  %>
-        <%= link_to "delete", category_path(category), method: :delete  %>
+        <%= link_to "edit", edit_category_path(category)  %>
+        <%= link_to "delete", category_path(category), method: :delete %>
       </li> 
     <% end %>
   <% end %>
