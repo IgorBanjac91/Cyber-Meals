@@ -15,4 +15,10 @@ RSpec.describe "items/show.html.erb", tyep: :view do
     expect(rendered).to match /Juicy/
     expect(rendered).to match /23.33/
   end
+
+  it "shows a list of categories" do 
+    item.categories.each do |category|
+      expect(rendered).to match /#{category}/
+    end
+  end
 end

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :only_admin, only: %i{edit update create new}
+  before_action :add_category, only: [:update]
 
   def index
     @items = Item.all
@@ -9,6 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @categories = Category.all.map { |c| [c.name, c.id] }
   end
 
   def new
@@ -41,6 +43,15 @@ class ItemsController < ApplicationController
 
 
   protected
+
+  def add_category
+    unless params[:category].nil?
+      @item = Item.find(params[:id])
+      category = Category.find(params[:category][:id])
+      @item.categories << category
+      redirect_to item_path(@item)
+    end
+  end
 
   def item_params
     params.require(:item).permit(:title, :description, :price)

@@ -9,8 +9,9 @@ example_id                                                 | status | run_time  
 ./spec/factories_spec.rb[7:1]                              | passed | 0.00496 seconds |
 ./spec/features/categories_flow_spec.rb[1:1:1:1]           | passed | 0.43339 seconds |
 ./spec/features/categories_flow_spec.rb[1:2:1:1]           | passed | 0.07016 seconds |
-./spec/features/items_flow_spec.rb[1:1:1:1]                | passed | 0.07056 seconds |
-./spec/features/items_flow_spec.rb[1:1:2:1]                | passed | 0.0779 seconds  |
+./spec/features/items_flow_spec.rb[1:1:1:1]                | passed | 0.46205 seconds |
+./spec/features/items_flow_spec.rb[1:1:2:1]                | passed | 0.08791 seconds |
+./spec/features/items_flow_spec.rb[1:1:3:1]                | failed | 0.04007 seconds |
 ./spec/features/order_items_flow_spec.rb[1:1:1]            | failed | 0.02137 seconds |
 ./spec/features/orders_flow_spec.rb[1:1:1:1]               | passed | 0.18292 seconds |
 ./spec/features/orders_flow_spec.rb[1:1:2:1]               | passed | 0.08843 seconds |
@@ -90,7 +91,8 @@ example_id                                                 | status | run_time  
 ./spec/views/items/index.html.erb_spec.rb[1:2:1:1]         | passed | 0.01262 seconds |
 ./spec/views/items/index.html.erb_spec.rb[1:2:2:1]         | passed | 0.0168 seconds  |
 ./spec/views/items/index.html.erb_spec.rb[1:2:3:1]         | passed | 0.01977 seconds |
-./spec/views/items/show.html.erb_spec.rb[1:1]              | passed | 0.00758 seconds |
+./spec/views/items/show.html.erb_spec.rb[1:1]              | passed | 0.08006 seconds |
+./spec/views/items/show.html.erb_spec.rb[1:2]              | passed | 0.00866 seconds |
 ./spec/views/orders/index.html.erb_spec.rb[1:1]            | passed | 0.00945 seconds |
 ./spec/views/orders/show.html.erb_spec.rb[1:1]             | passed | 0.06065 seconds |
 ./spec/views/orders/show.html.erb_spec.rb[1:2]             | passed | 0.0414 seconds  |
