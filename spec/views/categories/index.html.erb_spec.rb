@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "categories/index.html.erb", type: :view do
 
   before(:each) do 
-    @categories = create_list(:category, 5)
+    @categories = create_list(:random_category, 5)
     assign(:categories, @categories)
     render
   end

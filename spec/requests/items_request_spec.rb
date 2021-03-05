@@ -107,6 +107,7 @@ RSpec.describe "Items", type: :request do
       
       it "creates a new item and redirects to the item page" do
         sign_in admin_user
+        pp attributes_for(:item)
         expect { 
           post items_path, params: { item: attributes_for(:item) }
         }.to change(Item, :count).by 1

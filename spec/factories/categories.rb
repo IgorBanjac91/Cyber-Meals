@@ -3,6 +3,10 @@ FactoryBot.define do
     name { "Dinner" }
   end
 
+  factory :random_category, class: Category do 
+    name { Faker::Cannabis.strain + "#{rand(1..1000)}"}
+  end
+
   trait :invalid do
     name { " " }
   end
@@ -19,6 +23,8 @@ FactoryBot.define do
     name { "Lactose Free" }
   end
 end
+
+
 
 def category_with_items(items_count: 2)
   FactoryBot.create(:category) do |category|

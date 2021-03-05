@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe "orders/show.html.erb", tyep: :view do 
 
-  
   let(:item) { create(:random_item, price: 2.22) }
   let(:item_2) { create(:random_item, price: 5.00) }
   let(:item_3) { create(:random_item, price: 7.00) }

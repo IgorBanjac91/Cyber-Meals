@@ -34,22 +34,31 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         fill_in("Description", with: "Juicy")
         fill_in("Price", with: "13")
         click_button("Edit")
-        edited_item = Item.last
-        expect(current_path).to eq item_path(edited_item)
+        expect(current_path).to eq item_path(item)
         expect(page).to have_content("Steak")
         expect(page).to have_content("Juicy")
         expect(page).to have_content("13")
       end
     end
 
-    describe "add catgory to an item" do 
+    before(:each) do 
+      category_with_items
+      create(:category, :main)
+      create(:category, :desserts)
+    end
 
-      it "add a new category to an item" do 
+    describe "categorizing and item" do 
+
+      it "adds a new category to an item" do 
         click_link("show", href: item_path(item))
-        select("Desserts", from: "categories")
-        click_button("Add catgory")
-        click_link("Back")
+        select("Dessert", from: "category_id")
+        click_button("Add Category")
         expect(page).to have_content("Dessert")
+      end
+
+      it "remove a category from an item" do 
+        # click_link("show", href: item_path(item))
+
       end
     end
   end

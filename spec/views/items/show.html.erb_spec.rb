@@ -6,6 +6,8 @@ RSpec.describe "items/show.html.erb", tyep: :view do
 
   before(:each) do 
     assign(:item, item)
+    categories_selector = item.categories.map { |c| [c.name, c.id] }
+    assign(:categories, categories_selector)
     render
   end
 
@@ -18,7 +20,7 @@ RSpec.describe "items/show.html.erb", tyep: :view do
 
   it "shows a list of categories" do 
     item.categories.each do |category|
-      expect(rendered).to match /#{category}/
+      expect(rendered).to match /#{category.name}/
     end
   end
 end

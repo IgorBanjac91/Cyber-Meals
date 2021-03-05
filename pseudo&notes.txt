@@ -76,5 +76,6 @@ Admin user
   -1 Retire and item from beeing sold and hides from browsing
   * create a partial form for the models
 
-  
-
+issue with uniqueness 
+ -add select categoyr to the new item form 
+  - possibility to add a category if missing required
