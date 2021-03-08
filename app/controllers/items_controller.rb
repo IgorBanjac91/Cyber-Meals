@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @categories = Category.all.map { |c| [c.name, c.id] }
+    @categorizations = @item.categorizations
   end
 
   def new

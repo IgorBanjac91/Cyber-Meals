@@ -43,13 +43,15 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
     end
 
     let(:item) { create(:item)}
+    let(:desserts) { create(:category, :desserts) }
+    let(:main) { create(:category, :main) }
+    let(:lactose_free) { create(:category, :lactose_free) }
+    let(:categorization) { create(:categorization, category: desserts, item: item) }
 
     before(:each) do 
       category_with_items
-      main = create(:category, :main)
-      desserts = create(:category, :desserts)
-      lactose_free = create(:category, :lactose_free)
-      item.categories = [main, desserts, lactose_free]
+      categorization
+      item.categories = [main, lactose_free]
     end
 
     describe "categorizing and item" do 
@@ -62,9 +64,14 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
       end
 
       it "remove a category from an item" do 
-        visit root_path
-        find(:xpath, "html/body/ul/li[1]").click_link("delete", match: :first)       
-        expect(page).to_not have_content("Lactose Free")
+        visit item_path(item)
+        find("a[href='#{categorization_path(categorization)}']").click        
+        expect(current_path).to eq item_path(item)
+        pp page.body
+        categories_ul = find(".categories")
+        expect(categories_ul).to_not have_content("Desserts")
+        expect(categories_ul).to have_content("Lactose Free")
+        expect(categories_ul).to have_content("Main")
       end
     end
   end
