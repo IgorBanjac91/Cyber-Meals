@@ -1,6 +1,7 @@
 <header>
   <nav class="main-nav">
     <ul>
+    <li><%= link_to "Home", root_path %></li>
     <% if user_signed_in? %>
       <li><%= link_to "Log out", log_out_path, method: :delete  %></li>
       <li><%= link_to "Orders", orders_path(user_id: current_user.id) %></li>

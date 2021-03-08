@@ -13,6 +13,10 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
     it "shows the cart link" do 
       expect(rendered).to have_link("Cart", href: order_path(@order))
     end
+
+    it "renders the home page link" do 
+      expect(rendered).to have_link("Home", href: root_path)
+    end
   end
 
   context "with unauthenticated user" do 
@@ -61,6 +65,16 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
 
     it "shows the orders link" do 
       expect(rendered).to have_link("Orders", href: orders_path(user_id: user.id))
+    end
+
+  end
+
+  context "with admin user" do 
+
+    let(:admin_user) {create(:user, :admin) }
+
+    before(:each) do
+      sign_in admin_user
     end
 
   end
