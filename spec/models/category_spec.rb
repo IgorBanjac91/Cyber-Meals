@@ -7,7 +7,8 @@ RSpec.describe Category, type: :model do
   end
 
   describe "associations" do 
-    it { should have_and_belong_to_many(:items)}
+    it { should have_many(:items) }
+    it { should have_many(:categorizations) }
   end
 
 end

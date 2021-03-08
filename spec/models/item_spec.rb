@@ -14,9 +14,9 @@ RSpec.describe Item, type: :model do
   end
 
   describe 'associations' do 
-    it { should have_and_belong_to_many(:categories) }
-    it { should have_and_belong_to_many(:orders) }
-    it { should have_many(:order_items)}
+      it { should have_many(:categories) }
+      it { should have_many(:categorizations) }
+      it { should have_many(:order_items)}
   end
     
 end

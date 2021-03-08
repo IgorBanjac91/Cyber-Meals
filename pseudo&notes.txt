@@ -82,3 +82,10 @@ issue with uniqueness
 
 
 CHANGING FORM HABTM TO had_many :through
+
+- remove old associations
+- drop old table 
+- remove old Tests
+- create new association 
+- modify tests, factories, seeds
+- modfiy forms

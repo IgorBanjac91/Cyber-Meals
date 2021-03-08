@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'categories/index'
   root to: "items#index"
 
   devise_scope :user do 
@@ -17,4 +16,5 @@ Rails.application.routes.draw do
   resources :order_items
   resources :items
   resources :categories
+  resources :categorizations, only: [:create, :delete]
 end

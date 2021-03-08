@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   validates :price, numericality: { greater_than: 0}
   validates :categories, presence: true
 
-  has_and_belongs_to_many :categories
+  has_many :categorizations
+  has_many :categories, through: :categorizations
+  
   has_many :order_items
 end
