@@ -18,9 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    #@category = Category.find(params[:item][:category_id])    
     @item = Item.new(item_params)
-    #@item.categories << @category
     if @item.save
       flash[:notice] = "Item successfully created"
       redirect_to item_path(@item)
@@ -56,7 +54,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :category_ids)
+    params.require(:item).permit(:title, :description, :price, :category_ids => [])
   end
 
 end

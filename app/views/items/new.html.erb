@@ -16,8 +16,7 @@
   </div>
 
   <div class="field">
-    <%= f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), 
-                                                                   { prompt: "Select Categories" }, { multiple: true } %>
+    <%= f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), { prompt: "Select Category",  include_hidden: false }, { multiple: true } %>
     <%= link_to "Add category", new_category_path %>
   </div>
 
