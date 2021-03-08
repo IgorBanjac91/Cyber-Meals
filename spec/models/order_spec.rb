@@ -8,7 +8,6 @@ RSpec.describe Order, type: :model do
   end
   
   describe 'associations' do 
-    it { should have_and_belong_to_many(:items) }
     it { should have_many(:order_items)}
   end
 end

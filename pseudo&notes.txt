@@ -79,3 +79,6 @@ Admin user
 issue with uniqueness 
  -add select categoyr to the new item form 
   - possibility to add a category if missing required
+
+
+CHANGING FORM HABTM TO had_many :through
