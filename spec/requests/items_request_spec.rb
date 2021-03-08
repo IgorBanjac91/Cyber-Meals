@@ -5,6 +5,7 @@ RSpec.describe "Items", type: :request do
   let(:regular_user) { create(:user) }
   let(:admin_user) { create(:user, :admin) }
   let(:item) { create(:item) }
+  let(:category) { create(:category, :desserts)}
 
   describe "GET items#index" do 
 
@@ -107,9 +108,8 @@ RSpec.describe "Items", type: :request do
       
       it "creates a new item and redirects to the item page" do
         sign_in admin_user
-        pp attributes_for(:item)
         expect { 
-          post items_path, params: { item: attributes_for(:item) }
+          post items_path, params: { item: attributes_for(:random_item, category_ids: [category.id]) }
         }.to change(Item, :count).by 1
         follow_redirect!
         expect(response).to render_template :show

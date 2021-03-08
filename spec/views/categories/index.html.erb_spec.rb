@@ -10,7 +10,7 @@ RSpec.describe "categories/index.html.erb", type: :view do
 
   it "has an edit link for each category" do 
     @categories.each do |category|
-      expect(rendered).to have_link("edit", href: category_path(category))
+      expect(rendered).to have_link("edit", href: edit_category_path(category))
     end
   end
 

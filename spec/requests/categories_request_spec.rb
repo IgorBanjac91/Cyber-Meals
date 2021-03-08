@@ -68,7 +68,7 @@ RSpec.describe "Categories", type: :request do
         
         it "creates a new category" do 
           expect {
-            post categories_path, params: { category: attributes_for(:category) }
+            post categories_path, params: { category: attributes_for(:category, name: "Example") }
           }.to change(Category, :count).by 1
         end
       end
@@ -135,7 +135,7 @@ RSpec.describe "Categories", type: :request do
       
       it "return a successful response" do 
         delete category_path(@category)
-        expect(response).to be_successful
+        expect(response).to have_http_status(200)
       end
     end
   end

@@ -22,7 +22,7 @@ before_action :only_admin
   def destroy
     @category = Category.find(params[:id])
     if @category.delete
-      redirect_to categories_path
+      render :index
     end
   end
 

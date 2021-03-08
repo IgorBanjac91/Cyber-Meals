@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def authenticate_user!
+  def authenticate_user!(arg = {})
     if user_signed_in?
       super
     else

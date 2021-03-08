@@ -20,7 +20,6 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         fill_in("Title", with: "Beefsteak")
         fill_in("Description", with: "Jucy steak with roasted potatos")
         fill_in("Price", with: "10.50")
-        pp page.body
         select("Dessert", from: :item_category_ids)
         click_button("Create")
         expect(current_path).to eq item_path(Item.last)
