@@ -1,0 +1,17 @@
+<h1>Dashboard</h1>
+
+<h2>Orders</h2>
+
+<%= form_with url: "/dashboard", method: :get do |f| %>
+  <%= f.collection_check_boxes :status, Order.select(:status).distinct, :status, :status, {include_hidden: false }, {} %>
+  <%= f.submit "Filter" %>
+<% end %>
+<nav>
+  <ul>
+    <% @orders.each do |order| %>
+      <li><%= order.id %></li>
+    <% end %>
+  </ul>
+</nav>
+
+

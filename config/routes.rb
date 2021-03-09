@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :categorizations, only: [:create, :destroy]
+
+  get "dashboard", to: "dashboard#index"
 end

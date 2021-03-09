@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-  validates :status, presence: true, inclusion: { in: %w(new ordered cancelled completed) }
+  validates :status, presence: true, inclusion: { in: %w(new ordered cancelled completed paid) }
 
   belongs_to :user, optional: true
   has_many :order_items, dependent: :destroy

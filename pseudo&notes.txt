@@ -17,7 +17,7 @@ Data models and associations
 
  Order
   - user_id
-  - status   { ordered, completed, cancelled }
+  - status   { ordered, completed, cancelled, paid }
 
  OrderItems
   -quntity
@@ -69,16 +69,15 @@ not allowed to:
   
 Admin user 
   allowed to: 
-  -1 Create new items
-  -1 Modify items
-  -1 Create a new Category
-  - Assing items to category or remove them from category
-  -1 Retire and item from beeing sold and hides from browsing
-  * create a partial form for the models
+    -1 Create new items
+    -1 Modify items
+    -1 Create a new Category
+    - Assing items to category or remove them from category
+    -1 Retire and item from beeing sold and hides from browsing
+  
+  not allowed to: 
 
-issue with uniqueness 
- -add select categoyr to the new item form 
-  - possibility to add a category if missing required
+  modify any personal data aside from their own
 
 
 CHANGING FORM HABTM TO had_many :through
@@ -89,3 +88,27 @@ CHANGING FORM HABTM TO had_many :through
 - create new association 
 - modify tests, factories, seeds
 - modfiy forms
+
+
+  Admin-dashboard 
+  Show all orders:
+    - link to each order
+    - Ability to filter orders by status
+    - link to transition to a different status
+      * link to "cancel" if status ordered or paid
+      * link to "mark as paid" if status ordered
+      * link to "mark as completed" if status paid
+  Acces details of each individual order 
+    - date and time
+    - purchaser full name and email address
+    - for each item in the order 
+      * name linked to the itme page
+      * quntity
+      * price 
+      * item subtotal
+    - total for the order
+    - Order status
+
+
+
+

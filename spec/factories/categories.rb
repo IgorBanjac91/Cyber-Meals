@@ -4,7 +4,7 @@ FactoryBot.define do
   end
 
   factory :random_category, class: Category do 
-    name { Faker::Cannabis.strain + "#{rand(1..1000)}"}
+    sequence(:name) { |n| Faker::Cannabis.strain + "#{n}"}
   end
 
   trait :invalid do
