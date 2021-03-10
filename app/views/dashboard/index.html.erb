@@ -9,7 +9,26 @@
 <nav>
   <ul>
     <% @orders.each do |order| %>
-      <li><%= order.id %></li>
+      <% if order.status == "ordered" %>
+      <li>
+        <%= order.id %>
+        <%= order.status %><br />
+        <%= link_to "mark as paid", change_status_order_path(id: order.id, status: "paid"), method: :patch %>
+        <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch %>
+      </li>
+      <% elsif order.status == "paid"%>
+        <li>
+          <%= order.id %>
+          <%= order.status %><br />
+          <%= link_to "mark as completed", change_status_order_path(id: order.id, status: "completed"), method: :patch %>
+          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch%>
+        </li>
+      <% else %>
+        <li>
+          <%= order.id %>
+          <%= order.status %><br />
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </nav>

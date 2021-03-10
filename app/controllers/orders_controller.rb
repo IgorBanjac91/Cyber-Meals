@@ -25,6 +25,12 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
+
+  def change_status
+    @order = Order.find(params[:id])
+    @order.update_attribute(:status, params[:status])
+    redirect_to dashboard_path
+  end
   
   protected
   

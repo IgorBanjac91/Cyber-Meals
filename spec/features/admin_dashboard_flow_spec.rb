@@ -25,12 +25,12 @@ RSpec.describe "admin_dashboard", type: :feature do
       end
     end
 
+    
     describe "filter orders" do 
 
       it "filters order by status 'new'" do 
         new_orders = Order.where(status: "new")
         other_orders = Order.where.not(status: "new")
-        pp page.body
         find(:css, "#status_new[value='new']").set(true)
         find(:css, "#status_completed[value='completed']").set(false)
         find(:css, "#status_ordered[value='ordered']").set(false)
@@ -60,6 +60,41 @@ RSpec.describe "admin_dashboard", type: :feature do
         other_orders.each do |order|
           expect(page).to have_content(order.id)
         end
+      end
+    end
+    
+    describe "change order status" do 
+
+      it "changes from paid to cancelled" do 
+        find(:css, "#status_paid[value='paid']").set(true)
+        click_button("Filter")
+        click_link("cancel", match: :first)
+        cancelled_orders = Order.where(status: "cancelled")
+        expect(cancelled_orders.count).to eq(6)
+      end
+      
+      it "changes from paid to completed" do 
+        find(:css, "#status_paid[value='paid']").set(true)
+        click_button("Filter")
+        click_link("mark as completed", match: :first)
+        completed_orders = Order.where(status: "completed")
+        expect(completed_orders.count).to eq(6)
+      end
+
+      it "changes from ordered to cancelled" do 
+        find(:css, "#status_ordered[value='ordered']").set(true)
+        click_button("Filter")
+        click_link("cancel", match: :first)
+        cancelled_orders = Order.where(status: "cancelled")
+        expect(cancelled_orders.count).to eq(6)
+      end
+      
+      it "changes from ordered to paid" do 
+        find(:css, "#status_ordered[value='ordered']").set(true)
+        click_button("Filter")
+        click_link("mark as paid", match: :first)
+        paid_orders = Order.where(status: "paid")
+        expect(paid_orders.count).to eq(6)
       end
     end
   end

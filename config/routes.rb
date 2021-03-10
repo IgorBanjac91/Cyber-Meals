@@ -13,7 +13,13 @@ Rails.application.routes.draw do
                                     sessions:      'sessions'}
 
   resources :orders, only: [:create, :show, :edit, :index]                                    
-  resources :order_items
+  resources :orders do 
+    member do 
+      patch :change_status
+    end
+  end
+
+  resources :order_items 
   resources :items
   resources :categories
   resources :categorizations, only: [:create, :destroy]
