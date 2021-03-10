@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :categorizations, only: [:create, :destroy]
 
-  get "dashboard", to: "dashboard#index"
+  get "dashboard",            to: "dashboard#index"
+  get 'dashboard/orders/:id', to: "dashboard#show", as: :dashboard_orders
 end

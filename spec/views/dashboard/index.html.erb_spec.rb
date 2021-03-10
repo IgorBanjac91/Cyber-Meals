@@ -22,6 +22,9 @@ RSpec.describe "dashboard/index.html.erb", type: :view do
   end
 
   it 'renders a show link for each order' do 
+    @orders.each do |order|
+      expect(rendered).to have_link("show", href: dashboard_orders_path(order))
+    end
   end
 
   it "renders 'cancel' link near paid orders and ordered orders" do 

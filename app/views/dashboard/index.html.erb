@@ -10,16 +10,18 @@
   <ul>
     <% @orders.each do |order| %>
       <% if order.status == "ordered" %>
-      <li>
-        <%= order.id %>
-        <%= order.status %><br />
-        <%= link_to "mark as paid", change_status_order_path(id: order.id, status: "paid"), method: :patch %>
-        <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch %>
-      </li>
+        <li>
+          <%= order.id %>
+          <%= order.status %><br />
+          <%= link_to "show", dashboard_orders_path(order)  %>
+          <%= link_to "mark as paid", change_status_order_path(id: order.id, status: "paid"), method: :patch %>
+          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch %>
+        </li>
       <% elsif order.status == "paid"%>
         <li>
           <%= order.id %>
           <%= order.status %><br />
+          <%= link_to "show", dashboard_orders_path(order)  %>
           <%= link_to "mark as completed", change_status_order_path(id: order.id, status: "completed"), method: :patch %>
           <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch%>
         </li>
@@ -27,6 +29,7 @@
         <li>
           <%= order.id %>
           <%= order.status %><br />
+          <%= link_to "show", dashboard_orders_path(order)  %>
         </li>
       <% end %>
     <% end %>

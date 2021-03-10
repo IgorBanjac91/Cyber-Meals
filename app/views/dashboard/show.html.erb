@@ -1,2 +1,24 @@
-<h1>Dashboard#show</h1>
-<p>Find me in app/views/dashboard/show.html.erb</p>
+<h1>Order <%= @order.id %></h1>
+<p>Status: <%= @order.status %> </p>
+
+<time><%= @order.creation_date %></time>
+
+<p>Purchaser info:</p>
+
+<p>Name: <%= @order.user.full_name %></p>
+<p>Email: <%= @order.user.email %></p>
+
+<ul>
+  <% @order.order_items.each do |order_item| %>
+    <li>
+      <div>
+        <%= link_to order_item.item.title, item_path(order_item.item)  %>
+        <p>Price: <%= order_item.item.price %></p>
+        <p>SubTotal: <%= order_item.sub_total %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<p>Total Price: <%= @order.total_price %></p>
+

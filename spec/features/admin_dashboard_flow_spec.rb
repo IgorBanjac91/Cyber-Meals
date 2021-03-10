@@ -97,6 +97,15 @@ RSpec.describe "admin_dashboard", type: :feature do
         expect(paid_orders.count).to eq(6)
       end
     end
+
+    describe "show order details" do 
+
+      it "renders the order page" do 
+        order = Order.first
+        click_link("show", match: :first)
+        expect(current_path).to eq(dashboard_path(id: order))
+      end
+    end
   end
 
 end
