@@ -1,7 +1,7 @@
 <h1>Order <%= @order.id %></h1>
 <p>Status: <%= @order.status %> </p>
 
-<time><%= @order.creation_date %></time>
+<time>Creation Date: <%= @order.creation_date %></time>
 
 <p>Purchaser info:</p>
 
@@ -13,7 +13,7 @@
     <li>
       <div>
         <%= link_to order_item.item.title, item_path(order_item.item)  %>
-        <p>Price: <%= order_item.item.price %></p>
+        <p>Price: <%= number_to_currency(order_item.item.price, precision: 2) %></p>
         <p>SubTotal: <%= order_item.sub_total %></p>
       </div>
     </li>

@@ -29,7 +29,7 @@ RSpec.describe "dashboard/show.html.erb", type: :view do
   it "renders the quantity, price subtotal of each order item" do 
     @order_items.each do |order_item|  
       expect(rendered).to have_content(order_item.quantity)
-      expect(rendered).to have_content(order_item.item.price)
+      expect(rendered).to have_content(number_to_currency(order_item.item.price))
       expect(rendered).to have_content(order_item.sub_total)
     end
   end
