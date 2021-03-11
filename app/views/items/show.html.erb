@@ -4,6 +4,10 @@
 
 <span>PRICE: <%= @item.price %></span><br />
 
+<% if @item.image? %>
+  <%= image_tag @item.image.url %>
+<% end %>
+
 <h3>Categories:</h3>
 <ul class="categories">
 <% @categorizations.each do |categorization| %>

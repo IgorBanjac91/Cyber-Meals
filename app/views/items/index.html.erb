@@ -11,12 +11,14 @@
     <% if item.retired %>
       <% if user_signed_in? && current_user.admin %>
         <li>
-          <% if item.image? %>
-            <%= image_tag item.image.url %>
-          <% end %>
-          <%= item.title %>
-          <%= link_to "show", item_path(item) %>
-          <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
+          <div>
+            <% if item.image? %>
+              <%= image_tag item.image.url %>
+            <% end %>
+            <%= item.title %>
+            <%= link_to "show", item_path(item) %>
+            <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
+          </div>
         </li>
       <% end %>
     <% else %>
