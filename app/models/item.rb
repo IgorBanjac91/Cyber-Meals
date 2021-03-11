@@ -8,4 +8,6 @@ class Item < ApplicationRecord
   has_many :categories, through: :categorizations
   
   has_many :order_items
+
+  mount_uploader :image, ImageUploader
 end

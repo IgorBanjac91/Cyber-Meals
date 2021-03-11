@@ -109,6 +109,9 @@ CHANGING FORM HABTM TO had_many :through
     - total for the order
     - Order status
 
+Improvments: 
 
-
-
+  - Style the website
+  - Itmes should have at lest one category:
+    * When you try to delete the last categorys item a message should appear
+    

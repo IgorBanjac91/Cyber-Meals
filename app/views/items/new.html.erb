@@ -20,6 +20,12 @@
     <%= link_to "Add category", new_category_path %>
   </div>
 
+  <div class="filed">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+
   <div class="field">
     <%= f.submit "Create" %>
   </div>
