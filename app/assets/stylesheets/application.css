@@ -9,6 +9,10 @@
 ===========================
 */
 
+body {
+  background-color: #FEEAE4;
+}
+
 h1,
 h2, 
 h3 {
@@ -23,11 +27,39 @@ h1 {
 img {
   max-width: 100px;
 }
+
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-list li {
+  flex: 0 1 25%;
+  padding: 10px;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-container a:first-child {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 70px;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
 /*
 ===========================
         Nav
 ===========================
 */
+
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -64,3 +96,11 @@ img {
   border-radius: 5%;
 }
 
+.btn-add-to-cart {
+  padding: 5px 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007e8a;
+  border: 1px solid #008f83;
+  border-radius: 5%;
+}

@@ -1,0 +1,8 @@
+<div class="item-container">
+  <% if item.image? %>
+    <%= link_to "", {}, { style: "background-image: url(\"#{item.image.url}\")" } %>
+  <% end %>
+  <%= item.title %>
+  <%= link_to "show", item_path(item) %>
+  <%= button_to "Add to Cart", order_items_path(item_id: item.id), class: "btn btn-add-to-cart" %>
+</div>

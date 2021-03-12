@@ -6,29 +6,17 @@
   <%= submit_tag "Filter" %>
 </form>
 
-<ul>
+<ul class="menu-list">
   <% @items.each do |item| %>
     <% if item.retired %>
       <% if user_signed_in? && current_user.admin %>
         <li>
-          <div>
-            <% if item.image? %>
-              <%= image_tag item.image.url %>
-            <% end %>
-            <%= item.title %>
-            <%= link_to "show", item_path(item) %>
-            <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
-          </div>
+          <%= render 'shared/item', item: item %>
         </li>
       <% end %>
     <% else %>
-        <li>
-          <% if item.image? %>
-            <%= image_tag item.image.url %>
-          <% end %>
-          <%= item.title %>
-          <%= link_to "show", item_path(item) %>
-          <%= button_to "Add to Cart", order_items_path(item_id: item.id) %>
+        <li>                  
+          <%= render 'shared/item', item: item  %>
         </li>
     <% end %>
   <% end %>
