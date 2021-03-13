@@ -116,5 +116,25 @@ Improvments:
     * itme description page
     * dashboard
   - Itmes should have at lest one category:
-    * When you try to delete the last categorys item a message should appear
-    
+    * When you try to delete the last categorys item a message should appea
+
+
+Design 
+  - Header shared with all pages 
+    - Nav bar:
+      link and buttons:
+        * Sign up button 
+        * Sing in button 
+  - Footer shared with all pages
+    * Nav site
+    * Social Nav ( all icons )
+    * copyrigth
+  - Form Styling 
+    * Sign in page
+    * Sign up page
+  - User oreder page 
+    * Table 
+  - User past orders page
+    * Table
+  - Admin dashboard
+    * Table

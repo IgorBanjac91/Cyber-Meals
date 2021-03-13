@@ -12,6 +12,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'carrierwave', '~> 2.0'
+gem "font-awesome-rails"
+gem 'flutie'
+
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

@@ -1,0 +1,44 @@
+/*
+===========================
+        Nav
+===========================
+*/
+
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #222;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+  width: 100%;
+}
+
+
+ul li a {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #fff
+}
+
+
+.logo {
+  display: block;
+  background-image: url("logo.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 160px;
+  margin-left: 20px;
+}

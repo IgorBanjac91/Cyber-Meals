@@ -5,7 +5,7 @@ RSpec.describe "items/index.html.erb", type: :view do
   let(:regular_user) { create(:user) }
   let(:admin_user) { create(:user, :admin) }
   let(:retired_item) { create(:item,:retired, title: "Retired item") }
-  let(:valid_item) { create(:item, title: "Valid item") }
+  let(:valid_item) { create(:item, title: "Valid item", price: "2.22") }
   
   before(:each) do 
     items = []
@@ -21,6 +21,10 @@ RSpec.describe "items/index.html.erb", type: :view do
     
     it "appears on the menu" do 
       expect(rendered).to match /Valid item/
+    end
+
+    it 'show his price' do 
+      expect(rendered).to match /2.22/
     end
   end
 

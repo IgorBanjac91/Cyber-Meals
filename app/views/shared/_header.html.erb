@@ -1,18 +1,22 @@
 <header>
   <nav class="main-nav">
+    <%= link_to "", root_path, class: "logo" %>
     <ul class="common-nav">
-    <li><%= link_to "Home", root_path %></li>
     <% if user_signed_in? %>
       <li><%= link_to "Log out", log_out_path, method: :delete  %></li>
       <li><%= link_to "Orders", orders_path(user_id: current_user.id) %></li>
     <% else %>
-      <li><%= link_to "Sign up", sign_up_path, class: "btn"  %></li>
-      <li><%= link_to "Sign in", sign_in_path, class: "btn"  %></li>
+      <li><%= link_to "Sign in", sign_in_path, class: "btn sign-in-btn"  %></li>
+      <li><%= link_to "Sign up", sign_up_path, class: "btn sign-up-btn"  %></li>
     <% end %>
     <% if session[:order_id] %>
-      <li><%= link_to "Cart", order_path(current_order) %></li>
+      <li>
+      <%= link_to order_path(current_order) do %>
+        <%= fa_icon "shopping-cart", class:"cart-icon" %>
+      <% end %>
+      </li>
     <% else %>
-      <li><a href="#">Cart</a></li>
+      <li><a href="#"><%= fa_icon "shopping-cart", class:"cart-icon" %></a></li>
     <% end %>
     </ul>
     <% if user_signed_in? %>

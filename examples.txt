@@ -119,10 +119,11 @@ example_id                                                 | status  | run_time 
 ./spec/views/dashboard/show.html.erb_spec.rb[1:4]          | passed  | 0.07896 seconds |
 ./spec/views/dashboard/show.html.erb_spec.rb[1:5]          | passed  | 0.07113 seconds |
 ./spec/views/dashboard/show.html.erb_spec.rb[1:6]          | passed  | 0.0773 seconds  |
-./spec/views/items/index.html.erb_spec.rb[1:1:1]           | passed  | 0.02593 seconds |
-./spec/views/items/index.html.erb_spec.rb[1:2:1:1]         | passed  | 0.0216 seconds  |
-./spec/views/items/index.html.erb_spec.rb[1:2:2:1]         | passed  | 0.02973 seconds |
-./spec/views/items/index.html.erb_spec.rb[1:2:3:1]         | passed  | 0.03267 seconds |
+./spec/views/items/index.html.erb_spec.rb[1:1:1]           | passed  | 0.28349 seconds |
+./spec/views/items/index.html.erb_spec.rb[1:1:2]           | passed  | 0.02573 seconds |
+./spec/views/items/index.html.erb_spec.rb[1:2:1:1]         | passed  | 0.02876 seconds |
+./spec/views/items/index.html.erb_spec.rb[1:2:2:1]         | passed  | 0.0446 seconds  |
+./spec/views/items/index.html.erb_spec.rb[1:2:3:1]         | passed  | 0.03375 seconds |
 ./spec/views/items/show.html.erb_spec.rb[1:1]              | failed  | 0.01433 seconds |
 ./spec/views/items/show.html.erb_spec.rb[1:2]              | failed  | 0.01629 seconds |
 ./spec/views/orders/index.html.erb_spec.rb[1:1]            | passed  | 0.00938 seconds |

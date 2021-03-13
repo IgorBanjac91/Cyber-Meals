@@ -1,10 +1,12 @@
 <h1>Menu</h1>
-<p>The best dishes in town, an maybe in the all universe =)</p>
 
+<div class="filter-container">
+<p>Categories:</p>
 <form action="/">
   <%= select(:category, :id, @category_options) %>
   <%= submit_tag "Filter" %>
 </form>
+</div>
 
 <ul class="menu-list">
   <% @items.each do |item| %>
