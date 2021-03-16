@@ -1,0 +1,12 @@
+h1 {
+  position: relative
+}
+
+h1::after {
+  display: block;
+  content: "";
+  width: 100px;
+  margin: auto;
+  margin-top: 20px;
+  border-bottom: 4px solid $primary-color;
+}

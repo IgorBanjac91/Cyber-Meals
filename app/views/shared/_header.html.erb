@@ -12,11 +12,11 @@
     <% if session[:order_id] %>
       <li>
       <%= link_to order_path(current_order) do %>
-        <%= fa_icon "shopping-cart", class:"cart-icon" %>
+        <%= icon 'fas', "shopping-cart", class:"cart-icon" %>
       <% end %>
       </li>
     <% else %>
-      <li><a href="#"><%= fa_icon "shopping-cart", class:"cart-icon" %></a></li>
+      <li><a href="#"><%= icon 'fas', "shopping-cart", class:"cart-icon" %></a></li>
     <% end %>
     </ul>
     <% if user_signed_in? %>

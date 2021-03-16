@@ -1,4 +1,17 @@
-@import 'application/typography.scss';
-@import 'base/_base';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import 'base/reset';
+@import 'base/variables';
+
+@import 'application/typography';
+@import 'application/layout';
+@import 'application/decoration';
+
+@import 'application/objects/buttons';
+@import 'application/objects/inputs';
+
 @import 'shared/_header';
 @import 'shared/_item';
+
+@import 'item_show';

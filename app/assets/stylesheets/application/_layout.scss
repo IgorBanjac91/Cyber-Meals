@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.item-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.item-price {
+  display: block;
+  margin-bottom: 10px ;
+}
+
+.item-description {
+  margin-bottom: 20px;
+}
+
+.list-title {
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100px;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  li {
+    flex: 0 1 40%;
+    padding: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+  }
+}
+
+.container {
+  max-width: 960px;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}

@@ -1,17 +1,17 @@
-<h2><%= @item.title %></h2>
+<h2 class="item-title"><%= @item.title %></h2>  
 
-<p>DESCRIPTION: <%= @item.description %></p>
-
-<span>PRICE: <%= @item.price %></span><br />
+<span class="item-price"><%=number_to_currency(@item.price) %></span>
 
 <% if @item.image? %>
-  <%= image_tag @item.image.url %>
+  <div class="img-description-container", style="background-image: url('<%= @item.image %>')"></div>
 <% end %>
 
-<h3>Categories:</h3>
-<ul class="categories">
-<% @categorizations.each do |categorization| %>
-    <li>
+<p class="item-description"><%= @item.description %></p>
+
+<h3 class="list-title">Categories:</h3>
+<ul class="categories-list">
+<% @categorizations.each do |categorization|%>
+    <li class="categories-list__list-item">
       <%= categorization.category.name %>
       <%= link_to "remove", categorization_path(categorization), method: :delete %>
     </li>
@@ -19,9 +19,9 @@
 </ul>
 
 <%= form_with model: @item do |f| %>
-  <%= select(:category, :id, @categories) %>
-  <%= f.submit "Add Category" %>
+  <%= select(:category, :id, @categories)  %>
+  <%= f.submit "Add Category", class: "btn-filter" %>
 <% end %>
 
 
-<%= link_to "Edit", edit_item_path(@item)  %>
+<%= link_to "Edit", edit_item_path(@item), class: "link"  %>

@@ -5,6 +5,75 @@
   font-family: 'Roboto', sans-serif;
 */
 
+body {
+  font-family: 'Roboto', sans-serif;  
+}
+
+a {
+  text-decoration: none;
+}
+
+.filter-container p {
+  font-family: 'Roboto', sans-serif;  
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .item-info h3 a {
   font-family: 'Revalia', cursive;
 }
+
+h1 {
+  font-family: 'Revalia', cursive;
+  font-size: 40px;
+}
+
+h1,
+h2, 
+h3 {
+  color: #222;
+}
+
+.link {
+  font-size: 18px;
+  color: #222;
+}
+
+.link:hover {
+  color: $secondary-color;
+}
+
+.item-title {
+  font-family: 'Revalia', cursive;
+  font-size: 36px;
+}
+
+.item-price {
+  font-family: 'Roboto', sans-serif;  
+  font-weight: bold          ;
+  font-size: 24px;
+  color: $secondary-color;
+}
+
+.item-description {
+  font-size: 14px;
+}
+
+.list-title {
+  font-family: 'Revalia', cursive;
+}
+
+
+
+/* ------------------------- Icons -------------------- */
+
+.cart-icon {
+  padding: 5px;
+  font-size: 24px;
+  transition: color 0.2s ease-out;
+
+  &:hover {
+    color: #F2C64E;
+  }
+}
+
