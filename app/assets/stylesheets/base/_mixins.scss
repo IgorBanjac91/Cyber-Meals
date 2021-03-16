@@ -1,0 +1,10 @@
+@mixin line_below($length: 100px, $color: $primary-color) {
+  &::after {
+    display: block;
+    content: "";
+    width: $length;
+    margin: auto;
+    margin-top: 20px;
+    border-bottom: 4px solid $color;
+  }
+}

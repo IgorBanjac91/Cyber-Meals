@@ -1,4 +1,4 @@
-h1 {
+.page-heading {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 50px;
@@ -48,6 +48,11 @@ img {
   max-width: 960px;
   padding: 0 25px;
   margin: 0 auto;
+}
+
+.container-m {
+  max-width: 500px;
+  margin: auto;
 }
 
 .filter-container {
