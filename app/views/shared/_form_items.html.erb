@@ -1,18 +1,15 @@
 <%= form_with model: @itemm,  html: { class: "items-form" } do |f|  %>
 
   <div class="items-form__field">
-    <%= f.label :title, class: "items-form__label" %>
-    <%= f.text_field :title, class: "items-form__text-input" %>
+    <%= f.text_field :title, class: "items-form__text-input", placeholder: "Title" %>
   </div>
 
   <div class="items-form__field">
-    <%= f.label :description, class: "items-form__label" %>
-    <%= f.text_area :description, class: "items-form__text-area-input" %>
+    <%= f.text_area :description, class: "items-form__text-area-input", placeholder: "Description" %>
   </div>
 
   <div class="items-form__field">
-    <%= f.label :price, class: "items-form__label" %>
-    <%= f.text_field :price, class: "items-form__text-input" %>
+    <%= f.text_field :price, class: "items-form__text-input", placeholder: "Price" %>
   </div>
 
   <div class="items-form__field">
@@ -20,17 +17,17 @@
     <%= f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name), 
                                 { prompt: "Select Category",  include_hidden: false },
                                 { multiple: true, class: "items-form__select" } %>
-    <%= link_to "Add category", new_category_path, class: "item-form__link"%>
+    <%= link_to "Add category", new_category_path, class: "item-form__link btn-secondary"%>
   </div>
 
   <div class="items-form__field">
     <%= f.label :image, class: "items-form__label" %>
-    <%= f.file_field :image, class: "itmes-form__file-input" %>
+    <%= f.file_field :image, class: "items-form__file-input " %>
     <%= f.hidden_field :image_cache %>
   </div>
 
   <div class="items-form__field">
-    <%= f.submit "Create", class: "itmes-form__button" %>
+    <%= f.submit "Edit", class: "itmes-form__button btn" %>
   </div>
 
 <% end %>
