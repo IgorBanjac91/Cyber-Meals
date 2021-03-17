@@ -29,7 +29,7 @@ h3 {
   color: #222;
 }
 
-.heading {
+.header {
   font-family: 'Revalia', cursive;
   font-size: 36px;
   text-align: center;
@@ -38,10 +38,9 @@ h3 {
 .link {
   font-size: 18px;
   color: #222;
-}
-
-.link:hover {
-  color: $secondary-color;
+  &:hover {
+    color: $secondary-color;
+  }
 }
 
 .item-title {
@@ -64,6 +63,12 @@ h3 {
   font-family: 'Revalia', cursive;
 }
 
+.field {
+  em {
+    font-size: 13px;
+    color: #222;    
+  }
+}
 
 /* ------------------------- Icons -------------------- */
 

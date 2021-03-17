@@ -3,9 +3,12 @@
   background-color: #F2C64E;
   color: #222;
   font-weight: bold;
+  font-size: 15px;
   border: 1px solid #F2C64E;
   border-radius: 5%;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .sign-up-btn {
@@ -42,4 +45,12 @@
   background-color: #fff;
   border: 2px solid $primary-color-dark;
   border-radius: 4px;
+}
+
+.btn-filter {
+  padding: 5px 20px;
+  background-color: #fff;
+  border: 2px solid $secondary-color;
+  border-radius: 4px;
+  font-weight: bold;
 }

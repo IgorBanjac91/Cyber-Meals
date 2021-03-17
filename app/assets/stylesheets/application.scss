@@ -3,20 +3,23 @@
 
 @import 'base/reset';
 @import 'base/variables';
+@import 'base/typography';
 @import 'base/mixins';
 @import 'base/helpers';
 
-@import 'application/typography';
-@import 'application/layout';
-@import 'application/decoration';
+@import 'layout/grids';
+@import 'layout/spacing';
 
-@import 'application/objects/buttons';
-@import 'application/objects/inputs';
+@import 'components/brand';
+@import 'components/headings';
+@import 'components/form';
+@import 'components/tables';
+@import 'components/buttons';
+@import 'components/components';
 
-@import 'shared/_header';
-@import 'shared/_item_card';
-@import 'shared/_form_items';
+@import 'shared/header';
+@import 'shared/item_card';
 
-
-@import 'item_show';
-@import 'item_edit';
+@import 'items/item_edit';
+@import 'items/item_show';
+@import 'items/item_index';
