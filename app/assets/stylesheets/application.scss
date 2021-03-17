@@ -20,6 +20,8 @@
 @import 'shared/header';
 @import 'shared/item_card';
 
-@import 'items/item_edit';
-@import 'items/item_show';
-@import 'items/item_index';
+@import 'items/edit';
+@import 'items/show';
+@import 'items/index';
+
+@import 'orders/show';

@@ -1,0 +1,13 @@
+.sign-in__heading  {
+  @include line_below($length: 150px)
+}
+.sign-up__heading  {
+  @include line_below($length: 150px)
+}
+.item-index__heading  {
+  @include line_below()
+}
+
+.order-show__heading  {
+  @include line_below()
+}

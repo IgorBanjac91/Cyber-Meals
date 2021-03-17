@@ -1,0 +1,77 @@
+table {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border-collapse: separate;
+  th, 
+  td {
+    border-bottom: 1px solid #cecfd5;
+    padding: 10px 20px;
+  }
+
+  a {
+    color: $dark
+  }
+
+  a:hover {
+    color: $secondary-color
+  }
+
+  td:first-child {
+    border-left: 1px solid #cecfd5;
+  }
+
+  td:last-child {
+    border-right: 1px solid #cecfd5;
+  }
+  
+  thead {
+    background-color: $dark;
+    color: #e8e3e2;
+    
+    th:first-child {
+      border-top-left-radius: 4px;
+    }
+    
+    th:last-child {
+      border-top-right-radius: 4px;
+    }
+    
+    
+    tbody tr:nth-child(even) {
+      background-color: #f0f0f2;
+    }
+  }
+
+  tfoot {
+    background-color: $primary-color;
+    tr:last-child {
+      
+      td:first-child {
+        border-bottom-left-radius: 4px;
+      }
+      
+      td:last-child {
+        border-bottom-right-radius: 4px;
+      }
+    } 
+  }
+}
+
+.order-table {
+
+  &__item-title {
+    text-align: left;
+  }
+
+  &__item-price, 
+  &__item-subtotal,
+  &__item-quantity, 
+  &__total {
+    text-align: right;
+  }
+
+  &__total {
+    font-weight: bold;
+  }
+
+}
