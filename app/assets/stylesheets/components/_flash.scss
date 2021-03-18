@@ -1,0 +1,12 @@
+.flash-messages {
+  font-weight: bold;
+  color: $light_grey;
+  .alert {
+    padding: 20px;
+    background: linear-gradient(#f85032, #e73827);
+  }
+  .notice  {
+    padding: 20px;
+    background: linear-gradient(#56ab2f, #7ab630);
+  }
+} 

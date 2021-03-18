@@ -1,11 +1,11 @@
 <h2 class="item-index__heading heading">Menu</h2>
 
-<div class="filter-container">
-<p>Categories:</p>
-<form action="/">
-  <%= select(:category, :id, @category_options) %>
-  <%= submit_tag "Filter", class: "btn-filter" %>
-</form>
+<div class="filter-items">
+  <form action="/">
+    <%= label_tag "Categories:", nil,  class: "filter_items__label" %>
+    <%= select(:category, :id, @category_options) %>
+    <%= submit_tag "Filter", class: "btn-filter" %>
+  </form>
 </div>
 
 <ul class="menu-list">
