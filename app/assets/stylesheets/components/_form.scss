@@ -1,8 +1,14 @@
+/*
+============================
+        General
+============================
+*/
 
 select {
   margin-left: 10px;
   margin-right: 10px;
   height: 20px;
+  width: 100%;
 }
 
 form {
@@ -19,17 +25,46 @@ form {
 input[type=text],
 input[type=email],
 input[type=password] {
+  box-sizing: border-box;
   height: 36px;
   width: 100%;
   border: 1px solid $primary-color-dark;
   border-radius: 4px;
-  &::placeholder {
+  font-size: 16px;
+    &::placeholder {
     position: absolute;
     left: 5px;
     top: 5px;
     font-size: 14px;
   }
 }
+
+input::placeholder,  
+textarea::placeholder {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+textarea {
+  box-sizing: border-box;
+  max-width: 414px;
+}
+
+input:focus::placeholder, 
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+input:focus,
+textarea:focus {
+  background-color: transparent;
+}
+
+/*
+============================
+        Items
+============================
+*/
 
 .items-form {
   width: 400px;
@@ -79,7 +114,7 @@ input[type=password] {
       outline: none;
       white-space: nowrap;
       font-family: 'Roboto', 'sans';
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       padding: 0.3em 0.6em;
       color: #222;
@@ -88,4 +123,25 @@ input[type=password] {
       border-radius: 4px;
     }
   }
+}
+
+
+/*
+============================
+      Dashboard Orders
+============================
+*/
+
+
+.orders-checkbox {
+  
+  label {
+    margin-right: 10px;
+    text-transform: capitalize;
+  }
+
+  input {
+    cursor: pointer;
+  }
+
 }

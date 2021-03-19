@@ -1,3 +1,9 @@
+/*
+==================================
+        General Style
+==================================
+*/
+
 table {
   margin-top: 40px;
   margin-bottom: 30px;
@@ -7,23 +13,23 @@ table {
     border-bottom: 1px solid #cecfd5;
     padding: 10px 20px;
   }
-
+  
   th {
     font-weight: bold;
   }
-
+  
   a {
     color: $dark
   }
-
+  
   a:hover {
     color: $accent-blue
   }
-
+  
   td:first-child {
     border-left: 1px solid #cecfd5;
   }
-
+  
   td:last-child {
     border-right: 1px solid #cecfd5;
   }
@@ -31,7 +37,7 @@ table {
   tbody tr:nth-child(even) {
     background-color: $light_grey;
   }
-
+  
   thead {
     background-color: $dark;
     color: #e8e3e2;
@@ -46,7 +52,7 @@ table {
     
   }
   
-
+  
   tfoot {
     background-color: $primary-color;
     tr:last-child {
@@ -62,22 +68,147 @@ table {
   }
 }
 
-.order-table {
+/*
+==================================
+        Order Style
+==================================
+*/
 
+.order-table {
+  
   &__item-title {
     font-weight: bold;
     text-align: left;
   }
-
+  
   &__item-price, 
   &__item-subtotal,
   &__item-quantity, 
   &__total {
     text-align: right;
   }
-
+  
   &__total {
     font-weight: bold;
+  }
+  
+}
+
+.categories-index {
+  .categories-table {
+    margin-top: 20px;
+    
+    td:first-child {
+      border-left: none;
+    }
+    
+    td:last-child {
+      border-right: none;
+    }
+    
+    &__category-name {
+      font-weight: bold;
+      padding-left: 0;
+      
+    }
+    
+    &__buttons {
+      padding-right: 0;
+      
+      a:first-child {
+        margin-right: 10px;
+      }
+    }
+    
+    
+    tr {
+      background-color: #fff;
+      border-bottom: $dark;
+    }
+    
+  }
+}
+
+/*
+==================================
+        Orders Style
+==================================
+*/
+
+.dashboard-index {
+  .orders-table {
+
+    thead {
+      tr {
+        background-color: $dark;
+      }
+    }
+
+    tr {
+      background-color: #fff;
+    }
+    
+    td {
+      padding: 20px 10px;
+    }
+
+    &__actions {
+      a {
+        margin-right: 10px;
+      }
+    }
+
+    span[class*="-status"] {
+      display: inline-block;
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: bold;
+      width: 100px;
+      padding: 10px;
+      border-radius: 5%;
+      margin-right: 20px;
+    }
+
+    &__new-status {
+      background-color: #fdecc8;
+      color: #cc9018;
+    }
+  
+    &__cancelled-status {
+      background-color: #fdcac2;
+      color: #f85032;
+    }
+  
+    &__completed-status {
+      background-color: #d0e7dc;
+      color: #449b6d;
+    }
+  
+    &__ordered-status {
+      background-color: #F2DCF5;
+      color: #ac3fbd;
+    }
+
+    &__paid-status {
+      background-color: #C4e6f8;
+      color: #3284bb;
+    }
+
+    td:first-child {
+      border-left: none;
+    }
+    
+    td:last-child {
+      border-right: none;
+    }
+
+    &__order-id {
+      a {
+        font-weight: bold;
+        color: $accent-blue;
+        text-decoration: underline;
+      }
+    }
   }
 
 }

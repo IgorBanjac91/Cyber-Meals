@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Revalia&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Revalia&family=Roboto:wght@400;500&display=swap');
 
 /*
   font-family: 'Revalia', cursive;
@@ -29,9 +29,14 @@ h3 {
   color: #222;
 }
 
+h2 {
+  font-family: 'Revalia', cursive;
+  font-size: 24px;
+}
+
 .heading {
   font-family: 'Revalia', cursive;
-  font-size: 36px;
+  font-size: 30px;
   text-align: center;
 }
 

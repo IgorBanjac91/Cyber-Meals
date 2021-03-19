@@ -1,39 +1,59 @@
-<h1>Dashboard</h1>
+<header>
+  <h1 class="heading dashboard-heading">Dashboard</h1>
+</header>
+
+
+<%= form_with url: "/dashboard", method: :get, class: "orders-checkbox" do |f| %>
+  <%= f.collection_check_boxes :status, Order.select(:status).distinct, :status, :status, {include_hidden: false }, {} do |b| %>
+    <%= f.label :status => "sta" do %>
+      <%= f.check_box :status %>
+    <% end %>
+  <% end %>
+  <%= f.submit "Filter", class: "btn-filter" %>
+<% end %>
 
 <h2>Orders</h2>
 
-<%= form_with url: "/dashboard", method: :get do |f| %>
-  <%= f.collection_check_boxes :status, Order.select(:status).distinct, :status, :status, {include_hidden: false }, {} %>
-  <%= f.submit "Filter" %>
-<% end %>
-<nav>
-  <ul>
+<table class="orders-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Costumer</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @orders.each do |order| %>
-      <% if order.status == "ordered" %>
-        <li>
-          <%= order.id %>
-          <%= order.status %><br />
-          <%= link_to "show", dashboard_orders_path(order)  %>
-          <%= link_to "mark as paid", change_status_order_path(id: order.id, status: "paid"), method: :patch %>
-          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch %>
-        </li>
-      <% elsif order.status == "paid"%>
-        <li>
-          <%= order.id %>
-          <%= order.status %><br />
-          <%= link_to "show", dashboard_orders_path(order)  %>
-          <%= link_to "mark as completed", change_status_order_path(id: order.id, status: "completed"), method: :patch %>
-          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch%>
-        </li>
-      <% else %>
-        <li>
-          <%= order.id %>
-          <%= order.status %><br />
-          <%= link_to "show", dashboard_orders_path(order)  %>
-        </li>
-      <% end %>
+      <tr>
+        <td class="orders-table__order-id"><%= link_to order.id, orders_path(order) %></td>
+        <td class="orders-table__user-name">
+        <% if order.user.nil? %>
+          <%= "Visitor" %>
+        <% else %>
+          <%= order.user.full_name %>
+        <% end %>
+        </td>
+        <td><span class="orders-table__<%= order.status %>-status"><%= order.status %></span></td>
+        <td class="orders-table__actions">
+        <% if order.status == "ordered" %>
+          <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show" %>
+          <%= link_to "paid", change_status_order_path(id: order.id, status: "paid"), method: :patch, class: "btn btn-action-paid" %>
+          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch, class: "btn btn-action-cancel" %>
+        <% elsif order.status == "paid"%>
+          <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show" %>
+          <%= link_to "completed", change_status_order_path(id: order.id, status: "completed"), method: :patch, class: "btn btn-action-complete" %>
+          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch, class: "btn btn-action-cancel" %>
+        <% else %>
+          <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show"  %>
+        <% end %>        
+        </td>
+      </tr>
     <% end %>
-  </ul>
-</nav>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
+
 
 

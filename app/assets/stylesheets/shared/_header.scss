@@ -4,16 +4,19 @@
   justify-content: space-between;
   padding: 10px;
   background-color: #222;
-}
+  
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    width: 100%;
+  }
 
-.main-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  list-style: none;
-  width: 100%;
+  a:hover {
+    color: $accent-blue;
+  }
 }
-
 
 ul li a {
   display: inline-block;
@@ -22,5 +25,22 @@ ul li a {
   margin-right: 5px;
   text-decoration: none;
   color: #fff;
+}
+
+.dashboard-nav {
+  padding: 4px;
+  background-color: $primary-color;
+  a {
+    color: #222;
+    font-weight: 400px;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  .admin-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 

@@ -12,3 +12,7 @@ def adjust_length(string, length: 40)
     string
   end
 end
+
+def admin_signed_in?
+  user_signed_in? ? current_user.admin? : false
+end

@@ -1,13 +1,29 @@
-.sign-in__heading  {
+.sign-in-heading  {
   @include line_below($length: 150px)
 }
-.sign-up__heading  {
+.sign-up-heading  {
   @include line_below($length: 150px)
 }
-.item-index__heading  {
+.item-index-heading  {
   @include line_below()
 }
 
-.order-show__heading  {
+.item-new__heading {
+  @include line_below(220px)
+}
+
+.order-show-heading  {
   @include line_below()
+}
+
+.orders-heading {
+  @include line_below(130px)
+}
+
+.categories-heading {
+  @include line_below(220px)
+}
+
+.dashboard-heading {
+  @include line_below(200px)
 }

@@ -1,27 +1,31 @@
 
-<h1>Categories</h1>
+<h1 class="heading categories-heading">Categories</h1>
 
-<%= form_with model: @category do |f| %>
+<%= form_with model: @category, class: "categories-form" do |f| %>
 
-  <div class="filed">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: :category_name %>
   </div>
 
-  <div class="filed">
-    <%= f.submit "Add Category" %>
+  <div class="field">
+    <%= f.submit "Add Category", class: "btn btn-primary" %>
   </div>
 
 <% end %>
 
-<ul>
-  <% unless @categories.nil? %>
+<h2>Categories:</h2>
+
+<table class="categories-table" >
+  <tbody>
     <% @categories.each do |category| %>
-      <li>
-        <%= category.name %>
-        <%= link_to "edit", edit_category_path(category)  %>
-        <%= link_to "delete", category_path(category), method: :delete %>
-      </li> 
+      <tr>
+        <td class="categories-table__category-name"><strong><%= category.name %></strong></td>
+        <td class="categories-table__buttons">
+          <%= link_to "edit", edit_category_path(category), class: "link"  %> 
+          <%= link_to "delete", category_path(category), method: :delete, class: "link" %>
+        </td>
+      </tr>  
     <% end %>
-  <% end %>
-</ul>
+  </tbody>
+</table>
+

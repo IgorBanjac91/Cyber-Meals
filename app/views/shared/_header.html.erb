@@ -2,32 +2,34 @@
   <nav class="main-nav">
     <%= link_to "", root_path, class: "logo" %>
     <ul class="common-nav">
-    <% if user_signed_in? %>
-      <li><%= link_to "Log out", log_out_path, method: :delete  %></li>
-      <li><%= link_to "Orders", orders_path(user_id: current_user.id) %></li>
-    <% else %>
-      <li><%= link_to "Sign in", sign_in_path, class: "btn sign-in-btn"  %></li>
-      <li><%= link_to "Sign up", sign_up_path, class: "btn sign-up-btn"  %></li>
-    <% end %>
-    <% if session[:order_id] %>
-      <li>
-      <%= link_to order_path(current_order) do %>
-        <%= icon 'fas', "shopping-cart", class:"cart-icon" %>
+      <% if user_signed_in? %> 
+        <li><%= link_to "Log out", log_out_path, method: :delete  %></li>
+        <li><%= link_to "Orders", orders_path(user_id: current_user.id) %></li>
+      <% else %>
+        <li><%= link_to "Sign in", sign_in_path, class: "btn sign-in-btn"  %></li>
+        <li><%= link_to "Sign up", sign_up_path, class: "btn sign-up-btn"  %></li>
       <% end %>
-      </li>
-    <% else %>
-      <li><a href="#"><%= icon 'fas', "shopping-cart", class:"cart-icon" %></a></li>
-    <% end %>
+      <% unless admin_signed_in? %>
+        <% if session[:order_id] %>
+          <li>
+          <%= link_to order_path(current_order) do %>
+            <%= icon 'fas', "shopping-cart", class:"cart-icon" %>
+          <% end %>
+          </li>
+        <% else %>
+          <li><a href="#"><%= icon 'fas', "shopping-cart", class:"cart-icon" %></a></li>
+        <% end %>  
+      <% end %>
     </ul>
-    <% if user_signed_in? %>
-      <% if current_user.admin %>
-        <ul class="admin-nav">
-          <li><%= link_to "Dashboard", dashboard_path %></li>
-          <li><%= link_to "Categories", categories_path  %></li>
-          <li><%= link_to "New Item", new_item_path, class: "btn"  %></li>
-          <li><%= link_to "New Category", categories_path, class: "btn"  %></li>
-        </ul>
-      <% end %>
-    <% end %>
   </nav>
+  <% if admin_signed_in? %>
+    <nav class="dashboard-nav">
+      <ul class="admin-nav">
+        <li><%= link_to "Dashboard", dashboard_path %></li>
+        <li><%= link_to "Categories", categories_path  %></li>
+        <li><%= link_to "New Item", new_item_path   %></li>
+        <li><%= link_to "New Category", categories_path %></li>
+      </ul>
+    </nav>
+  <% end %>
 </header>
