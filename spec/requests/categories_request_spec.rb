@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Categories", type: :request do
 
-  before(:all) do 
+  before(:each) do 
     @category = create(:category)
+    create(:random_category)
   end
 
   let(:regular_user) { create(:user) }
@@ -58,7 +59,7 @@ RSpec.describe "Categories", type: :request do
       end
     end
 
-    context "when a user is and admin" do 
+    context "when a user is an admin" do 
 
       before(:each) do 
         sign_in admin_user
@@ -73,12 +74,17 @@ RSpec.describe "Categories", type: :request do
         end
       end
       
-      context "with invalid attriburs" do 
-        it "doesn't create a new category and render index" do 
+      context "with invalid attributes" do 
+        
+        it "doesn't create a new category" do 
           expect {
             post categories_path, params: { category: attributes_for(:category, :invalid) }
           }.to change(Category, :count).by 0
-          expect(response).to render_template :index
+        end
+        
+        it "renders the index page" do 
+          post categories_path, params: { category: attributes_for(:category, :invalid) }
+          expect(response).to redirect_to categories_path
         end
       end
     
@@ -89,7 +95,7 @@ RSpec.describe "Categories", type: :request do
 
     let(:category) { create(:category) }
 
-    context "when a user isn' authenticated" do 
+    context "when a user isn't authenticated" do 
       
       it "dosn't delete the category" do 
         expect {
@@ -121,7 +127,7 @@ RSpec.describe "Categories", type: :request do
       end
     end
     
-    context "when a user is and admin" do 
+    context "when a user is an admin" do 
       
       before(:each) do 
         sign_in admin_user  
@@ -133,9 +139,9 @@ RSpec.describe "Categories", type: :request do
         }.to change(Category, :count).by -1
       end
       
-      it "return a successful response" do 
+      it "reditects to the index page" do 
         delete category_path(@category)
-        expect(response).to have_http_status(200)
+        expect(response).to redirect_to categories_path
       end
     end
   end

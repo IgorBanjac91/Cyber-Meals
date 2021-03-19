@@ -15,7 +15,7 @@ RSpec.describe "categories_flow", type: :feature do
       
       it "creates a new category" do 
         click_link("New Category", href: categories_path)
-        fill_in("Name", with: "new category")
+        fill_in("Category name", with: "new category")
         click_button("Add Category")
         expect(current_path).to eq categories_path
         expect(page).to have_content("new category") 

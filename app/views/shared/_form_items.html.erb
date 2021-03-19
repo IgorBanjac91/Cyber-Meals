@@ -1,4 +1,4 @@
-<%= form_with model: @itemm,  html: { class: "items-form" } do |f|  %>
+<%= form_with model: @item,  html: { class: "items-form" } do |f|  %>
 
   <div class="items-form__field">
     <%= f.text_field :title, class: "items-form__text-input", placeholder: "Title" %>
@@ -27,7 +27,11 @@
   </div>
 
   <div class="items-form__field">
-    <%= f.submit "Edit", class: "itmes-form__button btn btn-primary" %>
+    <% if @item.new_record? %>
+      <%= f.submit "Create", class: "itmes-form__button btn btn-primary" %>
+    <% else %>
+      <%= f.submit "Update", class: "itmes-form__button btn btn-primary" %>
+    <% end %>
   </div>
 
 <% end %>

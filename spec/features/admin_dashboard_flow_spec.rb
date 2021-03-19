@@ -76,7 +76,7 @@ RSpec.describe "admin_dashboard", type: :feature do
       it "changes from paid to completed" do 
         find(:css, "#status_paid[value='paid']").set(true)
         click_button("Filter")
-        click_link("mark as completed", match: :first)
+        click_link("completed", match: :first)
         completed_orders = Order.where(status: "completed")
         expect(completed_orders.count).to eq(6)
       end
@@ -92,7 +92,7 @@ RSpec.describe "admin_dashboard", type: :feature do
       it "changes from ordered to paid" do 
         find(:css, "#status_ordered[value='ordered']").set(true)
         click_button("Filter")
-        click_link("mark as paid", match: :first)
+        click_link("paid", match: :first)
         paid_orders = Order.where(status: "paid")
         expect(paid_orders.count).to eq(6)
       end
@@ -101,9 +101,10 @@ RSpec.describe "admin_dashboard", type: :feature do
     describe "show order details" do 
 
       it "renders the order page" do 
-        order = Order.first
-        click_link("show", match: :first)
-        expect(current_path).to eq(dashboard_path(id: order))
+        order = Order.find(1)
+        pp page.body
+        click_link("1")
+        expect(current_path).to eq(dashboard_orders_path(id: order))
       end
     end
   end

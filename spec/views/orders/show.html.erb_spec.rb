@@ -23,8 +23,8 @@ RSpec.describe "orders/show.html.erb", tyep: :view do
     expect(rendered).to have_content(order.status)
   end
   
-  it "displays the orders items total number" do 
-    expect(rendered).to have_content("3 Items")
+  it "displays the total items number" do 
+    expect(rendered).to match /<span>3<\/span>/
   end
   
   it "show the sub-totala of an item" do 

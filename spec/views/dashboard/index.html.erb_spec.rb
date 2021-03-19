@@ -32,11 +32,11 @@ RSpec.describe "dashboard/index.html.erb", type: :view do
   end
 
   it "renders 'mark as paid' link near ordered orders" do 
-    expect(rendered).to have_link("mark as paid", count: 1)
+    expect(rendered).to have_link("paid", count: 1)
   end
   
   
   it "renders 'mark as completed' link near paid orders" do 
-    expect(rendered).to have_link("mark as completed", count: 1)
+    expect(rendered).to have_link("completed", count: 1)
   end
 end

@@ -55,7 +55,7 @@ RSpec.describe "User flow", type: :feature do
       it 'adds an order item to the cart' do 
         click_button("Add to Cart", match: :first)
         expect(current_path).to eq(order_path(Order.last))
-        expect(page).to have_content("1 Item")
+        expect(page).to have_content("Items: 1")
       end
       
       it "changes the order item quantity" do 
@@ -104,7 +104,7 @@ RSpec.describe "User flow", type: :feature do
     it 'adds an order item to the cart' do 
       click_button("Add to Cart", match: :first)
       expect(current_path).to eq(order_path(Order.last))
-      expect(page).to have_content("1 Item")
+      expect(page).to have_content("Items: 1")
     end
     
     it "changes the order item quantity" do 

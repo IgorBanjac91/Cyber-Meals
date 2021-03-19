@@ -2,11 +2,12 @@ require "rails_helper"
 
 RSpec.describe "items/show.html.erb", tyep: :view do 
   
-  let(:item) { create(:item, title: "Steak", description: "Juicy", price: 23.33 ) }
+  let(:item) { create(:item, title: "Steak", description: "Juicy", price: 23.33, categories: [create(:random_category)] ) }
 
   before(:each) do 
     assign(:item, item)
     categories_selector = item.categories.map { |c| [c.name, c.id] }
+    assign(:categorizations, Categorization.all)
     assign(:categories, categories_selector)
     render
   end

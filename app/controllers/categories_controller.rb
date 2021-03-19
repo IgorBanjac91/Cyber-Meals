@@ -15,14 +15,14 @@ before_action :only_admin
     if @category.save
       redirect_to categories_path
     else
-      render :index
+      redirect_to categories_path
     end
   end
-
+  
   def destroy
     @category = Category.find(params[:id])
     if @category.delete
-      render :index
+      redirect_to categories_path
     end
   end
 
