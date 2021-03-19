@@ -138,3 +138,14 @@ Design
     * Table
   - Admin dashboard
     * Table
+
+Remove new order from dashboard 
+  - change controller logic
+  - refactro tests
+
+  Add Features 
+
+  Pick up time: 
+    - 12 minutes by default ( this can be edited )
+    - 2 minutes for drinks
+    - Every 6 item that doesn't include drinks add 10 minutes 

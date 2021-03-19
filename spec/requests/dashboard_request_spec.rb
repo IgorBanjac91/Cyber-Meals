@@ -4,6 +4,7 @@ RSpec.describe "Dashboards", type: :request do
 
   let(:adim_user) { create(:user, :admin) }
   let(:regular_user) { create(:user) } 
+  let(:order) { create(:order, user: regular_user) }
 
   describe "GET /index" do
 
@@ -14,7 +15,7 @@ RSpec.describe "Dashboards", type: :request do
       end
       
       it "returns http success" do
-        get "/dashboard"
+        get dashboard_path
         expect(response).to have_http_status(:success)
       end
     end
@@ -28,10 +29,11 @@ RSpec.describe "Dashboards", type: :request do
       before(:each) do 
         create(:order, :with_random_user)
         sign_in :adim_user
+        order
       end
 
       it "returns http success" do
-        get "/dashboard/orders/1"
+        get dashboard_orders_path(order)
         expect(response).to have_http_status(:success)
       end
     end

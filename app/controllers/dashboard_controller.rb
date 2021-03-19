@@ -1,10 +1,11 @@
 class DashboardController < ApplicationController
 
   def index
+    @statuses = Order.select(:status).distinct.where.not(status: "new")
     if params[:status].present?
       @orders = Order.where(status: params[:status] )
     else
-      @orders = Order.all
+      @orders = Order.where.not(status: "new").order(:status).reverse
     end
   end
 

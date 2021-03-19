@@ -4,7 +4,7 @@
 
 
 <%= form_with url: "/dashboard", method: :get, class: "orders-checkbox" do |f| %>
-  <%= f.collection_check_boxes :status, Order.select(:status).distinct, :status, :status, {include_hidden: false }, {} do |b| %>
+  <%= f.collection_check_boxes :status, @statuses, :status, :status, {include_hidden: false }, {} do |b| %>
     <%= b.label do %>
       <%= b.check_box + b.text %>
     <% end %>

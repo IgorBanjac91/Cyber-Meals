@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "dashboard/index.html.erb", type: :view do
 
   let(:admin) { create(:user, :admin) }
-  let(:new_order) { new_oreder_with_order_itmes }
   let(:cancelled_order) { cancelled_oreder_with_order_itmes }
   let(:completed_order) { completed_oreder_with_order_itmes }
   let(:ordered_order) { ordered_oreder_with_order_itmes }
@@ -11,13 +10,12 @@ RSpec.describe "dashboard/index.html.erb", type: :view do
 
   before(:each) do 
     sign_in admin
-    # Creaion of all kind of orders
-    new_order
     cancelled_order
     completed_order
     ordered_order
     paid_order
     @orders = Order.all
+    assign(:statuses, @orders)
     render
   end
 
@@ -31,7 +29,7 @@ RSpec.describe "dashboard/index.html.erb", type: :view do
     expect(rendered).to have_link("cancel", count: 2) 
   end
 
-  it "renders 'mark as paid' link near ordered orders" do 
+  it "renders 'paid' link near ordered orders" do 
     expect(rendered).to have_link("paid", count: 1)
   end
   

@@ -7,7 +7,6 @@ RSpec.describe "admin_dashboard", type: :feature do
   before(:each) do 
     sign_in admin
     5.times do 
-      new_oreder_with_order_itmes
       cancelled_oreder_with_order_itmes
       completed_oreder_with_order_itmes
       ordered_oreder_with_order_itmes
@@ -28,27 +27,9 @@ RSpec.describe "admin_dashboard", type: :feature do
     
     describe "filter orders" do 
 
-      it "filters order by status 'new'" do 
-        new_orders = Order.where(status: "new")
-        other_orders = Order.where.not(status: "new")
-        find(:css, "#status_new[value='new']").set(true)
-        find(:css, "#status_completed[value='completed']").set(false)
-        find(:css, "#status_ordered[value='ordered']").set(false)
-        find(:css, "#status_cancelled[value='cancelled']").set(false)
-        find(:css, "#status_paid[value='paid']").set(false)
-        click_button("Filter")
-        new_orders.each do |order|
-          expect(page).to have_content(order.id)
-        end
-        other_orders.each do |order|
-          expect(page).to_not have_content(order.id)
-        end
-      end
-
       it "filters order by setting more than one status" do 
         new_orders = Order.where(status: "new")
         other_orders = Order.where.not(status: "new")
-        find(:css, "#status_new[value='new']").set(false)
         find(:css, "#status_paid[value='paid']").set(true)
         find(:css, "#status_completed[value='completed']").set(true)
         find(:css, "#status_ordered[value='ordered']").set(true)
@@ -101,9 +82,8 @@ RSpec.describe "admin_dashboard", type: :feature do
     describe "show order details" do 
 
       it "renders the order page" do 
-        order = Order.find(1)
-        pp page.body
-        click_link("1")
+        order = Order.where(status: "paid").first
+        click_link("#{order.id}")
         expect(current_path).to eq(dashboard_orders_path(id: order))
       end
     end
