@@ -1,6 +1,7 @@
 <h2 class="order-show-heading heading">Cart</h2>
 
 <div class="order-info">
+  <p class="order-info__order-id">Order id: <%= @order.id %></p>
   <p class="order-info__qunatity">
     <%= "Items".pluralize %>:
     <span><%= @order.order_items.count %></span>
@@ -14,6 +15,8 @@
     <p class="order-info__status-date">Completed at: <%= @order.updated_at %></p>
   <% elsif @order.status == "ordered" %>
     <p class="order-info__status-date">Ordered at: <%= @order.updated_at %></p>
+    <p>Prepartion Time: <%= @order.preparation_time %> minutes</p>
+    <p>Your order will be ready at: <%= (@order.updated_at + @order.preparation_time.minutes).strftime("%I:%M %p") %></p>
   <% end %>
 </div>
 
@@ -44,7 +47,9 @@
   </tfoot>
 </table>
 
-
+<%= form_with model: @order do |f| %>
+  <%= f.submit "Submit Order" %>
+<% end %>
 
 
 

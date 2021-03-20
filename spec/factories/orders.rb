@@ -10,6 +10,7 @@ FactoryBot.define do
     end
     trait :ordered do 
       status { "ordered" }
+      preparation_time { 12 } # When an order is status "ordered" it has to have a prepartion time
     end
   
     trait :paid do 

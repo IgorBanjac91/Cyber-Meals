@@ -155,5 +155,5 @@ Remove new order from dashboard
       * Add time_preparation column to orders
       * Add the time preparation after submission
     - Render the extimated time to the user orders page. 
-    - Render the extimated titme to the dashboard orders page
+    - Render the extimated time to the dashboard orders page
 

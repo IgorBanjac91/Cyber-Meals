@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
       end
     else
       if params[:user_id].to_i == current_user.id        
-        pp params[:user_id]
         @orders = Order.where(user_id: params[:user_id])
       else
         redirect_to root_path
@@ -24,6 +23,18 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  def update 
+    @order = Order.find(params[:id])
+    time_preparation = @order.time_preparation
+    if params[:commit] = "Submit Order"
+      @order.update(status: "ordered", preparation_time: time_preparation)
+      redirect_to order_path(@order)
+    else
+      flash[:alert] = "Unpermittted action"
+      redirect_to root_path
+    end
   end
 
   def change_status
