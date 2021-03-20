@@ -157,3 +157,17 @@ Remove new order from dashboard
     - Render the extimated time to the user orders page. 
     - Render the extimated time to the dashboard orders page
 
+  Sales:
+    !! create a list item page fo easy updating !!
+    features: Admin can apply a sale on items or entire groups ( in percentege )
+    View: 
+      - dashboard order page when sale applied:
+        * original price sales percentege and new price
+        * also on the new price, to show how much money were saved
+    code: 
+      Sale Model ( percentege: integer ) has to be a number between 1 and 100("free")
+        - has_many: Items and Categories
+      Heleper #on_sale? 
+      View logic for showing the price change 
+    
+    
