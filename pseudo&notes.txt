@@ -147,5 +147,13 @@ Remove new order from dashboard
 
   Pick up time: 
     - 12 minutes by default ( this can be edited )
-    - 2 minutes for drinks
+      * add a preparation_time column to item 
+      * for drinks the default is 2 minutes
+        - before saving the record check the category and set to 2 minutes if drinks
     - Every 6 item that doesn't include drinks add 10 minutes 
+      * When adding new order_items, when multiple of 6 add 10 extra minute to the total preparation time
+      * Add time_preparation column to orders
+      * Add the time preparation after submission
+    - Render the extimated time to the user orders page. 
+    - Render the extimated titme to the dashboard orders page
+

@@ -21,6 +21,13 @@
   </div>
 
   <div class="items-form__field">
+    <%= f.label :preparation_time do %>
+      <%= raw('Preparation Time <span>( Time in minutes )</sapn>') %>
+    <% end %>
+    <%= f.number_field :preparation_time, class: "items-form__text-input" %>
+  </div>
+
+  <div class="items-form__field">
     <%= f.label :image, class: "items-form__label" %>
     <%= f.file_field :image, class: "items-form__file-input " %>
     <%= f.hidden_field :image_cache %>

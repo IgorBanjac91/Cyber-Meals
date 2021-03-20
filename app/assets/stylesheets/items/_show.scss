@@ -1,11 +1,19 @@
-.img-description-container {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.item-info {
   margin-bottom: 20px;
-  width: 200px;
-  min-height: 200px;
+  
+  &__item-price {
+    font-size: 1.5rem;
+  }
+  &__img-container {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 20px;
+    width: 200px;
+    min-height: 200px;
+  }
 }
+
 
 .categories-list {
   list-style: square;

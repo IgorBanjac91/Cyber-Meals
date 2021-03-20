@@ -21,9 +21,11 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         fill_in("Description", with: "Jucy steak with roasted potatos")
         fill_in("Price", with: "10.50")
         select("Dessert", from: "item_category_ids")
+        fill_in("Preparation Time", with: "20")
         click_button("Create")
         expect(current_path).to eq item_path(Item.last)
       end
+      
     end
     
     describe "edit item flow" do 
@@ -33,11 +35,13 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         fill_in("Title", with: "Steak")
         fill_in("Description", with: "Juicy")
         fill_in("Price", with: "13")
+        fill_in("Preparation Time", with: "20")
         click_button("Update")
         expect(current_path).to eq item_path(item)
         expect(page).to have_content("Steak")
         expect(page).to have_content("Juicy")
         expect(page).to have_content("13")
+        expect(page).to have_content("20")
       end
     end
 

@@ -1,12 +1,16 @@
 <h2 class="item-title"><%= @item.title %></h2>  
 
-<span class="item-price"><%=number_to_currency(@item.price) %></span>
-
-<% if @item.image? %>
-  <div class="img-description-container", style="background-image: url('<%= @item.image %>')"></div>
-<% end %>
-
-<p class="item-description"><%= @item.description %></p>
+<section class="item-info">
+  <span class="item-info__item-price"><%=number_to_currency(@item.price) %></span>
+  
+  <% if @item.image? %>
+    <div class="item-info__img-container", style="background-image: url('<%= @item.image %>')"></div>
+  <% end %>
+  
+  <p class="item-info__item-description"><%= @item.description %></p>
+  
+  <p class="item-info__preparation-time"><%= @item.preparation_time %></p>
+</section>
 
 <h3 class="list-title">Categories:</h3>
 <ul class="categories-list">

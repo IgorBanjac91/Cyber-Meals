@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-  validates :title, :description, :price, presence: true
+  validates :title, :description, :price, :preparation_time,  presence: true
   validates :title, uniqueness: true
   validates :price, numericality: { greater_than: 0}
 
