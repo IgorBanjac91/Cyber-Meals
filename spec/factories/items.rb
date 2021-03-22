@@ -5,6 +5,7 @@ FactoryBot.define do
     price            { 7.50 }
     preparation_time { 12 }
     categories       { [create(:random_category)] }
+    sale
   end
 
   factory :random_item, class: Item do
@@ -13,6 +14,7 @@ FactoryBot.define do
     price            { Faker::Number.decimal(l_digits: 2) }
     preparation_time { 12 }
     categories       { [create(:random_category)] }
+    sale
   end
 
   trait :retired do 

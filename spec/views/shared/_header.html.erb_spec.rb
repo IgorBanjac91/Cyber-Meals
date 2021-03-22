@@ -31,6 +31,10 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
     it "does not render the categories link" do 
       expect(rendered).to_not have_link("Categories", href: categories_path)
     end
+    
+    it "doesn't render the New Sale link" do 
+      expect(rendered).to_not have_link("New Sale", href: new_sale_path)
+    end
   end
   
   context "with authenticated user" do 
@@ -65,6 +69,10 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
     it "shows the cart icon" do 
       expect(rendered).to have_css(".fa-shopping-cart")
     end
+
+    it "doesn't render the New Sale link" do 
+      expect(rendered).to_not have_link("New Sale", href: new_sale_path)
+    end
   end
   
   
@@ -91,6 +99,10 @@ RSpec.describe 'shared/_header.html.erb', type: :view do
     
     it "doesn't show the cart icon" do 
       expect(rendered).to_not have_css(".fa-shopping-cart")
+    end
+
+    it "renders the New Sale link" do 
+      expect(rendered).to have_link("New Sale", href: new_sale_path)
     end
   end
   

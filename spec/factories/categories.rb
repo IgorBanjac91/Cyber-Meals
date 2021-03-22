@@ -1,26 +1,32 @@
 FactoryBot.define do
   factory :category do
     name { "Dinner" }
+    sale 
   end
 
   factory :random_category, class: Category do 
     sequence(:name) { |n| Faker::Cannabis.strain + "#{n}"}
+    sale 
   end
 
   trait :invalid do
     name { " " }
+    sale 
   end
 
   trait :desserts do 
     name { "Desserts"}
+    sale 
   end
 
   trait :main do 
     name { "Main" }
+    sale 
   end
  
   trait :lactose_free do 
     name { "Lactose Free" }
+    sale 
   end
 end
 

@@ -9,5 +9,7 @@ class Item < ApplicationRecord
   
   has_many :order_items
 
+  belongs_to :sale
+
   mount_uploader :image, ImageUploader
 end

@@ -24,7 +24,8 @@ form {
 
 input[type=text],
 input[type=email],
-input[type=password] {
+input[type=password], 
+input[type=number] {
   box-sizing: border-box;
   height: 36px;
   width: 100%;
@@ -143,9 +144,40 @@ textarea:focus {
     margin-right: 10px;
     text-transform: capitalize;
   }
-
+  
   input {
     cursor: pointer;
   }
+  
+}
 
+
+/*
+============================
+          Sales
+============================
+*/
+
+.sales-form {
+
+  &__category-checkbox{
+    display: flex;
+    flex-flow: column nowrap;
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
+      margin-right: 5px;
+    }
+
+    label:nth-of-type(odd) {
+      background-color: hsla(300, 10, 80, 0.5);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+  }
 }

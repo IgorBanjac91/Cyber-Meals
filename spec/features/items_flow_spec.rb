@@ -77,11 +77,5 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
       end
     end
 
-    describe "putting items on sale" do 
-      
-      before(:each) do 
-        visit dashboard_itmes_ path
-      end
-    end
   end
 end

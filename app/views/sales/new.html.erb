@@ -1,0 +1,36 @@
+<h1 class="heading">New Sale</h1>
+
+<%= form_with model: @sale, class: "sales-form" do |f| %>
+
+  <div class="field">
+    <%= f.text_field :title, placeholder: :title %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :title, min: 0, max: 100, step: 5, placeholder: "Discount in %" %>
+  </div>
+
+
+  <div class="field sales-form__category-checkbox">
+    <h2>Categories:</h2>
+    <%= collection_check_boxes :sale, :category_ids, Category.all, :id, :name  do |b| %>
+      <%= b.label do %>
+        <%= b.check_box + b.text %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field sales-form__category-checkbox">
+    <h2>Items:</h2>
+    <%= collection_check_boxes :sale, :item_ids, Item.all, :id, :title  do |b| %>
+      <%= b.label do %>
+        <%= b.check_box + b.text %>
+      <% end %>
+    <% end %>
+  </div>
+
+  
+
+  <%= f.submit "Create Sale", class: "btn btn-primary" %>
+
+<% end %>
