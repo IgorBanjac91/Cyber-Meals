@@ -76,5 +76,12 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         expect(categories_ul).to have_content("Main")
       end
     end
+
+    describe "putting items on sale" do 
+      
+      before(:each) do 
+        visit dashboard_itmes_ path
+      end
+    end
   end
 end

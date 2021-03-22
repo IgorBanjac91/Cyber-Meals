@@ -86,7 +86,7 @@ vegan.items << [coke, fake_cheese, broccoli_dish, polenta]
 7.times do 
   dessert.items << Item.create(title: Faker::Dessert.unique.variety, 
                                description: Faker::Dessert.flavor, 
-                               price: Faker::Number.decimal(l_digits: 2),
+                               price: Faker::Number.decimal(l_digits: 2, r_digits: 2),
                                image: open("public/images/fish_and_chips.jpeg"))
 end
 
