@@ -1,32 +1,25 @@
-<% if admin_singed_in? %>
+<h2 class="item-index-heading heading">Menu</h2>
 
-  <%= render 'shared/admin/items_table' %>
+<div class="filter-items">
+  <form action="/">
+    <%= label_tag "Categories:", nil,  class: "filter_items__label" %>
+    <%= select(:category, :id, @category_options) %>
+    <%= submit_tag "Filter", class: "btn-filter" %>
+  </form>
+</div>
 
-<% else %>
-  <h2 class="item-index-heading heading">Menu</h2>
-
-  <div class="filter-items">
-    <form action="/">
-      <%= label_tag "Categories:", nil,  class: "filter_items__label" %>
-      <%= select(:category, :id, @category_options) %>
-      <%= submit_tag "Filter", class: "btn-filter" %>
-    </form>
-  </div>
-
-  <ul class="menu-list">
-    <% @items.each do |item| %>
-      <% if item.retired %>
-        <% if user_signed_in? && current_user.admin %>
-          <li>
-            <%= render 'shared/item', item: item %>
-          </li>
-        <% end %>
-      <% else %>
-          <li>                  
-            <%= render 'shared/item', item: item  %>
-          </li>
+<ul class="menu-list">
+  <% @items.each do |item| %>
+    <% if item.retired %>
+      <% if user_signed_in? && current_user.admin %>
+        <li>
+          <%= render 'shared/item', item: item %>
+        </li>
       <% end %>
+    <% else %>
+        <li>                  
+          <%= render 'shared/item', item: item  %>
+        </li>
     <% end %>
-  </ul>
-<% end %>
-
+  <% end %>
+</ul>

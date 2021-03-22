@@ -13,6 +13,7 @@ RSpec.describe "admin_dashboard", type: :feature do
       paid_oreder_with_order_itmes
     end
     @orders = Order.all
+    @items = Item.all
     visit dashboard_path
   end
 
@@ -24,6 +25,16 @@ RSpec.describe "admin_dashboard", type: :feature do
       end
     end
 
+    it "render a items link" do 
+      expect(page).to have_link("Items", href: dashboard_items_path)
+    end
+
+    it "show all items on the dashboar item page" do 
+      visit dashboard_items_path
+      @items.each do |item|
+        expect(page).to have_content(item.title)
+      end
+    end
     
     describe "filter orders" do 
 
@@ -44,7 +55,7 @@ RSpec.describe "admin_dashboard", type: :feature do
       end
     end
     
-    describe "change order status" do 
+    describe "change status of orders" do 
 
       it "changes from paid to cancelled" do 
         find(:css, "#status_paid[value='paid']").set(true)

@@ -86,7 +86,8 @@ vegan.items << [coke, fake_cheese, broccoli_dish, polenta]
 7.times do 
   dessert.items << Item.create(title: Faker::Dessert.unique.variety, 
                                description: Faker::Dessert.flavor, 
-                               price: Faker::Number.decimal(l_digits: 2))
+                               price: Faker::Number.decimal(l_digits: 2),
+                               image: open("public/images/fish_and_chips.jpeg"))
 end
 
 # ----------------- Orders ---------------------------
@@ -96,12 +97,16 @@ users = [user_1, user_2, user_3, user_4]
 items = Item.all 
 
 
-# Creating different orders wiht different statuses for each user
+# Creating different Orders wiht different Status for each User
 
 users.each do |user|
   item = nil
   order_status.each do |order_status| 
-    order = Order.create!(user: user, status: order_status)
+    if order_status == "ordered"
+      order = Order.create!(user: user, status: order_status, preparation_time: 200)
+    else
+      order = Order.create!(user: user, status: order_status)
+    end
     5.times do
       new_item = items.sample
       until item != new_item

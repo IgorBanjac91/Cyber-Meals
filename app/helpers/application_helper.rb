@@ -16,7 +16,3 @@ end
 def admin_signed_in?
   user_signed_in? ? current_user.admin? : false
 end
-
-def regular_user_signed_in?
-  !admin_signed_in?
-end

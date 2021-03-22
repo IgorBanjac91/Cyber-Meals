@@ -1,5 +1,9 @@
 class DashboardController < ApplicationController
 
+  def items 
+    @items = Item.all.includes(:categories)
+  end
+
   def index
     @statuses = Order.select(:status).distinct.where.not(status: "new")
     if params[:status].present?

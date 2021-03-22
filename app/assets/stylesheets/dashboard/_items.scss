@@ -1,0 +1,53 @@
+.dashboard-items {
+
+  .items-table {
+    tr {
+    }
+    
+    td {
+      vertical-align: middle;
+      overflow: hidden;
+      height: 100px;
+      padding: 20px;
+      div {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: 100px;;
+      }
+    } 
+    
+    
+    .image-container {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 100%;
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+
+    &__description {
+      width: 250px;
+    }
+
+    &__categories {
+      div {
+
+        ul {
+          list-style: disc;
+        }
+
+        li {
+          margin-bottom: 5px;
+        }
+
+      }
+    }
+  }
+}
