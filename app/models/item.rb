@@ -12,4 +12,19 @@ class Item < ApplicationRecord
   belongs_to :sale
 
   mount_uploader :image, ImageUploader
+
+
+  def on_sale?
+    sale ? true : false
+  end
+
+  def discounted_price
+    if self.on_sale?
+      discount = sale.discount
+      new_price = price - ( price / 100 * discount )
+      return new_price
+    else
+      return nil
+    end
+  end
 end

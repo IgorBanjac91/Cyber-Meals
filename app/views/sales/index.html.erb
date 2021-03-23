@@ -1,0 +1,10 @@
+<h1 class="heading">Sales</h1>
+
+<ul>
+  <% @sales.each do |sale| %>
+    <li>
+      <%= link_to sale.title, sale_path(sale), class: "link"  %>
+      <%= link_to "delete", sale_path(sale), method: :delete, class: "link"  %>
+    </li>
+  <% end %>
+</ul>

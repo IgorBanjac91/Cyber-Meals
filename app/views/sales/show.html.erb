@@ -1,0 +1,31 @@
+<h2><%= @sale.title %></h2>
+
+<span><%= @sale.discount %>% Discount</span>
+
+
+<h3>Itmes on sale:</h3>
+<% if @items %>
+  <ul>
+    <% @items.each do |item| %>
+      <li>
+        <%= item.title %><br />
+        <span><%= item.price %></span><br /> 
+        <span><%= item.discounted_price %></span>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No items</p>
+<% end %>
+
+<h3>Categories on sale:</h3>
+<% if @categories %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No categories</p>
+<% end %>
+
