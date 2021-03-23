@@ -1,0 +1,20 @@
+<%= form_with model: review do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :item_id, value: review.item.id %>
+
+  <div class="field">
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :body, placeholder: "Body" %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :rating, mim: 0, max: 5, step: 0.5, placeholder: "Rating" %>
+  </div>
+
+  <div>
+    <%= f.submit "Submit Review" %>
+  </div>
+<% end %>

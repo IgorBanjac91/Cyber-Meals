@@ -27,5 +27,18 @@
   <%= f.submit "Add Category", class: "btn-filter" %>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= render 'shared/form_review', review: @review %>
+<% end %>
+
+<ul>
+  <% @item.reviews.each do |review| %>
+    <li>
+      <span>Review form: <%= review.user.full_name %></span>
+      <p><%= review.title %></p>
+      <p><%= review.body %></p>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to "Edit", edit_item_path(@item), class: "link"  %>

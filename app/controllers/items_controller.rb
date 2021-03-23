@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @categories = Category.all.map { |c| [c.name, c.id] }
     @categorizations = @item.categorizations
+    @review = Review.new(item: @item)
   end
 
   def new

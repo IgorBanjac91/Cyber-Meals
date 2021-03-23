@@ -13,6 +13,8 @@ class Item < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  has_many :reviews 
+  has_many :users, through: :reviews
 
   def on_sale?
     sale ? true : false

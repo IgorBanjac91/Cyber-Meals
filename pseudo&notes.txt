@@ -173,5 +173,28 @@ Remove new order from dashboard
     Show page: 
       - should render the old price and the new price
       - 
-    
+
+    Review on Items: 
+        Data Model Review
+          - title:  string  300 char max  presence
+          - body:   string  1000 char max presence
+          - rating: number  1 to 5        presence
+          Associations: 
+            - review belongs_to item
+            - item has many reviews 
+            - user has many reviews
+            - review belongs to user
+      - show review on itme page
+      - authorizations: 
+        * unauhtenticated uses 
+          - can only see revieww
+          - other action are prohibited 
+        * authenticated users
+          - can see reviews
+          - can create reviews
+          - can edite only until 15 minutes after submission
+      - Tests: 
+        - Review flow: creation, updating ( Those test should cover enough )
+        - Request specs for authorizations
+
     

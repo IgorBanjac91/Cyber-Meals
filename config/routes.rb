@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   get 'dashboard/items',      to: "dashboard#items", as: :dashboard_items
 
   resources :sales
+  resources :reviews, only: [:new, :create, :update, :delete]
 end
