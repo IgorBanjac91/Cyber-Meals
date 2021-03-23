@@ -7,6 +7,7 @@
     <span><%= number_to_currency(item.price, precision: 2) %></span>
     <% if item.on_sale? %>
       <span><%= number_to_currency(item.discounted_price, precision: 2) %></span>
+      <span><%= item.sale.discount %>% off</span>
     <% end %>
     <p><%= adjust_length(item.description) %></p>
     <%= button_to "Add to Cart", order_items_path(item_id: item.id), class: "btn btn-add-to-cart" %>
