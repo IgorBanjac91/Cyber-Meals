@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
 
   def create
     @review = Review.new(review_params)
@@ -8,6 +10,16 @@ class ReviewsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to @review.item
   end
 
   protected

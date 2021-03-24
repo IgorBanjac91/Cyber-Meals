@@ -39,9 +39,11 @@ example_id                                                 | status  | run_time 
 ./spec/features/orders_flow_spec.rb[1:2:2]                 | passed  | 0.10943 seconds |
 ./spec/features/orders_flow_spec.rb[1:2:3:1]               | passed  | 0.11279 seconds |
 ./spec/features/orders_flow_spec.rb[1:2:3:2]               | passed  | 0.09912 seconds |
-./spec/features/review_flow_spec.rb[1:1:1:1]               | failed  | 0.24107 seconds |
-./spec/features/review_flow_spec.rb[1:1:2:1]               | failed  | 0.04075 seconds |
-./spec/features/review_flow_spec.rb[1:1:2:2]               | failed  | 0.02793 seconds |
+./spec/features/review_flow_spec.rb[1:1:1:1]               | passed  | 0.23689 seconds |
+./spec/features/review_flow_spec.rb[1:1:2:1]               | passed  | 0.049 seconds   |
+./spec/features/review_flow_spec.rb[1:1:2:2]               | passed  | 0.07918 seconds |
+./spec/features/review_flow_spec.rb[1:2:1:1]               | passed  | 0.11444 seconds |
+./spec/features/review_flow_spec.rb[1:2:2:1]               | passed  | 0.03782 seconds |
 ./spec/features/sales_flow_spec.rb[1:1:1]                  | passed  | 0.32413 seconds |
 ./spec/features/sales_flow_spec.rb[1:2:1]                  | passed  | 0.08653 seconds |
 ./spec/features/user_creation_flow_spec.rb[1:1]            | passed  | 0.06471 seconds |
@@ -125,6 +127,9 @@ example_id                                                 | status  | run_time 
 ./spec/requests/orders_request_spec.rb[1:2:1:2:1]          | passed  | 0.02369 seconds |
 ./spec/requests/registration_user_request_spec.rb[1:1:1:1] | passed  | 0.03573 seconds |
 ./spec/requests/registration_user_request_spec.rb[1:1:2:1] | passed  | 0.0143 seconds  |
+./spec/requests/reviews_request_spec.rb[1:1:1:1]           | passed  | 0.06655 seconds |
+./spec/requests/reviews_request_spec.rb[1:1:1:2]           | passed  | 0.00736 seconds |
+./spec/requests/reviews_request_spec.rb[1:1:2:1]           | passed  | 0.23327 seconds |
 ./spec/requests/sales_request_spec.rb[1:1:1]               | passed  | 0.19664 seconds |
 ./spec/requests/sales_request_spec.rb[1:2:1:1]             | passed  | 0.02393 seconds |
 ./spec/requests/sales_request_spec.rb[1:2:1:2]             | passed  | 0.01791 seconds |

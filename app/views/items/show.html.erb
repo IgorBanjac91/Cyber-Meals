@@ -37,6 +37,10 @@
       <span>Review form: <%= review.user.full_name %></span>
       <p><%= review.title %></p>
       <p><%= review.body %></p>
+      <p><%= review.rating %></p>
+      <% if review.within_15_minutes? %>
+        <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-secondary"  %>
+      <% end %>
     </li>
   <% end %>
 </ul>

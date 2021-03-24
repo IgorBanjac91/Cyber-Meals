@@ -14,7 +14,11 @@
     <%= f.number_field :rating, mim: 0, max: 5, step: 0.5, placeholder: "Rating" %>
   </div>
 
-  <div>
-    <%= f.submit "Submit Review" %>
+  <div class=field>
+    <% if review.new_record? %>
+      <%= f.submit "Submit Review" %>
+    <% else %>
+      <%= f.submit "Update" %>
+    <% end %>
   </div>
 <% end %>

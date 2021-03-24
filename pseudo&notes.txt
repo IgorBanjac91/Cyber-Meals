@@ -197,4 +197,15 @@ Remove new order from dashboard
         - Review flow: creation, updating ( Those test should cover enough )
         - Request specs for authorizations
 
+    Rccomendations: 
+      - Ability to add the same item of the last order
+        - small div that show the last ored items with a add items button
+      - Suggested items for each item adde, like amozon
+        - look for all order suggeste combination of items
+      - Most popular items
+        - make a small list of top 5 items
+      - Menu options with discount
+        - main + apetizer + dessert
+
+
     

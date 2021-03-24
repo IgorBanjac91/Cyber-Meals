@@ -1,7 +1,13 @@
 FactoryBot.define do
   factory :review do
-    title { "MyString" }
-    body { "MyText" }
-    rating { "9.99" }
+    title { "title review" }
+    body { "body text review" }
+    rating { "5" }
+    user
+    item 
+
+    trait :old_review do 
+      created_at { Time.now + 15.minutes }
+    end
   end
 end
