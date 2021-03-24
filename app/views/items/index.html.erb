@@ -1,5 +1,7 @@
 <h2 class="item-index-heading heading">Menu</h2>
 
+<!--   
+
 <div class="filter-items">
   <form action="/">
     <%= label_tag "Categories:", nil,  class: "filter_items__label" %>
@@ -7,19 +9,30 @@
     <%= submit_tag "Filter", class: "btn-filter" %>
   </form>
 </div>
-
-<ul class="menu-list">
-  <% @items.each do |item| %>
-    <% if item.retired %>
-      <% if user_signed_in? && current_user.admin %>
-        <li>
-          <%= render 'shared/item', item: item %>
-        </li>
+-->
+<div class="grid-wrapper">
+  <aside>
+    <h3>Categories</h3>
+    <ul>
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, items_path(category: category), class: "link"  %></li>
       <% end %>
-    <% else %>
-        <li>                  
-          <%= render 'shared/item', item: item  %>
-        </li>
+    </ul>
+  </aside>
+  
+  <ul class="menu-list">
+    <% @items.each do |item| %>
+      <% if item.retired %>
+        <% if user_signed_in? && current_user.admin %>
+          <li>
+            <%= render 'shared/item', item: item %>
+          </li>
+        <% end %>
+      <% else %>
+          <li>
+            <%= render 'shared/item', item: item  %>
+          </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
