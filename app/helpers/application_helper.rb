@@ -5,9 +5,9 @@ module ApplicationHelper
   end
 end
 
-def adjust_length(string, length: 40)
-  if string.size > 40
-    return string[0..40] + "..."
+def adjust_length(string, length = 40)
+  if string.size > length
+    return string[0..length] + "..."
   else
     string
   end
