@@ -1,21 +1,11 @@
 <h2 class="item-index-heading heading">Menu</h2>
 
-<!--   
-
-<div class="filter-items">
-  <form action="/">
-    <%= label_tag "Categories:", nil,  class: "filter_items__label" %>
-    <%= select(:category, :id, @category_options) %>
-    <%= submit_tag "Filter", class: "btn-filter" %>
-  </form>
-</div>
--->
 <div class="grid-wrapper">
   <aside class=aside-left>
     <h3>Categories</h3>
     <ul>
       <% @categories.each do |category| %>
-        <li><%= link_to category.name, items_path(category: category), class: "link"  %></li>
+        <li><%= link_to category.name, items_path(category_id: category.id), class: "link"  %></li>
       <% end %>
     </ul>
   </aside>

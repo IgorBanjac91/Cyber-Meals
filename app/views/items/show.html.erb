@@ -22,27 +22,17 @@
 <% end %>
 </ul>
 
-<%= form_with model: @item do |f| %>
-  <%= select(:category, :id, @categories)  %>
-  <%= f.submit "Add Category", class: "btn-filter" %>
+<% if admin_signed_in? %>
+  <%= form_with model: @item do |f| %>
+    <%= select(:category, :id, @categories)  %>
+    <%= f.submit "Add Category", class: "btn-filter" %>
+  <% end %>
 <% end %>
 
 <% if user_signed_in? %>
   <%= render 'shared/form_review', review: @review %>
 <% end %>
 
-<ul>
-  <% @item.reviews.each do |review| %>
-    <li>
-      <span>Review form: <%= review.user.full_name %></span>
-      <p><%= review.title %></p>
-      <p><%= review.body %></p>
-      <p><%= review.rating %></p>
-      <% if review.within_15_minutes? %>
-        <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-secondary"  %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= render "shared/list_reviews", item: @item %>
 
 <%= link_to "Edit", edit_item_path(@item), class: "link"  %>

@@ -207,5 +207,9 @@ Remove new order from dashboard
       - Menu options with discount
         - main + apetizer + dessert
 
+    Issue:
+      possbility to add order items to cancelled orders
+      
+
 
     

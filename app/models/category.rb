@@ -5,5 +5,5 @@ class Category < ApplicationRecord
   has_many :categorizations
   has_many :items, through: :categorizations
 
-  belongs_to :sale
+  belongs_to :sale, optional: true
 end

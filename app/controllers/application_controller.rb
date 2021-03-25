@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def load_order
-    @order = Order.find_or_initialize_by(id: session[:order_id])
+    @order = Order.find_or_initialize_by(id: session[:order_id], status: "new")
   
     if @order.new_record?
       @order.save!

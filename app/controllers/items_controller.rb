@@ -4,9 +4,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @items = Category.find(params[:category][:id]).items if params[:category].present?
+    @items = Category.find(params[:category_id]).items if params[:category_id].present?
     @categories = Category.all
-    @category_options = Category.all.map { |c| [ c.name, c.id ]} 
   end
 
   def show

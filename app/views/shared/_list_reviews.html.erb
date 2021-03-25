@@ -1,0 +1,13 @@
+<ul class="list-reviews">
+  <% @item.reviews.each do |review| %>
+    <li class="list-reviews__item">
+      <span><%= review.user.full_name %></span>
+      <p><%= review.title %></p>
+      <p><%= review.body %></p>
+      <span><%= review.rating %></span>
+      <% if review.within_15_minutes? %>
+        <%= link_to "Edit Review", edit_review_path(review), class: "btn btn-secondary"  %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

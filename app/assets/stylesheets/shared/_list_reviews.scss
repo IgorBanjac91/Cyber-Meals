@@ -1,0 +1,20 @@
+.list-reviews {
+  &__item {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+
+    span {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+
+  }
+}
