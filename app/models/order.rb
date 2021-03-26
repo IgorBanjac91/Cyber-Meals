@@ -33,4 +33,12 @@ class Order < ApplicationRecord
   def status_ordered? 
     self.status == "ordered"
   end
+
+  def submitted?
+    status == "ordered" ? true : false
+  end
+  
+  def new?
+    status == "new" ? true : false
+  end
 end

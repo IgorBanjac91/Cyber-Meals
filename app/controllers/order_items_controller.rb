@@ -28,7 +28,13 @@ class OrderItemsController < ApplicationController
     redirect_to order_path(@order_item.order)
   end
 
-  private
+  def destroy
+    @order_item = OrderItem.find(params[:id])
+    @order_item.delete
+    redirect_to order_path(params[:order_id])
+  end
+
+  protected
 
     def check_item
       @item = Item.find(params[:item_id])

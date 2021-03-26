@@ -36,6 +36,7 @@
         <td class="order-table__item-quantity"><%= link_to order_item.quantity, edit_order_item_path(order_item), class: "item-quantity" %></td>
         <td class="order-table__item-price"><%= order_item.item.price %></td>
         <td class="order-table__item-subtotal"><%= order_item.sub_total %></td>
+        <td><%= link_to "Remove Item", order_item_path(order_item, order_id: @order.id), method: :delete  %></td>
       </tr>    
     <% end %>    
   </tbody>
@@ -47,9 +48,38 @@
   </tfoot>
 </table>
 
-<%= form_with model: @order do |f| %>
-  <%= f.submit "Submit Order" %>
+<% if @order.new? && user_signed_in? %>
+  <aside>
+    <% unless @last_order_completed.order_items.empty? %>
+      <h3>Last order:</h3>
+      <span>Order id:<%= @last_order_completed.id %></span>
+      <span>Date: <%= @last_order_completed.created_at.strftime("%Y-%b-%d") %></span>
+      <h4>Items:</h4>
+      <ul>
+        <% @last_order_completed.order_items.each do |order_item|  %>
+          <li>
+            <%= order_item.item.title %>
+            <%= order_item.item.price %>
+            <%= order_item.quantity %>
+            <%= order_item.sub_total %>
+          </li>
+        <% end %>
+        <p>Total: <%= @last_order_completed.total_price %></p>
+        <%= form_with url: order_path(@order), method: :patch do |f|  %>
+          <%= f.hidden_field :last_order_id, value: @last_order_completed.id  %>
+          <%= f.submit "Order Again" %>
+        <% end %>
+      </ul>
+    <% end %>
+  </aside>
+
+  <% unless @order.submitted? %>
+    <%= form_with model: @order do |f| %>
+      <%= f.submit "Submit Order" %>
+    <% end %>
+  <% end %>
 <% end %>
+
 
 
 

@@ -1,7 +1,8 @@
 module ApplicationHelper
 
-  def current_order
-    Order.find(session[:order_id])
+
+  def pretty_date(date)
+    date.strftime("%Y-%m-%d")
   end
 end
 

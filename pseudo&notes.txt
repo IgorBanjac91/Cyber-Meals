@@ -196,10 +196,14 @@ Remove new order from dashboard
       - Tests: 
         - Review flow: creation, updating ( Those test should cover enough )
         - Request specs for authorizations
+    Issue:
+      possbility to add order items to cancelled orders SOLVED
 
     Rccomendations: 
       - Ability to add the same item of the last order
-        - small div that show the last ored items with a add items button
+          * Query the the last order and show on the side of 
+            page order the order info and the possbility 
+            to add the items to the new order
       - Suggested items for each item adde, like amozon
         - look for all order suggeste combination of items
       - Most popular items
@@ -207,8 +211,6 @@ Remove new order from dashboard
       - Menu options with discount
         - main + apetizer + dessert
 
-    Issue:
-      possbility to add order items to cancelled orders
       
 
 

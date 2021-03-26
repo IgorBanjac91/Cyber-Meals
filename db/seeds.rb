@@ -110,10 +110,10 @@ end
 # Creating different Orders wiht different Status for each User
 
 users.each do |user| 
-  random_order_items( Order.create!(status: "cancelled"))
-  random_order_items( Order.create!(status: "ordered", preparation_time: 200))
-  random_order_items( Order.create!(status: "paid"))
-  random_order_items( Order.create!(status: "completed"))
+  random_order_items( Order.create!(status: "cancelled", user: user))
+  random_order_items( Order.create!(status: "ordered", user: user, preparation_time: 200))
+  random_order_items( Order.create!(status: "paid", user: user))
+  random_order_items( Order.create!(status: "completed", user: user))
 end
 
 # Reviews 

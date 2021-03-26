@@ -3,11 +3,10 @@
 
 <nav>
   <ul>
-    <li><%= link_to "All", orders_path(status: "all")  %></li>
-    <li><%= link_to "New", orders_path(status: "new")  %></li>
-    <li><%= link_to "Cancelled", orders_path(status: "cancelled") %></li>
-    <li><%= link_to "Ordered", orders_path(status: "ordered") %></li>
-    <li><%= link_to "Completed", orders_path(status: "completed") %></li>
+    <li><%= link_to "All", orders_path(status: "all"), class: "link"  %></li>
+    <li><%= link_to "Cancelled", orders_path(status: "cancelled"), class: "link" %></li>
+    <li><%= link_to "Ordered", orders_path(status: "ordered"), class: "link" %></li>
+    <li><%= link_to "Completed", orders_path(status: "completed"), class: "link" %></li>
   </ul>
 </nav>
 
@@ -16,8 +15,7 @@
     <tr>
       <th>Id</th>
       <th>Date</th>
-      <th>Status</th>
-      
+      <th>Status</th>   
     </tr>
   </thead>
   <tbody>

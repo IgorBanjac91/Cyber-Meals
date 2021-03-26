@@ -3,13 +3,26 @@ require "rails_helper"
 RSpec.describe "orders_flow", type: :feature do 
 
   let(:user) { create(:user) }
+  let(:user_2) { create(:random_user)}
 
   before(:each) do 
-    @new_orders = create_list(:order, 4, user: user, status: "new")
+    @new_order = create(:order, user: user)
+    @last_completed_order = create(:order, user: user)
+    @last_completed_order.order_items = create_list(:order_item, 5)
     @cancelled_orders = create_list(:order, 4, user: user, status: "cancelled")
     @completed_orders = create_list(:order, 4, user: user, status: "completed")
+    @completed_orders_2 = create_list(:order, 4, user: user, status: "completed")
     @ordered_orders = create_list(:order, 4, user: user, status: "ordered", preparation_time: 0)
     sign_in user
+  end
+
+  describe "adding last order items to new order" do 
+
+    it 'adds the items' do 
+      visit order_path(@new_order)
+      click_link("Order Again")
+      expect(@new_order.order_items).to eq(@last_order.order_items)
+    end
   end
 
   describe "browse orders by status" do 
@@ -21,10 +34,14 @@ RSpec.describe "orders_flow", type: :feature do
 
     describe "clicking all" do 
 
-      it "shows all orders" do 
+      it "shows all orders except new" do 
         click_link("All")
         user.orders.each do |order|
-          expect(page).to have_content(order.id)
+          if order.new?
+            expect(page).to_not have_content(order.id)
+          else
+            expect(page).to have_content(order.id)
+          end
         end
       end
     end
@@ -54,16 +71,6 @@ RSpec.describe "orders_flow", type: :feature do
       it 'shows only completed oreders' do 
         click_link("Completed")
         @completed_orders.each do |order|
-          expect(page).to have_content(order.id)
-        end
-      end
-    end
-
-    describe "clicking new status orderd link" do 
-      
-      it 'shows only new oreders' do 
-        click_link("New")
-        @new_orders.each do |order|
           expect(page).to have_content(order.id)
         end
       end
