@@ -205,7 +205,10 @@ Remove new order from dashboard
             page order the order info and the possbility 
             to add the items to the new order
       - Suggested items for each item adde, like amozon
-        - look for all order suggeste combination of items
+        - look for all order and suggeste combination of items
+          procedure: 
+            - add item 
+            - show 2 suggested items per each item added to a maximum of 8
       - Most popular items
         - make a small list of top 5 items
       - Menu options with discount

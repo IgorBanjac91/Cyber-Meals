@@ -4,7 +4,9 @@ class Order < ApplicationRecord
   validates :preparation_time, presence: true, if: :status_ordered?
 
   belongs_to :user, optional: true
+
   has_many :order_items, dependent: :destroy
+  has_many :ordered_items, through: :order_items, source: :item
 
   def total_price
     total = order_items.inject(0) { |sum, order_item| sum + order_item.sub_total }

@@ -46,6 +46,8 @@ example_id                                                 | status  | run_time 
 ./spec/features/review_flow_spec.rb[1:2:2:1]               | passed  | 0.03782 seconds |
 ./spec/features/sales_flow_spec.rb[1:1:1]                  | passed  | 0.32413 seconds |
 ./spec/features/sales_flow_spec.rb[1:2:1]                  | passed  | 0.08653 seconds |
+./spec/features/suggested_items_spec.rb[1:1:1]             | passed  | 0.48067 seconds |
+./spec/features/suggested_items_spec.rb[1:1:2]             | passed  | 0.24891 seconds |
 ./spec/features/user_creation_flow_spec.rb[1:1]            | passed  | 0.06471 seconds |
 ./spec/features/user_flow_spec.rb[1:1:1:1]                 | passed  | 0.08272 seconds |
 ./spec/features/user_flow_spec.rb[1:1:2:1]                 | passed  | 0.08588 seconds |

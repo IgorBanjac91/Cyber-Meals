@@ -48,7 +48,7 @@
   </tfoot>
 </table>
 
-<% if @order.new? && user_signed_in? %>
+<% if @order.new? && user_signed_in? && @last_order_completed %>
   <aside>
     <% unless @last_order_completed.order_items.empty? %>
       <h3>Last order:</h3>
@@ -72,13 +72,23 @@
       </ul>
     <% end %>
   </aside>
-
   <% unless @order.submitted? %>
     <%= form_with model: @order do |f| %>
       <%= f.submit "Submit Order" %>
     <% end %>
   <% end %>
 <% end %>
+
+  <aside class="suggested-items">
+    <h2>Suggested Itmes:</h2>
+    <ul class="suggested-items-list">
+      <% @suggested_items.each do |item| %>
+        <li class="suggested-items-list__list-item">
+          <%= render 'shared/item', item: item %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
 
 
 

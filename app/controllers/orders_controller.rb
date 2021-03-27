@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:create, :index]
   before_action :order_again?, only: [:update]
   before_action :check_ownership, only: [:edit, :show]
+  before_action :find_suggested, only: [:show]
 
   def index
     if params[:status].present?
@@ -67,6 +68,20 @@ class OrdersController < ApplicationController
       end
       redirect_to order_path(@order)
     end
+  end
+
+  # finds two most common items taken with each item adde to the order
+
+  def find_suggested 
+    @suggested_items = []
+    @order = Order.find(session[:order_id])
+    @order.ordered_items.each do |item|
+      orders_ids = item.order_ids
+      items = Item.joins(:order_items).where(order_items: {order_id: orders_ids } ).where.not(title: item.title)
+      titles = items.group(:title).count.sort_by { |k, v| -v }
+      @suggested_items << Item.with_title([titles[0][0], titles[1][0]])
+    end
+    @suggested_items = @suggested_items.flatten.uniq
   end
 
 end

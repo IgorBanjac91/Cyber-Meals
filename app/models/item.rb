@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
 
+  scope :with_title, ->(title) { where(title: title) }
+
   validates :title, :description, :price, :preparation_time,  presence: true
   validates :title, uniqueness: true
   validates :price, numericality: { greater_than: 0}
@@ -8,6 +10,7 @@ class Item < ApplicationRecord
   has_many :categories, through: :categorizations
   
   has_many :order_items
+  has_many :orders, through: :order_items
 
   belongs_to :sale, optional: true
 
