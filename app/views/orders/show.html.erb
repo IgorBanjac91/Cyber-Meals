@@ -79,17 +79,28 @@
   <% end %>
 <% end %>
 
-  <aside class="suggested-items">
-    <h2>Suggested Itmes:</h2>
-    <ul class="suggested-items-list">
-      <% @suggested_items.each do |item| %>
-        <li class="suggested-items-list__list-item">
-          <%= render 'shared/item', item: item %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
+<aside class="suggested-items">
+  <h2>Suggested Items:</h2>
+  <ul class="suggested-items-list">
+    <% @suggested_items.each do |item| %>
+      <li class="suggested-items-list__list-item">
+        <%= render 'shared/item', item: item %>
+      </li>
+    <% end %>
+  </ul>
+</aside>
 
+
+<aside class="popular-items">
+  <h2>Popular Items:</h2>
+  <ul class="suggested-items-list">
+    <% @popular_items.each do |item| %>
+      <li class="suggested-items-list__list-item">
+        <%= render 'shared/item', item: item %>
+      </li>
+    <% end %>
+  </ul>
+</aside>
 
 
 

@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :order_again?, only: [:update]
   before_action :check_ownership, only: [:edit, :show]
   before_action :find_suggested, only: [:show]
+  before_action :find_pupular, only: [:show]
 
   def index
     if params[:status].present?
@@ -84,4 +85,10 @@ class OrdersController < ApplicationController
     @suggested_items = @suggested_items.flatten.uniq
   end
 
+  def find_pupular
+    group = OrderItem.group(:item_id).count.sort_by { |k, v| -v }
+    itme_ids = [group[0][0], group[1][0], group[2][0]]
+    @popular_items = Item.find(itme_ids)
+
+  end
 end
