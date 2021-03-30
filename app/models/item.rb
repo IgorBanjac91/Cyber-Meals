@@ -1,12 +1,13 @@
 class Item < ApplicationRecord
 
   scope :with_title, ->(title) { where(title: title) }
+  
 
   validates :title, :description, :price, :preparation_time,  presence: true
   validates :title, uniqueness: true
   validates :price, numericality: { greater_than: 0}
 
-  has_many :categorizations
+  has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
   
   has_many :order_items
@@ -16,8 +17,11 @@ class Item < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  has_many :reviews 
+  has_many :reviews
   has_many :users, through: :reviews
+
+  has_many :menu_items
+  has_many :menus, through: :menu_items
 
   def on_sale?
     sale ? true : false

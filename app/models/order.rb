@@ -8,6 +8,8 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :ordered_items, through: :order_items, source: :item
 
+  has_many :menus
+
   def total_price
     total = order_items.inject(0) { |sum, order_item| sum + order_item.sub_total }
   end

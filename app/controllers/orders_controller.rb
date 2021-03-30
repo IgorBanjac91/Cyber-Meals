@@ -86,9 +86,10 @@ class OrdersController < ApplicationController
   end
 
   def find_pupular
-    group = OrderItem.group(:item_id).count.sort_by { |k, v| -v }
-    itme_ids = [group[0][0], group[1][0], group[2][0]]
-    @popular_items = Item.find(itme_ids)
-
+    if OrderItem.any?
+      group = OrderItem.group(:item_id).count.sort_by { |k, v| -v }
+      itme_ids = [group[0][0], group[1][0], group[2][0]]
+      @popular_items = Item.find(itme_ids)
+    end
   end
 end

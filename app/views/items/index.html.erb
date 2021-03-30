@@ -2,6 +2,9 @@
 
 <div class="grid-wrapper">
   <aside class=aside-left>
+    <div class="menu-option">
+      <%= link_to "Menu Option", new_menu_path, class: "menu-option__link"  %>
+    </div>
     <h3>Categories</h3>
     <ul>
       <% @categories.each do |category| %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'menus/new'
+  get 'menus/edit'
   root to: "items#index"
 
   devise_scope :user do 
@@ -30,4 +32,5 @@ Rails.application.routes.draw do
 
   resources :sales
   resources :reviews
+  resources :menus
 end

@@ -4,6 +4,10 @@ module ApplicationHelper
   def pretty_date(date)
     date.strftime("%Y-%m-%d")
   end
+
+  def pretty_price(price)
+    "$#{price}"
+  end
 end
 
 def adjust_length(string, length = 40)

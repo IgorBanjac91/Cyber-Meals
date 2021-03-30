@@ -24,18 +24,32 @@
   <thead>
     <tr>
       <th class="order-table__item-title" >Name</th>
+      <th class="order-table__item-title" >Description</th>
       <th class="order-table__item-quantity">Quantity</th>
       <th class="order-table__item-price">Price</th>
       <th class="order-table__item-subtotal">Sub-total</th>
     </tr>
   </thead>
   <tbody>
+  <% if @order.menus.any? %>
+    <% @order.menus.each do |menu| %>
+      <tr>
+        <td class="order-table__menu-title" >Menu</td>
+        <td class="order-table__menu-description" ><%= menu.description %></td>
+        <td class="order-table__menu-quntity" ><%= menu.quantity %></td>
+        <td class="order-table__menu-price" ><%= number_to_currency(menu.price) %></td>
+        <td class="order-table__menu-subtotal" ><%= number_to_currency(menu.sub_total) %></td>
+        <td class="order-table__menu-remove" ><%= link_to "Remove Item", href: "#" %></td>
+      </tr>
+    <% end %>
+  <% end %>
     <% @order.order_items.each do |order_item| %>
       <tr>
         <td class="order-table__item-title" ><%= link_to order_item.item.title, item_path(order_item.item) %></td>
+        <td class="order-table__item-title" ><%= link_to order_item.item.description %></td>
         <td class="order-table__item-quantity"><%= link_to order_item.quantity, edit_order_item_path(order_item), class: "item-quantity" %></td>
-        <td class="order-table__item-price"><%= order_item.item.price %></td>
-        <td class="order-table__item-subtotal"><%= order_item.sub_total %></td>
+        <td class="order-table__item-price"><%= number_to_currency(order_item.item.price) %></td>
+        <td class="order-table__item-subtotal"><%= number_to_currency(order_item.sub_total) %></td>
         <td><%= link_to "Remove Item", order_item_path(order_item, order_id: @order.id), method: :delete  %></td>
       </tr>    
     <% end %>    
@@ -43,7 +57,7 @@
   <tfoot>
     <tr>
       <td colspan="3">Total</td>
-      <td class="order-table__total"><%= @order.total_price %></td>
+      <td class="order-table__total"><%= number_to_currency(@order.total_price) %></td>
     </tr>
   </tfoot>
 </table>
@@ -64,7 +78,7 @@
             <%= order_item.sub_total %>
           </li>
         <% end %>
-        <p>Total: <%= @last_order_completed.total_price %></p>
+        <p>Total: <%= number_to_currency(@last_order_completed.total_price, precision: 2) %></p>
         <%= form_with url: order_path(@order), method: :patch do |f|  %>
           <%= f.hidden_field :last_order_id, value: @last_order_completed.id  %>
           <%= f.submit "Order Again" %>
@@ -90,17 +104,18 @@
   </ul>
 </aside>
 
-
-<aside class="popular-items">
-  <h2>Popular Items:</h2>
-  <ul class="suggested-items-list">
-    <% @popular_items.each do |item| %>
-      <li class="suggested-items-list__list-item">
-        <%= render 'shared/item', item: item %>
-      </li>
-    <% end %>
-  </ul>
-</aside>
+<% if @popular_items %>
+  <aside class="popular-items">
+    <h2>Popular Items:</h2>
+    <ul class="suggested-items-list">
+      <% @popular_items.each do |item| %>
+        <li class="suggested-items-list__list-item">
+          <%= render 'shared/item', item: item %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
 
 
 
