@@ -4,7 +4,7 @@
   <p class="order-info__order-id">Order id: <%= @order.id %></p>
   <p class="order-info__qunatity">
     <%= "Items".pluralize %>:
-    <span><%= @order.order_items.count %></span>
+    <span><%= @order.total_items %></span>
   </p>
   
   <p class="order-info__status">Status: <span><%= @order.status %></span></p>
@@ -39,7 +39,8 @@
         <td class="order-table__menu-quntity" ><%= menu.quantity %></td>
         <td class="order-table__menu-price" ><%= number_to_currency(menu.price) %></td>
         <td class="order-table__menu-subtotal" ><%= number_to_currency(menu.sub_total) %></td>
-        <td class="order-table__menu-remove" ><%= link_to "Remove Item", href: "#" %></td>
+        <td class="order-table__menu-remove" ><%= link_to "Remove Menu", menu_path(menu), method: :delete %></td>
+        <td class="order-table__menu-edit" ><%= link_to "Edit Menu", edit_menu_path(menu) %></td>
       </tr>
     <% end %>
   <% end %>

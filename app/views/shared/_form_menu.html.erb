@@ -1,0 +1,40 @@
+<%= form_with model: menu do |f| %>
+
+  <%= f.fields_for :item_ids do |nf|  %>
+    <div class="field">
+      <%= nf.label "Appetaizer" %>
+      <%= nf.select :appetaizer_id, options_from_collection_for_select(appetaizers, :id, :title), 
+                                                                    { class: "items-form__select" } %>
+    </div>
+    <div class="field">
+      <%= nf.label "Main Dish" %>
+      <%= nf.select :main_dish_id, options_from_collection_for_select(main_dishes, :id, :title), 
+                                                                    { class: "items-form__select" } %>
+    </div>
+    <div class="field">
+      <%= nf.label "Dessert" %>
+      <%= nf.select :dessert_id, options_from_collection_for_select(desserts, :id, :title),
+                                                                  { class: "items-form__select" } %>
+    </div>
+    <div class="field">
+      <%= nf.label "Drink" %>
+      <%= nf.select :drink_id, options_from_collection_for_select(drinks, :id, :title),
+                                                                { class: "items-form__select" } %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Quantity" %>
+    <%= f.number_field :quantity, min: 1, max:10, step: 1 %>
+  </div>
+
+
+  <div class="field">
+    <% if menu.new_record? %>
+      <%= f.submit "Add to Order" %>
+    <% else %>
+      <%= f.submit "Update Menu" %>
+    <% end %>
+  </div>
+
+<% end %>

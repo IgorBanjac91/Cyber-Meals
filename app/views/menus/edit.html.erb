@@ -1,2 +1,7 @@
-<h1>Menus#edit</h1>
-<p>Find me in app/views/menus/edit.html.erb</p>
+<h1 class="heading">Edit Menu</h1>
+
+<%= render "shared/form_menu", { appetaizers: @appetaizers,
+                                 main_dishes: @main_dishes, 
+                                 desserts: @desserts, 
+                                 drinks: @drinks,
+                                 menu: @menu } %>

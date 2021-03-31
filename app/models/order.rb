@@ -11,7 +11,9 @@ class Order < ApplicationRecord
   has_many :menus
 
   def total_price
-    total = order_items.inject(0) { |sum, order_item| sum + order_item.sub_total }
+    total_items = order_items.inject(0) { |sum, order_item| sum + order_item.sub_total }
+    total_menus = menus.inject(0) { |sum, menu| sum + menu.sub_total }
+    total = total_items + total_menus
   end
 
   def creation_date
@@ -32,6 +34,10 @@ class Order < ApplicationRecord
     else
      return time
     end
+  end
+
+  def total_items
+    order_items.count + menus.count
   end
 
   def status_ordered? 

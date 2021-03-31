@@ -214,6 +214,10 @@ Remove new order from dashboard
       - Menu options with discount
         - main + apetizer + dessert
 
+      - edit the menu from the order from the order page
+      - remove the menu fro the order page
+      
+
       
 
 

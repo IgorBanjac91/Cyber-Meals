@@ -75,7 +75,7 @@ class OrdersController < ApplicationController
 
   def find_suggested 
     @suggested_items = []
-    @order = Order.find(session[:order_id])
+    load_order
     @order.ordered_items.each do |item|
       orders_ids = item.order_ids
       items = Item.joins(:order_items).where(order_items: {order_id: orders_ids } ).where.not(title: item.title)
