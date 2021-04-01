@@ -3,14 +3,16 @@
 <div class="grid-wrapper">
   <aside class=aside-left>
     <div class="menu-option">
-      <%= link_to "Menu Option", new_menu_path, class: "menu-option__link"  %>
+      <%= link_to "Menu Option", new_menu_path, class: "menu-option__button"  %>
     </div>
-    <h3>Categories</h3>
-    <ul>
-      <% @categories.each do |category| %>
-        <li><%= link_to category.name, items_path(category_id: category.id), class: "link"  %></li>
-      <% end %>
-    </ul>
+    <div class="items-filter">
+      <h3 class="items-filter__heading">Categories</h3>
+      <ul calss="items-filter__list">
+        <% @categories.each do |category| %>
+          <li class=items-filter__list-item><%= link_to category.name, items_path(category_id: category.id), class: "link"  %></li>
+        <% end %>
+      </ul>
+    </div>
   </aside>
   
   <ul class="menu-list">

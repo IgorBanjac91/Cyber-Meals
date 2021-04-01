@@ -12,9 +12,11 @@
       color: $secondary-color;
       text-transform: uppercase;
     }
+  }
+}
 
-    &__status {
-
-    }
+.popular-items {
+  h2 {
+    margin-bottom: 20px;
   }
 }

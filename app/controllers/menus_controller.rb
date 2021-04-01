@@ -12,7 +12,7 @@ class MenusController < ApplicationController
     @menu = @order.menus.build(quantity: 1)
     items_ids = params[:menu][:item_ids].values
     @menu.items << Item.where(id: items_ids)
-    @menu.quntity = params[:menu][:quantity]
+    @menu.quantity = params[:menu][:quantity]
     @menu.format_description
     @menu.calculate_price
     if @menu.save

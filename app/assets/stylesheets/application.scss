@@ -22,6 +22,7 @@
 @import 'shared/item_card';
 @import 'shared/error_messages';
 @import 'shared/list_reviews';
+@import 'shared/footer';
 
 @import 'items/edit';
 @import 'items/show';
@@ -31,4 +32,7 @@
 
 @import 'categories/index';
 
-@import 'dashboard/items'
+@import 'dashboard/items';
+
+@import 'responsive/desktop';
+@import 'responsive/tablet';
