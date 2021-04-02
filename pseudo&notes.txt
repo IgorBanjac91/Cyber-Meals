@@ -217,6 +217,24 @@ Remove new order from dashboard
       - edit the menu from the order from the order page
       - remove the menu fro the order page
       
+    Search by name Feature
+      - Regulr user can search for itmes by name
+        * create text input field that send a get request that wil be routeed to the
+          items controller and will query the database if the text matches any item title
+
+      - Search through my order for matches in the item name or description
+        * query the order that matches the text with the title or the description of each orders items
+          that belongs to the current user
+
+      - add serch bar in the menu page
+      - add serch bar in the order page
+
+    Admin: 
+      - Advance search orders: 
+        * drop down for statuses
+        * drop down for <, >, = + text for total 
+        * drop down for <, >, = + text for date
+        * Email address 
 
       
 

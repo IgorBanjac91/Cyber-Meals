@@ -2,6 +2,11 @@
 
 <div class="grid-wrapper">
   <aside class=aside-left>
+    <%= form_with url: items_path,  method: :get do |f| %>
+      <%= f.label :query, "Item title:"  %>
+      <%= f.text_field :query %>
+      <%= f.submit "Search" %>
+    <% end %>
     <div class="menu-option">
       <%= link_to "Menu Option", new_menu_path, class: "menu-option__button"  %>
     </div>

@@ -6,19 +6,7 @@ class OrdersController < ApplicationController
   before_action :find_pupular, only: [:show]
 
   def index
-    if params[:status].present?
-      if params[:status] == "all"
-        @orders = Order.where(user: current_user)
-      else
-        @orders = Order.where(user_id: current_user.id, status: params[:status]) 
-      end
-    else
-      if params[:user_id].to_i == current_user.id        
-        @orders = Order.where(user_id: params[:user_id])
-      else
-        redirect_to root_path
-      end
-    end
+    @orders = Order.search(params)
   end
 
   def edit

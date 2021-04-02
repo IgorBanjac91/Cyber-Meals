@@ -6,9 +6,13 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
 
     let(:admin) { create(:user, :admin) }
     let(:item) { create(:item, title: "Carbonara", description: "always good", price: "10.00") }
+    let(:item2) { create(:item, title: "item2", description: "always good", price: "10.00") }
+    let(:item3) { create(:item, title: "item3", description: "sometimes good", price: "10.00") }
 
     before(:each) do 
       item
+      item2
+      item3
       sign_in admin
       visit root_path
     end
@@ -57,7 +61,7 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
       item.categories = [main, lactose_free]
     end
 
-    describe "categorizing and item" do 
+    describe "categorizing an item" do 
 
       it "adds a new category to an item" do 
         click_link("Carbonara", href: item_path(item))
@@ -76,6 +80,5 @@ RSpec.describe "items_flow_spec.rb", type: :feature do
         expect(categories_ul).to have_content("Main")
       end
     end
-
   end
 end

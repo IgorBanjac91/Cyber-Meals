@@ -25,10 +25,11 @@ example_id                                                 | status  | run_time 
 ./spec/features/admin_dashboard_flow_spec.rb[1:1:6:1]      | unknown |                 |
 ./spec/features/categories_flow_spec.rb[1:1:1:1]           | passed  | 0.06958 seconds |
 ./spec/features/categories_flow_spec.rb[1:2:1:1]           | passed  | 0.07376 seconds |
-./spec/features/items_flow_spec.rb[1:1:1:1]                | passed  | 0.12301 seconds |
-./spec/features/items_flow_spec.rb[1:1:2:1]                | passed  | 0.12528 seconds |
-./spec/features/items_flow_spec.rb[1:1:3:1]                | passed  | 0.11271 seconds |
-./spec/features/items_flow_spec.rb[1:1:3:2]                | passed  | 0.10514 seconds |
+./spec/features/items_flow_spec.rb[1:1:1:1]                | passed  | 0.40617 seconds |
+./spec/features/items_flow_spec.rb[1:1:2:1]                | passed  | 0.17684 seconds |
+./spec/features/items_flow_spec.rb[1:1:3:1]                | passed  | 0.14932 seconds |
+./spec/features/items_flow_spec.rb[1:1:3:2]                | passed  | 0.13869 seconds |
+./spec/features/items_flow_spec.rb[1:1:4:1]                | passed  | 0.1456 seconds  |
 ./spec/features/menu_option_spec.rb[1:1:1]                 | passed  | 0.54223 seconds |
 ./spec/features/menu_option_spec.rb[1:2:1]                 | failed  | 0.23775 seconds |
 ./spec/features/menu_option_spec.rb[1:3:1]                 | passed  | 0.18683 seconds |
@@ -49,6 +50,11 @@ example_id                                                 | status  | run_time 
 ./spec/features/review_flow_spec.rb[1:2:2:1]               | passed  | 0.03782 seconds |
 ./spec/features/sales_flow_spec.rb[1:1:1]                  | passed  | 0.32413 seconds |
 ./spec/features/sales_flow_spec.rb[1:2:1]                  | passed  | 0.08653 seconds |
+./spec/features/search_flow_spec.rb[1:1:1]                 | passed  | 0.51152 seconds |
+./spec/features/search_flow_spec.rb[1:2:1]                 | passed  | 0.30468 seconds |
+./spec/features/search_flow_spec.rb[1:2:2]                 | passed  | 0.32057 seconds |
+./spec/features/search_flow_spec.rb[1:2:3]                 | passed  | 0.30751 seconds |
+./spec/features/search_flow_spec.rb[1:2:4]                 | passed  | 0.2629 seconds  |
 ./spec/features/suggested_items_spec.rb[1:1:1]             | passed  | 0.55165 seconds |
 ./spec/features/suggested_items_spec.rb[1:1:2]             | passed  | 0.33204 seconds |
 ./spec/features/suggested_items_spec.rb[1:2:1]             | passed  | 0.26443 seconds |

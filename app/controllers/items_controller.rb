@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :add_category, only: [:update]
 
   def index
-    @items = Item.all
+    @items = Item.search(params[:query]) 
     @items = Category.find(params[:category_id]).items if params[:category_id].present?
     @categories = Category.all
   end

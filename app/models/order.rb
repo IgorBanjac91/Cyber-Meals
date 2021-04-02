@@ -1,5 +1,9 @@
 class Order < ApplicationRecord
 
+  scope :with_status, ->(status) { where(status: status) }
+  scope :item_title_or_description_with_text, ->(text) { where("items.title like ? OR items.description like ?", "%#{text}%", "%#{text}%") }
+  scope :from_user, ->(user_id) { where(user_id: user_id)}
+
   validates :status, presence: true, inclusion: { in: %w(new ordered cancelled completed paid) }
   validates :preparation_time, presence: true, if: :status_ordered?
 
@@ -38,6 +42,22 @@ class Order < ApplicationRecord
 
   def total_items
     order_items.count + menus.count
+  end
+
+  def self.search(params)
+    user_id = params[:user_id]
+    status = params[:status]
+    text = params[:query]
+    if params[:status] || params[:query]
+      if status
+        status == "all" ? Order.from_user(user_id) :
+                          Order.from_user(user_id).with_status(status)
+      else
+        Order.joins(order_items: :item).item_title_or_description_with_text(text).from_user(user_id)
+      end
+    else
+      Order.from_user(user_id)
+    end
   end
 
   def status_ordered? 

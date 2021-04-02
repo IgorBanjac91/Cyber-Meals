@@ -36,4 +36,17 @@ class Item < ApplicationRecord
       return nil
     end
   end
+
+  def self.search(query)
+    if query
+      @item = self.with_title(query)
+      unless @item.empty?
+        @item
+      else
+       Item.all
+      end
+    else
+     Item.all
+    end
+  end
 end
