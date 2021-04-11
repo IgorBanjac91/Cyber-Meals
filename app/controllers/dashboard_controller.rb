@@ -5,12 +5,9 @@ class DashboardController < ApplicationController
   end
 
   def index
+    @orders = Order.filter(params)
+    @status_names = (Order.distinct.pluck(:status) - ["new"]).map { |status| [status.capitalize, status] }
     @statuses = Order.select(:status).distinct.where.not(status: "new")
-    if params[:status].present?
-      @orders = Order.where(status: params[:status] )
-    else
-      @orders = Order.where.not(status: "new").order(:status).reverse
-    end
   end
 
   def show

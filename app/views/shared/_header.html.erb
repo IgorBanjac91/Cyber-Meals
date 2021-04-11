@@ -4,7 +4,9 @@
     <ul class="common-nav">
       <% if user_signed_in? %> 
         <li><%= link_to "Log out", log_out_path, method: :delete  %></li>
-        <li><%= link_to "Orders", orders_path(user_id: current_user.id) %></li>
+        <% unless admin_signed_in? %>
+          <li><%= link_to "Orders", orders_path(user_id: current_user.id) %></li>
+        <% end %>
       <% else %>
         <li><%= link_to "Sign in", sign_in_path, class: "btn sign-in-btn"  %></li>
         <li><%= link_to "Sign up", sign_up_path, class: "btn sign-up-btn"  %></li>

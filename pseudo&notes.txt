@@ -236,7 +236,7 @@ Remove new order from dashboard
         * drop down for <, >, = + text for date
         * Email address 
 
-      
+    Tidy up the specs  
 
 
     

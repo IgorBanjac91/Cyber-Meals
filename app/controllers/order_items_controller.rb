@@ -47,5 +47,4 @@ class OrderItemsController < ApplicationController
     def set_order_item
       @order_item = OrderItem.find(params[:id])
     end
-    
 end

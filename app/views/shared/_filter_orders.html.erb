@@ -1,0 +1,28 @@
+<%= form_with url: dashboard_path, method: :get do |f| %>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, status_names, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.select :total_sign, ["<", ">", "="] %>
+    <%= f.number_field :total, step: 0.1  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.select :date_sign, ["<", ">", "="] %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="filed">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.submit "Filter" %>
+  </div>
+<% end %>

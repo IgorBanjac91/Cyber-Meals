@@ -2,15 +2,7 @@
   <h1 class="heading dashboard-heading">Dashboard</h1>
 </header>
 
-
-<%= form_with url: "/dashboard", method: :get, class: "orders-checkbox" do |f| %>
-  <%= f.collection_check_boxes :status, @statuses, :status, :status, {include_hidden: false }, {} do |b| %>
-    <%= b.label do %>
-      <%= b.check_box + b.text %>
-    <% end %>
-  <% end %>
-  <%= f.submit "Filter", class: "btn-filter" %>
-<% end %>
+<%= render "shared/filter_orders", status_names: @status_names %>
 
 <h2>Orders</h2>
 

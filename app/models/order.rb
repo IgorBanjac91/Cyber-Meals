@@ -15,8 +15,8 @@ class Order < ApplicationRecord
   has_many :menus
 
   def total_price
-    total_items = order_items.inject(0) { |sum, order_item| sum + order_item.sub_total }
-    total_menus = menus.inject(0) { |sum, menu| sum + menu.sub_total }
+    total_items = order_items.includes(:item).inject(0) { |sum, order_item| sum + order_item.sub_total }
+    total_menus = menus.includes(:item).inject(0) { |sum, menu| sum + menu.sub_total }
     total = total_items + total_menus
   end
 
@@ -58,6 +58,40 @@ class Order < ApplicationRecord
     else
       Order.from_user(user_id)
     end
+  end
+
+  def self.filter(params)
+    ## I should filter the empty parameters
+    @orders = Order.all
+    status = params[:status]
+    total = params[:total]
+    date = params[:date]
+    email = params[:email]
+    total_sign = params[:total_sign]
+    date_sign = params[:date_sign]
+    @orders = @orders.where.not(status: "new")
+    @orders = @orders.with_status(status) unless status.blank?
+    @orders = @orders.joins(:user).where(user: { email: email}) unless email.blank?
+    unless date.blank?
+      if date_sign == "<"
+        @orders = @orders.where("updated_at < ?", date)
+      elsif date_sign == ">"
+        @orders = @orders.where("updated_at > ?", date)
+      else 
+        @orders = @orders.where("updated_at = ?", date)
+      end
+    end
+    unless total.blank?
+      total = total.to_i
+      if total_sign == "<"
+        @orders = @orders.find_all { |order| order.total_price < total }
+      elsif total_sign == ">"
+        @orders = @orders.find_all { |order| order.total_price > total }
+      else 
+        @orders = @orders.find_all { |order| order.total_price == total }
+      end
+    end
+    @orders
   end
 
   def status_ordered? 
