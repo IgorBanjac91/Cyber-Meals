@@ -274,6 +274,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    stripe (5.32.1)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -329,6 +330,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   shoulda-matchers
   spring
+  stripe
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

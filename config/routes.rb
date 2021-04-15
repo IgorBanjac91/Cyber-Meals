@@ -33,4 +33,8 @@ Rails.application.routes.draw do
   resources :sales
   resources :reviews
   resources :menus
+
+  post "checkout/create", to: "checkout#create"
+  get "/success", to: "checkout#sucess"
+  get "/cancel", to: "checkout#cancel"
 end

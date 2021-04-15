@@ -121,6 +121,7 @@
   </aside>
 <% end %>
 
+<%= button_to "Pay", checkout_create_path, remote: true, data: { disable_with: "validating..." }  %>
 
 
 <%= link_to "Back", root_path, class: "link"  %>

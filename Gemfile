@@ -17,6 +17,7 @@ gem 'flutie'
 gem 'faker'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'money-rails', '~>1.12'
+gem 'stripe'
 
 group :development, :test do
   gem 'rspec-rails'
