@@ -14,6 +14,7 @@ gem 'devise'
 gem 'carrierwave', '~> 2.0'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'flutie'
+gem 'faker'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'money-rails', '~>1.12'
 
@@ -23,7 +24,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'rails-controller-testing'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
