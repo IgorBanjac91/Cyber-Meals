@@ -4,7 +4,7 @@
   <% end %>
   <div class="item-container__item-info">
     <h3><%= link_to adjust_length(item.title, 15), item_path(item) %></h3>
-    <span><%= number_to_currency(item.price, precision: 2) %></span>
+    <span><%= number_to_currency(item.price_cents) %></span>
     <% if item.on_sale? %>
       <span><%= number_to_currency(item.discounted_price, precision: 2) %></span>
       <span><%= item.sale.discount %>% off</span>

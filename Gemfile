@@ -14,9 +14,8 @@ gem 'devise'
 gem 'carrierwave', '~> 2.0'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'flutie'
-
-
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'money-rails', '~>1.12'
 
 group :development, :test do
   gem 'rspec-rails'

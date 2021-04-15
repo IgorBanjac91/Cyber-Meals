@@ -2,10 +2,11 @@ class Item < ApplicationRecord
 
   scope :with_title, ->(title) { where(title: title) }
   
-
   validates :title, :description, :price, :preparation_time,  presence: true
   validates :title, uniqueness: true
   validates :price, numericality: { greater_than: 0}
+
+  monetize :price, as: :price_cents
 
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
