@@ -6,6 +6,7 @@ class Menu < ApplicationRecord
   validates :items, length: { is: 4 }
     
   monetize :price, as: :price_cents
+  monetize :sub_total_cents, as: :sub_total
 
   has_many :menu_items, dependent: :destroy
   has_many :items, through: :menu_items
@@ -24,7 +25,7 @@ class Menu < ApplicationRecord
     self.price = total - (total/100 * self.percentage)
   end
 
-  def sub_total 
+  def sub_total_cents
     self.price * self.quantity.to_i
   end
 

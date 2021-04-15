@@ -4,6 +4,8 @@ class Order < ApplicationRecord
   scope :item_title_or_description_with_text, ->(text) { where("items.title like ? OR items.description like ?", "%#{text}%", "%#{text}%") }
   scope :from_user, ->(user_id) { where(user_id: user_id)}
 
+  monetize :total_price_cents, as: :total_price
+
   validates :status, presence: true, inclusion: { in: %w(new ordered cancelled completed paid) }
   validates :preparation_time, presence: true, if: :status_ordered?
 
@@ -14,10 +16,10 @@ class Order < ApplicationRecord
 
   has_many :menus
 
-  def total_price
+  def total_price_cents
     total_items = order_items.includes(:item).inject(0) { |sum, order_item| sum + order_item.sub_total }
     total_menus = menus.includes(:items).inject(0) { |sum, menu| sum + menu.sub_total }
-    total = total_items + total_menus
+    total_items + total_menus
   end
 
   def creation_date
