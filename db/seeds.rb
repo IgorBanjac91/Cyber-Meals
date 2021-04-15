@@ -43,30 +43,30 @@ main_dish = Category.create!(name: "Main Dish")
 
 # ----------------- Items ---------------------------
 
-beer_1 = Item.create!(title: Faker::Beer.unique.name, description: Faker::Beer.yeast, price: 5.00, image: open("public/images/beer1.jpeg")) 
-beer_2 = Item.create!(title: Faker::Beer.unique.name, description: Faker::Beer.yeast, price: 5.50, image: open("public/images/beer2.jpeg"))
-beer_3 = Item.create!(title: Faker::Beer.unique.name, description: Faker::Beer.yeast, price: 6.50, image: open("public/images/beer3.jpeg"))
-sparkling_water = Item.create!(title: "Sparkiling Water", description: "sparkling minearl water", price: 2, image: open("public/images/sparkling_water.jpeg"))
-still_water = Item.create!(title: "Still Water", description: "still minearl water", price: 2, image: open("public/images/still_water.jpeg"))
-coke = Item.create!(title: "Coke", description: "Classic Coke", price: 2.5, image: open("public/images/coke.jpeg"))
-broccoli_dish = Item.create!(title: "Broccoli boom", description: "Broccoli dish, very spice", price: 6.5, image: open("public/images/broccoli_dish.jpeg"))
-green_soup = Item.create!(title: "Green soup", description: "Vegetable soup", price: 5, image: open("public/images/soup.jpeg"))
-fake_cheese = Item.create!(title: "Fake cheese", description: "Veggy cheese", price: 4.5, image: open("public/images/fake_cheese.jpeg"))
-carbonara = Item.create!(title: "Carbonara", description: "Spaghetti with bacon and cheese", price: 8, image: open("public/images/carbonara.jpeg"))
-pizza = Item.create!(title: "Pizza", description: "You know what a pizza is come on!", price: 10, image: open("public/images/pizza.jpeg"))
-lasagna = Item.create!(title: "Lasagna", description: "Flat past with a lot of ragu souce", price: 8.50, image: open("public/images/lasagna.jpeg"))
-fiorentina_steak = Item.create!(title: "Fiorentina Steak", description: "Giagantic T-bone steak", price: 18, image: open("public/images/steak.jpeg"))
-polenta = Item.create!(title: "Polenta", description: "Corn mush, from north Italy", price: 6, image: open("public/images/polenta.jpeg"))
-ossobuco = Item.create!(title: "Ossobuco", description: "Bone-in veal shank, cooked low and slow until meltingly tender in a broth of meat stock, white wine, and veggieas", price: 7.5, image: open("public/images/ossobuco.jpeg"))
-risotto = Item.create!(title: "Risotto", description: "creamy risotto", price: 7.5, image: open("public/images/risotto.jpeg"))
-focaccia = Item.create!(title: "Focaccia", description: "Tipical Touscan bread", price: 6, image: open("public/images/focaccia.jpeg"))
-coffee = Item.create!(title: "Coffee", description: "plain coffee", price: 1, image: open("public/images/coffee.jpeg"))
-tiramisu = Item.create!(title: "Tiramisu", description: "Dessert with coffe cream cheese and cookies", price: 5, image: open("public/images/tiramisu.jpeg"))
-chicken_tikka_masala = Item.create!(title: "Chicken tikka masala", description: "Pieces of chicken tikka in a spiced creamy sauce", price: 9, image: open("public/images/chicken_tikka.jpeg"))
-beef_wellington = Item.create!(title: "Beef Wellington", description: "Beef cooked in a pastry crust", price: 9.5, image: open("public/images/beef_wellington.jpeg"))
-black_pudding = Item.create!(title: "Black pudding", description: "Blood sausage", price: 7, image: open("public/images/sausage.jpeg"))
-fish_and_chips = Item.create!(title: "Fish and Chips", description: "White fish fillets in batter, deep fried with potato chips", price: 6, image: open("public/images/fish_and_chips.jpeg"))
-kippers = Item.create!(title: "Kipper", description: "Smokd split herrings", price: 10, image: open("public/images/kippers.jpeg"))
+beer_1 = Item.create!(title: Faker::Beer.unique.name, description: Faker::Beer.yeast, price: 500, image: open("public/images/beer1.jpeg")) 
+beer_2 = Item.create!(title: Faker::Beer.unique.name, description: Faker::Beer.yeast, price: 550, image: open("public/images/beer2.jpeg"))
+beer_3 = Item.create!(title: Faker::Beer.unique.name, description: Faker::Beer.yeast, price: 650, image: open("public/images/beer3.jpeg"))
+sparkling_water = Item.create!(title: "Sparkiling Water", description: "sparkling minearl water", price: 200, image: open("public/images/sparkling_water.jpeg"))
+still_water = Item.create!(title: "Still Water", description: "still minearl water", price: 200, image: open("public/images/still_water.jpeg"))
+coke = Item.create!(title: "Coke", description: "Classic Coke", price: 200, image: open("public/images/coke.jpeg"))
+broccoli_dish = Item.create!(title: "Broccoli boom", description: "Broccoli dish, very spice", price: 600, image: open("public/images/broccoli_dish.jpeg"))
+green_soup = Item.create!(title: "Green soup", description: "Vegetable soup", price: 500, image: open("public/images/soup.jpeg"))
+fake_cheese = Item.create!(title: "Fake cheese", description: "Veggy cheese", price: 450, image: open("public/images/fake_cheese.jpeg"))
+carbonara = Item.create!(title: "Carbonara", description: "Spaghetti with bacon and cheese", price: 800, image: open("public/images/carbonara.jpeg"))
+pizza = Item.create!(title: "Pizza", description: "You know what a pizza is come on!", price: 1000, image: open("public/images/pizza.jpeg"))
+lasagna = Item.create!(title: "Lasagna", description: "Flat past with a lot of ragu souce", price: 850, image: open("public/images/lasagna.jpeg"))
+fiorentina_steak = Item.create!(title: "Fiorentina Steak", description: "Giagantic T-bone steak", price: 1800, image: open("public/images/steak.jpeg"))
+polenta = Item.create!(title: "Polenta", description: "Corn mush, from north Italy", price: 600, image: open("public/images/polenta.jpeg"))
+ossobuco = Item.create!(title: "Ossobuco", description: "Bone-in veal shank, cooked low and slow until meltingly tender in a broth of meat stock, white wine, and veggieas", price: 750, image: open("public/images/ossobuco.jpeg"))
+risotto = Item.create!(title: "Risotto", description: "creamy risotto", price: 750, image: open("public/images/risotto.jpeg"))
+focaccia = Item.create!(title: "Focaccia", description: "Tipical Touscan bread", price: 600, image: open("public/images/focaccia.jpeg"))
+coffee = Item.create!(title: "Coffee", description: "plain coffee", price: 100, image: open("public/images/coffee.jpeg"))
+tiramisu = Item.create!(title: "Tiramisu", description: "Dessert with coffe cream cheese and cookies", price: 500, image: open("public/images/tiramisu.jpeg"))
+chicken_tikka_masala = Item.create!(title: "Chicken tikka masala", description: "Pieces of chicken tikka in a spiced creamy sauce", price: 900, image: open("public/images/chicken_tikka.jpeg"))
+beef_wellington = Item.create!(title: "Beef Wellington", description: "Beef cooked in a pastry crust", price: 950, image: open("public/images/beef_wellington.jpeg"))
+black_pudding = Item.create!(title: "Black pudding", description: "Blood sausage", price: 700, image: open("public/images/sausage.jpeg"))
+fish_and_chips = Item.create!(title: "Fish and Chips", description: "White fish fillets in batter, deep fried with potato chips", price: 600, image: open("public/images/fish_and_chips.jpeg"))
+kippers = Item.create!(title: "Kipper", description: "Smokd split herrings", price: 100, image: open("public/images/kippers.jpeg"))
 
 # ----------------- Associate Items with Categories ---------------------------
 
@@ -89,7 +89,7 @@ beers.items << [beer_1, beer_2, beer_3]
 7.times do 
   dessert.items << Item.create!(title: Faker::Dessert.unique.variety, 
                                description: Faker::Dessert.flavor, 
-                               price: [5.5, 6, 4.5, 4].shuffle[0],
+                               price: [550, 600, 450, 400].shuffle[0],
                                image: open("public/images/fish_and_chips.jpeg"))
 end
 
