@@ -38,7 +38,7 @@
         <td class="order-table__menu-title" >Menu</td>
         <td class="order-table__menu-description" ><%= menu.description %></td>
         <td class="order-table__menu-quantity" ><%= menu.quantity %></td>
-        <td class="order-table__menu-price" ><%= number_to_currency(menu.price) %></td>
+        <td class="order-table__menu-price" ><%= number_to_currency(menu.price_cents) %></td>
         <td class="order-table__menu-subtotal" ><%= number_to_currency(menu.sub_total) %></td>
         <td class="order-table__menu-remove" ><%= link_to "Remove Menu", menu_path(menu), method: :delete %></td>
         <td class="order-table__menu-edit" ><%= link_to "Edit Menu", edit_menu_path(menu) %></td>
@@ -50,7 +50,7 @@
         <td class="order-table__item-title" ><%= link_to order_item.item.title, item_path(order_item.item) %></td>
         <td class="order-table__item-title" ><%= link_to order_item.item.description %></td>
         <td class="order-table__item-quantity"><%= link_to order_item.quantity, edit_order_item_path(order_item), class: "item-quantity" %></td>
-        <td class="order-table__item-price"><%= number_to_currency(order_item.item.price) %></td>
+        <td class="order-table__item-price"><%= number_to_currency(order_item.item.price_cents) %></td>
         <td class="order-table__item-subtotal"><%= number_to_currency(order_item.sub_total) %></td>
         <td class="order-tabel__item-remove" colspan="2"><%= link_to "Remove Item", order_item_path(order_item, order_id: @order.id), method: :delete  %></td>
       </tr>    
@@ -75,7 +75,7 @@
         <% @last_order_completed.order_items.each do |order_item|  %>
           <li>
             <%= order_item.item.title %>
-            <%= order_item.item.price %>
+            <%= order_item.item.price_cents %>
             <%= order_item.quantity %>
             <%= order_item.sub_total %>
           </li>

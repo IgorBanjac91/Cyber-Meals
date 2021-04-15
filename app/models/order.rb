@@ -16,7 +16,7 @@ class Order < ApplicationRecord
 
   def total_price
     total_items = order_items.includes(:item).inject(0) { |sum, order_item| sum + order_item.sub_total }
-    total_menus = menus.includes(:item).inject(0) { |sum, menu| sum + menu.sub_total }
+    total_menus = menus.includes(:items).inject(0) { |sum, menu| sum + menu.sub_total }
     total = total_items + total_menus
   end
 

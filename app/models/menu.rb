@@ -5,6 +5,8 @@ class Menu < ApplicationRecord
   validates :description, :quantity, :percentage,  presence: true
   validates :items, length: { is: 4 }
     
+  monetize :price, as: :price_cents
+
   has_many :menu_items, dependent: :destroy
   has_many :items, through: :menu_items
 
