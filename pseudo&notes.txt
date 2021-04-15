@@ -237,6 +237,15 @@ Remove new order from dashboard
         * Email address 
 
     Tidy up the specs  
-
-
+  
+  branch: integrate-stripe
+  Stripe integration: 
+    Setting up: 
+      - Change the price unit to cents
+      - Add gem money-rails for a more human redable format
+      - Create new Stripe account
+      - Add Api Key to cerdentials 
+      - Deploy to heroku so that I can work with webhooks
+      - Set master.key in production
+      - Add endopoint for webhooks
     
