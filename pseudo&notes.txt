@@ -260,6 +260,6 @@ Remove new order from dashboard
         - create callbakc that after creation create a new stripe costumer and store the costumer id to 
           the user table at the stripe_customer_id
        - link products from the database to the stripe products and create prices
-        - add column: stripe_products_id, type: string
+        - add column: stripe_products_id, type: string to items table and menus table
         - add prices associated to that product
         - add column: stripe_price_id   
