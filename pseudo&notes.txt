@@ -248,4 +248,18 @@ Remove new order from dashboard
       - Deploy to heroku so that I can work with webhooks
       - Set master.key in production
       - Add endopoint for webhooks
-    
+    Checkout session: 
+      - add javascript part
+      - create checkout controller
+      - add ruotes  checkout_create_path, success, cancel
+      - create pages: success, cancel
+      - add button ( checkout_create_path)     
+    Link Users and Product: 
+      - link users to stipe cosutmers: 
+        - add column: stripe_consumer_id, type: string
+        - create callbakc that after creation create a new stripe costumer and store the costumer id to 
+          the user table at the stripe_customer_id
+       - link products from the database to the stripe products and create prices
+        - add column: stripe_products_id, type: string
+        - add prices associated to that product
+        - add column: stripe_price_id   
