@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
 
   scope :with_title, ->(title) { where(title: title) }
-  
+
+  after_create :create_stripe_product_and_price
+
   validates :title, :description, :price, :preparation_time,  presence: true
   validates :title, uniqueness: true
   validates :price, numericality: { greater_than: 0}
@@ -50,4 +52,20 @@ class Item < ApplicationRecord
      Item.all
     end
   end
+
+  protected
+
+    def create_stripe_product_and_price
+      product = Stripe::Product.create({
+        name: title, 
+        description: description,
+        images: ["https://cybermeals.herokuapp.com/#{image.url}"]
+      })
+      price = Stripe::Price.create({
+        product: product.id,
+        currency: "usd",
+        unit_amount: self.price
+      })
+      update(stripe_price_id: price.id, stripe_product_id: product.id)
+    end
 end
