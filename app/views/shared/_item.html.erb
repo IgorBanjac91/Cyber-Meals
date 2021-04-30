@@ -3,8 +3,10 @@
     <%= link_to "", {}, { style: "background-image: url(\"#{item.image.url}\")" } %>
   <% end %>
   <div class="item-container__item-info">
-    <h3><%= link_to adjust_length(item.title, 15), item_path(item) %></h3>
-    <span><%= number_to_currency(item.price_cents) %></span>
+    <div class="top-info">
+      <h3><%= link_to adjust_length(item.title, 15), item_path(item) %></h3>
+      <span class="item-container__price"><%= number_to_currency(item.price_cents) %></span>
+    </div>
     <% if item.on_sale? %>
       <span><%= number_to_currency(item.discounted_price, precision: 2) %></span>
       <span><%= item.sale.discount %>% off</span>

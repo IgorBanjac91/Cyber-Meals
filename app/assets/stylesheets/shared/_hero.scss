@@ -1,0 +1,16 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+  span {
+    display: block;
+    margin: auto;
+    background-image: url("food-lovers.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    width: 478px;
+  }
+}

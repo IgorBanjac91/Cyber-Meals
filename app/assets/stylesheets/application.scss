@@ -23,6 +23,7 @@
 @import 'shared/error_messages';
 @import 'shared/list_reviews';
 @import 'shared/footer';
+@import 'shared/hero';
 
 @import 'items/edit';
 @import 'items/show';
@@ -34,5 +35,5 @@
 
 @import 'dashboard/items';
 
-@import 'responsive/desktop';
+@import 'responsive/mobile';
 @import 'responsive/tablet';

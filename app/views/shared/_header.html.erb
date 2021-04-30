@@ -1,4 +1,11 @@
 <header>
+  <div class="flash-messages">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+  </div>
   <nav class="main-nav">
     <%= link_to "", root_path, class: "logo" %>
     <ul class="common-nav">
@@ -37,4 +44,7 @@
       </ul>
     </nav>
   <% end %>
+  <div class="hero">    
+    <span class="slogan-container"></span>
+  </div>
 </header>

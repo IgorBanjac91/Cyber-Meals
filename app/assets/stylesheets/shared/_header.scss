@@ -1,9 +1,17 @@
+header {
+  background-image: url("wood-texture-dark.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
 .main-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: #222;
+  background-color: hsla(0, 0%, 13%, 0.9);
   
   ul {
     display: flex;

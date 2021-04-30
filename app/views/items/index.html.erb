@@ -2,10 +2,10 @@
 
 <div class="grid-wrapper">
   <aside class=aside-left>
-    <%= form_with url: items_path,  method: :get do |f| %>
-      <%= f.label :query, "Item title:"  %>
-      <%= f.text_field :query %>
-      <%= f.submit "Search" %>
+    <%= form_with url: items_path,  method: :get, class: "items-filter" do |f| %>
+      <%= f.label :query, "Item title:", class: "items-filter__label"  %>
+      <%= f.text_field :query, class: "items-filter__input" %>
+      <%= f.submit "Search", class: "items-filter__search-btn" %>
     <% end %>
     <div class="menu-option">
       <%= link_to "Menu Option", new_menu_path, class: "menu-option__button"  %>

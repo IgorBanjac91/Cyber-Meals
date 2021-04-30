@@ -11,17 +11,9 @@
   </head>
 
   <body class="<%= body_class %>">
-
-    <div class="flash-messages">
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% elsif alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-    </div>
     
     <%= render 'shared/header' %>
-
+    
     <div class="container">
       <%= yield %>
     </div>
