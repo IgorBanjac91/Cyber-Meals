@@ -2,15 +2,15 @@
 
 <div class="grid-wrapper">
   <aside class=aside-left>
-    <%= form_with url: items_path,  method: :get, class: "items-filter" do |f| %>
-      <%= f.label :query, "Item title:", class: "items-filter__label"  %>
-      <%= f.text_field :query, class: "items-filter__input" %>
-      <%= f.submit "Search", class: "items-filter__search-btn" %>
-    <% end %>
     <div class="menu-option">
+      <p class="menu-option__discount"><span>10% Discount</span> with the menu option</p>
       <%= link_to "Menu Option", new_menu_path, class: "menu-option__button"  %>
     </div>
     <div class="items-filter">
+    <%= form_with url: items_path,  method: :get do |f| %>
+      <%= f.text_field :query, class: "items-filter__input", placeholder: "Item Title..." %>
+      <%= f.submit "Search", class: "items-filter__search-btn btn-filter" %>
+    <% end %>
       <h3 class="items-filter__heading">Categories</h3>
       <ul calss="items-filter__list">
         <% @categories.each do |category| %>

@@ -1,7 +1,9 @@
 .menu-option {
+  margin-bottom: 10px;
   &__button {
     display: inline-block;
     padding: 1em 3em;
+    margin: 0 auto;
     margin-bottom: 2%;
     font-weight: bold;
     background-color: $secondary-color;
@@ -9,10 +11,21 @@
     border: 1px solid $primary-color;
     border-radius: 4%;
   }
+  &__discount {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    span {
+      font-weight: bold;
+      color: #F0542c;
+    }
+  }
 }
 
 .items-filter {
-  max-width: 200px;
+  form {
+    margin-top: 0;
+  }
   &__heading {
     font-family: 'Revalia', cursive;
     font-size: 1.3rem;

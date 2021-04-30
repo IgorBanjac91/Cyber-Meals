@@ -190,6 +190,7 @@ textarea:focus {
 */
 
 .items-filter {
-  margin-top: 0;
-  margin-left: 0;
+  &__search-btn {
+    margin-top: 10px;
+  }
 }

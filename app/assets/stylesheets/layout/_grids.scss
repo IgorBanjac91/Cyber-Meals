@@ -1,3 +1,5 @@
+ // <a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
+
 body {
   height: 100vh;
   display: grid;
@@ -70,7 +72,7 @@ img {
 .grid-wrapper {
   display: grid;
   gap: 40px;
-  grid-template-columns: 210px auto;
+  grid-template-columns: 230px auto;
   aside {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
