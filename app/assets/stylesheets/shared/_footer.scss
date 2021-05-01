@@ -1,4 +1,58 @@
 .footer {
   width: 100%;
-  background-color: $dark;
+  header {
+    display: grid;
+    grid-template-columns: 150px 1fr 150px;
+    background-color: $dark;
+    padding: 20px;
+  }
+  &__logo {
+    grid-column: 1 / 2;
+    position: relative;
+    left: -30px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  &__nav-container {
+    grid-column: 2 / 3;
+  }
+  &__company-info {
+    grid-column: 3 / 4;
+    a {
+      font-size: 0.7rem;
+      color: #fff;
+    }
+  }
+  &__social-nav {
+    margin-bottom: 10px;
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__site-nav {
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+    a {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    a:hover {
+      color: $accent-blue
+    }
+  }
+  &__bottom {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.7rem;
+    background-color: $primary-color;
+    :first-child {
+      font-family: 'Revalia', cursive;
+      margin-bottom: 10px;
+    }
+  }
 }
+

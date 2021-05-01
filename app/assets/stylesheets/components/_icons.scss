@@ -2,3 +2,29 @@
   padding: 5px;
   font-size: 24px;
 }
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  font-size: 1.4em;
+  color: $dark;
+  background-color: $primary-color;
+  border-radius: 100%;
+  border: 2px solid $primary-color;
+}
+
+.social-icon:hover {
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+  text-shadow:
+  0 0 10px #fff, 
+  0 0 20px #fff, 
+  0 0 30px $secondary-color, 
+  0 0 40px $secondary-color, 
+  0 0 50px $secondary-color, 
+  0 0 60px $secondary-color, 
+  0 0 70px $secondary-color;
+}

@@ -1,29 +1,47 @@
 <header>
-  <div class="__logo"></div>
-  <nav class="__social-nav">
-    <ul>
-      <li class="social-icon"><a href="#"></a></li>
-      <li class="social-icon"><a href="#"></a></li>
-      <li class="social-icon"><a href="#"></a></li>
-      <li class="social-icon"><a href="#"></a></li>
-    </ul>
-  </nav>
-  <nav class="__site-nav">
-    <ul>
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">MENU</a></li>
-      <li><a href="#">CONTACT</a></li>
-      <li><a href="#">STORY</a></li>
-      <li><a href="#">LOCATION</a></li>
-    </ul>
-  </nav>
-  <aside class="company-info">
+  <%= link_to "", root_path, class: "logo footer__logo" %>
+  <div class="footer__nav-container">
+    <nav class="footer__social-nav">
+      <ul>
+        <li>
+          <%= link_to "#", title: "Facebook", class: "social-icon"  do %>
+            <%= icon "fab", "facebook-f" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", title: "Pinterst", class: "social-icon"  do %>
+            <%= icon "fab", "pinterest" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", title: "Instagram", class: "social-icon"  do %>
+            <%= icon "fab", "instagram" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", title: "Twitter", class: "social-icon"  do %>
+            <%= icon "fab", "twitter" %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+    <nav class="footer__site-nav">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">MENU</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">STORY</a></li>
+        <li><a href="#">LOCATION</a></li>
+      </ul>
+    </nav>
+  </div>
+  <aside class="footer__company-info">
     <a href="#">2464 Royal Ln. Mesa, New Jersey 45463</a>
     <a href="tel:+627045550127">(704) 555-0127</a>
     <a href="mailto:tim.jennings@example.com">tim.jennings@example.com</a>
   </aside>
 </header>
-<footer>
+<footer class="footer__bottom">
   <p>CYBER FOOD | The Food Lovers</p>
   <p>ALL RIGHTS RESERVED</p>
 </footer>
