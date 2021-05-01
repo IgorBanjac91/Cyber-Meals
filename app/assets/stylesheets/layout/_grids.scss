@@ -3,7 +3,7 @@
 body {
   height: 100vh;
   display: grid;
-  grid-template-rows: 300px auto min-content;
+  grid-template-rows: min-content auto min-content;
 }
 
 header {
