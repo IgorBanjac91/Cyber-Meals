@@ -3,7 +3,6 @@
 body {
   height: 100vh;
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: 300px auto min-content;
 }
 
@@ -31,7 +30,7 @@ footer {
 }
 
 .container-m {
-  max-width: 400px;
+  min-width: 400px;
   margin: auto;
 }
 

@@ -21,8 +21,8 @@
       <% unless admin_signed_in? %>
         <% if session[:order_id] %>
           <li>
-          <%= link_to order_path(current_order), title: "Cart" do %>
-            <%= icon 'fas', "shopping-cart", class:"cart-icon" %>
+          <%= link_to order_path(current_order), title: "Cart", class: "cart-icon"  do %>
+            <%= icon 'fas', "shopping-cart" %>
           <% end %>
           </li>
         <% else %>
