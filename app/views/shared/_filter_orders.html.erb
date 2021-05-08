@@ -1,28 +1,28 @@
-<%= form_with url: dashboard_path, method: :get do |f| %>
+<%= form_with url: dashboard_path, method: :get, class: "orders-filter" do |f| %>
 
   <div class="field">
-    <%= f.label :status %>
-    <%= f.select :status, status_names, include_blank: true %>
+    <%= f.label "Status:", class: "orders-filter__label" %>
+    <%= f.select :status, status_names, include_blank: true, class: "orders-filter__select-status" %>
   </div>
 
   <div class="field">
-    <%= f.label :total %>
-    <%= f.select :total_sign, ["<", ">", "="] %>
-    <%= f.number_field :total, step: 0.1  %>
+    <%= f.label "Total:", class: "orders-filter__label" %>
+    <%= f.select :total_sign, ["<", ">", "="], {}, { class: "orders-filter__select-sign" } %>
+    <%= f.number_field :total, step: 0.1, class: "orders-filter__number-field"  %>
   </div>
 
   <div class="field">
-    <%= f.label :date %>
-    <%= f.select :date_sign, ["<", ">", "="] %>
+    <%= f.label "Date:", class: "orders-filter__label" %>
+    <%= f.select :date_sign, ["<", ">", "="], {}, { class: "orders-filter__select-sign" } %>
     <%= f.date_field :date %>
   </div>
 
   <div class="filed">
-    <%= f.label :email %>
+    <%= f.label "Email:", class: "orders-filter__label" %>
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= f.submit "Filter" %>
+    <%= f.submit "Filter", class: "btn btn-filter orders-filter__btn" %>
   </div>
 <% end %>

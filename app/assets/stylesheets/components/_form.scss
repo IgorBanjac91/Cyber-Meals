@@ -219,3 +219,35 @@ textarea:focus {
     }
   }
 }
+
+
+/*
+============================
+       Orders Filter
+============================
+*/
+
+
+.orders-filter {
+  width: 200px;
+  margin: 0;
+  select {
+    margin: 0;
+  }
+  &__label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  &__select-sign {
+    width: 40px;
+  }
+  &__select-status {
+    width: 200px;
+  }
+  &__number-field {
+    width: 100px;
+  }
+  &__btn {
+    margin-top: 20px;
+  }
+}

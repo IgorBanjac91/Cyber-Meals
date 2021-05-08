@@ -1,51 +1,57 @@
 <header>
   <h1 class="heading dashboard-heading">Dashboard</h1>
+  <h2 class="center-text">Orders</h2>
 </header>
 
-<%= render "shared/filter_orders", status_names: @status_names %>
-
-<h2>Orders</h2>
-
-<table class="orders-table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Costumer</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
+<div class="grid-container">
+  <div class="filter">
+    <%= render "shared/filter_orders", status_names: @status_names %>
+  </div>
+  
+  
+  <table class="orders-table">
+  <span id="orders-filter" class="filter-show-btn">Filter</span>
+    <thead>
       <tr>
-        <td class="orders-table__order-id"><%= link_to order.id, dashboard_orders_path(order) %></td>
-        <td class="orders-table__user-name">
-        <% if order.user.nil? %>
-          <%= "Visitor" %>
-        <% else %>
-          <%= order.user.full_name %>
-        <% end %>
-        </td>
-        <td><span class="orders-table__<%= order.status %>-status"><%= order.status %></span></td>
-        <td class="orders-table__actions">
-        <% if order.status == "ordered" %>
-          <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show" %>
-          <%= link_to "paid", change_status_order_path(id: order.id, status: "paid"), method: :patch, class: "btn btn-action-paid" %>
-          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch, class: "btn btn-action-cancel" %>
-        <% elsif order.status == "paid"%>
-          <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show" %>
-          <%= link_to "completed", change_status_order_path(id: order.id, status: "completed"), method: :patch, class: "btn btn-action-complete" %>
-          <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch, class: "btn btn-action-cancel" %>
-        <% else %>
-          <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show"  %>
-        <% end %>        
-        </td>
+        <th>ID</th>
+        <th>Costumer</th>
+        <th>Status</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-  </tfoot>
-</table>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td class="orders-table__order-id"><%= link_to order.id, dashboard_orders_path(order) %></td>
+          <td class="orders-table__user-name">
+          <% if order.user.nil? %>
+            <%= "Visitor" %>
+          <% else %>
+            <%= order.user.full_name %>
+          <% end %>
+          </td>
+          <td><span class="orders-table__<%= order.status %>-status"><%= order.status %></span></td>
+          <td class="orders-table__actions">
+          <% if order.status == "ordered" %>
+            <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show" %>
+            <%= link_to "paid", change_status_order_path(id: order.id, status: "paid"), method: :patch, class: "btn btn-action-paid" %>
+            <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch, class: "btn btn-action-cancel" %>
+          <% elsif order.status == "paid"%>
+            <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show" %>
+            <%= link_to "completed", change_status_order_path(id: order.id, status: "completed"), method: :patch, class: "btn btn-action-complete" %>
+            <%= link_to "cancel", change_status_order_path(id: order.id, status: "cancelled"), method: :patch, class: "btn btn-action-cancel" %>
+          <% else %>
+            <%= link_to "show", dashboard_orders_path(order), class: "btn btn-action-show"  %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+</div>
 
+<%= javascript_pack_tag "dashboard_index" %>
 
 
