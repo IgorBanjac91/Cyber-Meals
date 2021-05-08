@@ -64,6 +64,10 @@
   </tfoot>
 </table>
 
+<%= button_to "Pay", checkout_create_path, remote: true, data: { disable_with: "validating..." }, class: "btn btn-primary checkout-btn"  %>
+
+<%= link_to "Back", root_path, class: "link"  %>
+
 <% if @order.new? && user_signed_in? && @last_order_completed %>
   <aside>
     <% unless @last_order_completed.order_items.empty? %>
@@ -120,8 +124,3 @@
     </ul>
   </aside>
 <% end %>
-
-<%= button_to "Pay", checkout_create_path, remote: true, data: { disable_with: "validating..." }  %>
-
-
-<%= link_to "Back", root_path, class: "link"  %>

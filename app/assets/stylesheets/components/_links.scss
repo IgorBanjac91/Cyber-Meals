@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+}
+
+.link {
+  font-size: 20px;
+  font-weight: 500;
+  color: #222;
+  &:hover {
+    color: $accent-blue;
+  }
+}

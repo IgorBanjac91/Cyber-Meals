@@ -1,4 +1,7 @@
 .orders-show {
+  .container {
+    min-width: 800px;
+  }
   .order-info {
 
     p {
@@ -15,8 +18,29 @@
   }
 }
 
+
+.suggested-items {
+  margin-top: 20px;
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.suggested-items-list {
+  display: flex;
+  flex-flow: row wrap;
+  &__list-item {
+   flex: 0 0 40%; 
+   margin-bottom: 10px;
+  }
+}
+
 .popular-items {
   h2 {
     margin-bottom: 20px;
   }
+}
+
+.button_to {
+  margin-top: 0;
 }
