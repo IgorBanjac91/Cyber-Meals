@@ -27,3 +27,7 @@
 .dashboard-heading {
   @include line_below(200px)
 }
+
+.menu-new-heading {
+  @include line_below(300px)
+}

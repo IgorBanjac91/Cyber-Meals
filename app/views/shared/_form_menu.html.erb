@@ -2,38 +2,38 @@
 
   <%= f.fields_for :item_ids do |nf|  %>
     <div class="field">
-      <%= nf.label "Appetaizer" %>
+      <%= nf.label "Appetaizer:" %>
       <%= nf.select :appetaizer_id, options_from_collection_for_select(appetaizers, :id, :title), 
                                                                     { class: "items-form__select" } %>
     </div>
     <div class="field">
-      <%= nf.label "Main Dish" %>
+      <%= nf.label "Main Dish:" %>
       <%= nf.select :main_dish_id, options_from_collection_for_select(main_dishes, :id, :title), 
                                                                     { class: "items-form__select" } %>
     </div>
     <div class="field">
-      <%= nf.label "Dessert" %>
+      <%= nf.label "Dessert:" %>
       <%= nf.select :dessert_id, options_from_collection_for_select(desserts, :id, :title),
                                                                   { class: "items-form__select" } %>
     </div>
     <div class="field">
-      <%= nf.label "Drink" %>
+      <%= nf.label "Drink:" %>
       <%= nf.select :drink_id, options_from_collection_for_select(drinks, :id, :title),
                                                                 { class: "items-form__select" } %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Quantity" %>
+  <div class="field number-field">
+    <%= f.label "Quantity:" %>
     <%= f.number_field :quantity, value: 1, in: 1..10, step: 1 %>
   </div>
 
 
   <div class="field">
     <% if menu.new_record? %>
-      <%= f.submit "Add to Order" %>
+      <%= f.submit "Add to Order", class: "btn btn-primary" %>
     <% else %>
-      <%= f.submit "Update Menu" %>
+      <%= f.submit "Update Menu", class: "btn btn-primary" %>
     <% end %>
   </div>
 
