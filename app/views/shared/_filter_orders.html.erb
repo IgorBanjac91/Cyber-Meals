@@ -1,25 +1,30 @@
 <%= form_with url: dashboard_path, method: :get, class: "orders-filter" do |f| %>
 
-  <div class="field">
-    <%= f.label "Status:", class: "orders-filter__label" %>
-    <%= f.select :status, status_names, include_blank: true, class: "orders-filter__select-status" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Total:", class: "orders-filter__label" %>
-    <%= f.select :total_sign, ["<", ">", "="], {}, { class: "orders-filter__select-sign" } %>
-    <%= f.number_field :total, step: 0.1, class: "orders-filter__number-field"  %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Date:", class: "orders-filter__label" %>
-    <%= f.select :date_sign, ["<", ">", "="], {}, { class: "orders-filter__select-sign" } %>
-    <%= f.date_field :date %>
-  </div>
-
-  <div class="filed">
-    <%= f.label "Email:", class: "orders-filter__label" %>
-    <%= f.text_field :email %>
+  <div class="field-container">
+    <div class="orders-filter__left-side">
+      <div class="field">
+        <%= f.label "Status:", class: "orders-filter__label" %>
+        <%= f.select :status, status_names, include_blank: true, class: "orders-filter__select-status" %>
+      </div>
+      <div class="field">
+        <%= f.label "Total:", class: "orders-filter__label" %>
+        <div class="total-container">
+          <%= f.select :total_sign, ["<", ">", "="], {}, { class: "orders-filter__select-sign" } %>
+          <%= f.number_field :total, step: 0.1, class: "orders-filter__number-field"  %>
+        </div>
+      </div>
+    </div>
+    <div class="orders-filter__right-side">
+      <div class="field">
+        <%= f.label "Date:", class: "orders-filter__label" %>
+        <%= f.select :date_sign, ["<", ">", "="], {}, { class: "orders-filter__select-sign" } %>
+        <%= f.date_field :date, class: "orders-filter__date-field" %>
+      </div>
+      <div class="filed">
+        <%= f.label "Email:", class: "orders-filter__label" %>
+        <%= f.text_field :email %>
+      </div>
+    </div>
   </div>
 
   <div class="field">

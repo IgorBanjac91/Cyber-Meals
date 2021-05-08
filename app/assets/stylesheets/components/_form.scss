@@ -229,25 +229,39 @@ textarea:focus {
 
 
 .orders-filter {
-  width: 200px;
   margin: 0;
+  .field-container {
+    display: flex;
+  }
+  .total-container {
+    display: flex;
+    align-items: flex-end;
+  }
+  &__right-side {
+    flex: 0 1 50%;    
+  }
+  &__left-side {
+    flex: 0 1 50%;    
+    margin-right: 30px;
+  }
   select {
     margin: 0;
+    height: 24px;
   }
   &__label {
-    display: inline-block;
+    display: block;
     margin-bottom: 5px;
   }
   &__select-sign {
     width: 40px;
   }
   &__select-status {
-    width: 200px;
+    height: 24px;
   }
   &__number-field {
-    width: 100px;
+    margin-left: 10px;
   }
-  &__btn {
-    margin-top: 20px;
+  &__date-field {
+    margin-left: 10px;
   }
 }
